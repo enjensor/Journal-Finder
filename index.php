@@ -53,6 +53,7 @@
 //	VERSION 0.2
 //	24 MARCH - 11 APRIL 2014
 //	29 AUGUST 2017
+//  07 December 2018
 //
 //
 /////////////////////////////////////////////////////////// Clean post and get
@@ -71,7 +72,7 @@
 
 	Project: ERA Journal Identification Toolkit
 	Project Team: Susan Robbins, Michael Gonzalez, Jason Ensor (Team Leader & Developer)
-	Project Base: Western Sydney University Library and the Digital Humanities Research Group, School of Humanities and Communication Arts
+	Project Base: Western Sydney University Library
 	Project Methodology: Procedural Scripting PHP | MySQL | JQuery
 
 
@@ -100,7 +101,7 @@
   	VERSION 0.1
     
   	Development Started: 18 February 2014
-	Last updated: 20 September 2017
+	Last updated: 07 December 2018
 
 
 
@@ -145,7 +146,9 @@
 			}
 
 			#pushobj {
-    			margin-left: 470px;
+    			margin-left: 411px;
+                margin-bottom: 0px;
+                padding-bottom: 0px;
 			}
 
 			#menu {
@@ -156,7 +159,6 @@
 			.ui-autocomplete {
 				max-height: 360px;
 				overflow-y: auto;
-				/* prevent horizontal scrollbar */
 				overflow-x: hidden;
 			}
 			
@@ -179,10 +181,6 @@
 				stroke: steelblue;
 				stroke-width: 1.5px;
 			}
-	
-			/* IE 6 doesn't support max-height
-	 		* we use height instead, but this forces the menu to always be this tall
-	 		*/
 			
 			* html .ui-autocomplete {
 				height: 360px;
@@ -197,16 +195,20 @@
 			}
 			
 			::-webkit-scrollbar {
-    			-webkit-appearance: none;
-    			width: 7px;
+    			/*-webkit-appearance: none; */
+    			width: 15px;
 			}
 			
 			::-webkit-scrollbar-thumb {
-    			border-radius: 8px;
-    			background-color: rgba(155,155,155,.5);
+    			border-radius: 3px;
+                background-color: #aaaaaa;
     			-webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
 			}
-			
+
+            ::-webkit-scrollbar-track-piece {
+                background: #dddddd;
+            }
+
 			.btn-customa {
   				background-color: hsl(0, 0%, 36%) !important;
   				background-repeat: repeat-x;
@@ -271,6 +273,7 @@
         <link rel="stylesheet" href="./css/bootstrap.min.css">
         <link rel="stylesheet" href="./css/bootstrap-theme.min.css">
 		<link rel="stylesheet" type="text/css" href="./js/jqplot/jquery.jqplot.css" />
+        <link rel="stylesheet" type="text/css" href="http://code.jquery.com/mobile/1.2.1/jquery.mobile-1.2.1.min.css" />
         <!--[if lt IE 9]>
 			<script language="javascript" type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
             <script language="javascript" type="text/javascript" src="./js/jqplot/excanvas.js"></script>
@@ -297,15 +300,14 @@
 
 ?>
 				
-                	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding-right: 40px; overflow: auto;" id="scrollingP">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin: 0px; padding: 0px; overflow: auto;" id="scrollingP">
                     	<div>
                         	<div id="pushobj">
-                            	<p>&nbsp;<br />&nbsp;</p>
-                                <div class="panel panel-default"  style="background: #9f2137; border: 0px solid #000000;">
+                                <div id="pushobjhome" class="panel panel-default"  style="margin-bottom: 0px; padding-bottom: 0px; background: #9f2137; border: 0px solid #000000;">
 									<div class="panel-heading" id="matrixHeader"  style="background: #9f2137;">
-                                        <h3><a href="./" target="_self" style="text-decoration: none; color: #ffffff;font-variant: small-caps;" data-toggle="tooltip" title="Click here to return to the home page and search for a journal."><span class="glyphicon glyphicon-search"></span> &nbsp;Journal Finder</a></h3>
+                                        <h3><a href="./" target="_self" style="text-decoration: none; color: #ffffff;font-variant: small-caps;" data-toggle="tooltip" data-placement="bottom" title="Click here to return to the home page and search for a journal."><span class="glyphicon glyphicon-search"></span> &nbsp;Journal Finder</a></h3>
                                     </div>
-  									<div class="panel-body" id="matrixBody" style="background-color: #efefef;">
+  									<div class="panel-body" id="matrixBody" style="background-color: #efefef; min-height: 1600px;">
 <?php
 
 /////////////////////////////////////////////////////////// Right panel content area
@@ -314,7 +316,7 @@
 										
   										<div class="ui-widget col-lg-12" style="padding:30px;">
                                             <form role="form" name="journalFind" id="journalFind">
-												<p style="text-align:left; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; font-size: 14px;">&nbsp;<br /><strong>SEARCH BY PUBLICATION TITLE</strong></p>
+												<p style="text-align:left; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; font-size: 14px;"><strong>SEARCH BY PUBLICATION TITLE</strong></p>
                                                 <p style="text-align:justify; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; font-size: 14px;">By entering a few characters, the autocomplete function will suggest journal titles from the database whereby you can click on a name to discover more about that publication. Alternatively, you can use an asterisk (*) as a wildcard character to limit your search results to journals only containing the search term. For example, searching for "Austr*" will return all journals with Austria, Austrian, Australia, Australian, Australasian, etc., in their names (but you should avoid using common phrases like 'Journal of' and 'International Journal of').</p>                                               
 												<p style="text-align:left;">&nbsp;
                                                 <br /><input type="text" name="journalKeywords" id="journalKeywords" 
@@ -348,7 +350,7 @@
                                                     <img src="./img/logo_library.png" border="0" alt="" style="padding-right:0px;">
                                                     <!-- <img src="./img/logo_dhrg.png" border="0" alt="" style="padding-left:35px;"> //-->
                                                  </p>
-                                                 <p style="text-align:left; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; font-size: 11px; color: #777777;">&nbsp;<br />&nbsp;<br /><em>Last Updated 25 May 2018 Version 0.9.6<br />Authored by the Western Sydney University Library.<br />Project Team: Susan Robbins, Michael Gonzalez, Jason Ensor.<br />Project Code: Jason Ensor<br />Western Sydney University CRICOS Provider No: 00917k.</em></p>
+                                                 <p style="text-align:left; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; font-size: 11px; color: #777777;">&nbsp;<br />&nbsp;<br /><em>Last Updated 06 December 2018 Version 0.9.6<br />Authored by the Western Sydney University Library.<br />Project Team: Susan Robbins (2014-2018), Michael Gonzalez (2014-2018), Jason Ensor (2014-2018).<br />Western Sydney University CRICOS Provider No: 00917k.</em></p>
                                              </div>
                                              &nbsp;<br /> 
   										</div>
@@ -361,7 +363,6 @@
 ?>																
   									</div>
 								</div>
-                                <br />&nbsp;
                         	</div>
                     	</div>
              		</div>
@@ -412,7 +413,7 @@
 
 											echo "</li>";
 										}
-									//	echo "<li><p><img src=\"./img/combined.png\" style=\"display: block; margin-left: auto; margin-right: auto; margin-top:15px; margin-bottom:30px;\"></p></li>";
+                                        
 										echo "</ul>";
 										mysqli_free_result($mysqli_resultB);
 							
@@ -421,7 +422,6 @@
 										echo "</li>";
 									}
 									mysqli_free_result($mysqli_resultD);
-								//	echo "<li><p><img src=\"./img/combined.png\" style=\"display: block; margin-left: auto; margin-right: auto; margin-top:15px; margin-bottom:30px;\"></p></li>";
 									echo "</ul>";
 							
 //////////////////////////// Close cluster
@@ -486,7 +486,7 @@
         		$(this).removeData('bs.modal');
       		});
 
-			$('[data-toggle="tooltip"]').tooltip({'placement': 'top'});
+			$('[data-toggle="tooltip"]').tooltip({'placement': 'bottom'});
 		
 			$(function () {	
 				$("#journalKeywords").autocomplete({
@@ -562,7 +562,7 @@
 				
         		containersToPush: [$('#pushobj')],
 				mode: 'cover',
-        		menuWidth: '450px',
+        		menuWidth: '410px',
         		menuHeight: '100%',
 				backText: 'Back',
 				backItemIcon: 'fa fa-angle-left',

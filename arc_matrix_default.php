@@ -53,6 +53,7 @@
 //	VERSION 0.2
 //	24 MARCH - 11 APRIL 2014
 //	19 September 2017
+//  07 December 2018
 //
 //
 /////////////////////////////////////////////////////////// Clean post and get
