@@ -3,10 +3,8 @@
 /////////////////////////////////////////////////////////// Credits
 //
 //
-//	ERA Journal Identification Toolkit
-//	Digital Humanities Research Group
-//  School of Humanities and Communication Arts
-//  University of Western Sydney
+//	Journal Finder
+//	Western Sydney University
 //
 //	Procedural Scripting: PHP | MySQL | JQuery
 //
@@ -47,13 +45,11 @@
 //	JQuery JQPlot v.1.0.8 | http://www.jqplot.com/
 //	JQuery UI v.10.4 | https://jqueryui.com/
 //
-//  VERSION 0.1
+//  UPDATED
 //  18-19 FEBRUARY 2014
-//
-//	VERSION 0.2
 //	24 MARCH - 11 APRIL 2014
 //	29 AUGUST 2017
-//  07 December 2018
+//  12 December 2018
 //
 //
 /////////////////////////////////////////////////////////// Clean post and get
@@ -98,10 +94,10 @@
 
 
 
-  	VERSION 0.1
+  	UPDATED
     
   	Development Started: 18 February 2014
-	Last updated: 07 December 2018
+	Last updated: 11 December 2018
 
 
 
@@ -143,6 +139,8 @@
 		
 			body {
 				background: #FFFFFF;
+                overflow: hidden !important;
+                height: 100%;
 			}
 
 			#pushobj {
@@ -316,8 +314,8 @@
 										
   										<div class="ui-widget col-lg-12" style="padding:30px;">
                                             <form role="form" name="journalFind" id="journalFind">
-												<p style="text-align:left; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; font-size: 14px;"><strong>SEARCH BY PUBLICATION TITLE</strong></p>
-                                                <p style="text-align:justify; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; font-size: 14px;">By entering a few characters, the autocomplete function will suggest journal titles from the database whereby you can click on a name to discover more about that publication. Alternatively, you can use an asterisk (*) as a wildcard character to limit your search results to journals only containing the search term. For example, searching for "Austr*" will return all journals with Austria, Austrian, Australia, Australian, Australasian, etc., in their names (but you should avoid using common phrases like 'Journal of' and 'International Journal of').</p>                                               
+												<p style="text-align:left; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; font-size: 1.0em !important;"><strong>SEARCH BY PUBLICATION TITLE</strong></p>
+                                                <p style="text-align:justify; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; font-size: 1.0em !important;">By entering a few characters, the autocomplete function will suggest journal titles from the database whereby you can click on a name to discover more about that publication. Alternatively, you can use an asterisk (*) as a wildcard character to limit your search results to journals only containing the search term. For example, searching for "Austr*" will return all journals with Austria, Austrian, Australia, Australian, Australasian, etc., in their names (but you should avoid using common phrases like 'Journal of' and 'International Journal of').</p>
 												<p style="text-align:left;">&nbsp;
                                                 <br /><input type="text" name="journalKeywords" id="journalKeywords" 
                                                 	placeholder="Please enter 5 or more characters from the title ..." class="form-control" autofocus >
@@ -339,18 +337,18 @@
                                         &nbsp;<br />                           
                                     	<div class="col-lg-12" style="padding-left:30px;padding-right:30px;">
                                         	<div class="col-lg-12" style="padding: 30px; background-color:#ffffff;">
-                                                <p style="text-align:left; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; font-size: 14px;">&nbsp;<br /><strong>SEARCH BY FIELD OF RESEARCH</strong></p>
-                                                <p style="text-align:justify; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; font-size: 14px;">Please select a research cluster from the left-hand panel to view its discipline groups and discipline fields. All clusters, groups and fields of research have been organised according to the latest Australia Research Council Discipline Matrix.</p>
-                                                <p style="text-align:left; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; font-size: 14px;">&nbsp;<br /><strong>YOUR GUIDE TO THE BEST JOURNALS</strong></p>
-                                                <p style="text-align:justify; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; font-size: 14px;">Journal Finder is a tool to help all Western Sydney University researchers publish their work in relevant high quality journals by providing contextual information on how a journal counts towards a particular field in Australia. This is a work in progress as we roll out new features and updates over the coming months. Please note that some functions are configured for use on a computer connected to a UWS campus network only and that it works best on large screens. As a web service in development, this tool is fully functional on the latest version of <a href="http://www.google.com/chrome" target="_GoogleChrome">Google Chrome</a>. If you would like to know more about the rationale behind this project, please click <a href="javascript: var target = document.getElementById('matrixBody'); var spinner = new Spinner().spin(target); var doThis = $( '#matrixBody' ).load( 'arc_paper.php' ); var doThisAlso = $('#scrollingP').scrollTop(0);">here</a> to read a <em>position paper</em> or contact the <a href="mailto:lib-research@westernsydney.edu.au?subject=Journal_Finder">Library</a>.</p>
-                                                <p style="text-align:left; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; font-size: 14px;">&nbsp;<br /><strong>ERA RESULTS 2015</strong> - <a href="./arc_era_results_2015_cat3.php" target="_ERAresults1">Ranking 3</a> | <a href="./arc_era_results_2015_cat4.php" target="_ERAresults1">Ranking 4</a> | <a href="./arc_era_results_2015_cat5.php" target="_ERAresults3">Ranking 5</a> | <strong>2012</strong> - <a href="./arc_era_results_cat3.php" target="_ERAresults4">Ranking 3</a> | <a href="./arc_era_results_cat4.php" target="_ERAresults5">Ranking 4</a> | <a href="./arc_era_results_cat5.php" target="_ERAresults6">Ranking 5</a><!-- | <strong>Interactive Graph</strong> - <a href="./arc_modal_era_factor.php" target="_ERAanalysis">Analysis (Beta)</a>//--></p>
-                                                 <p style="text-align:justify; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; font-size: 14px;">&nbsp;<br />Please note that only rankings 3, 4 and 5 are available as these demonstrate FoRs (fields of research) in Australia that are at World Standard or above. The FoRs are in the same order for each rank level although only universities that have an ERA rating in at least one of the FoRs appears on the list. FoRs are grouped according to discipline clusters and an FoR's citation or peer reviewed status. Going clockwise from the university list, they are grouped as follows: Citation-Based FoRs in Clusters BB, EE, MHS, MIC, PCE, followed by Peer-Review-Based FoRs in Clusters EC, EE, EHS, HCA, MIC. Some clusters have a mixture of citation and peer-review FoRs. For example, Pure Mathematics (0101) is a peer-reviewed FoR and not a Citation-reviewed FoR like its companions 0102, 0103, etc. So it is categorised with the peer-review side of the graph. The color code is meant to signal weight, moving from green (eight or more institution connections) to red (only one connection), with grey indicating no universities ranking in this field at this rating.</p>
+                                                <p style="text-align:left; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; font-size: 1.0em;">&nbsp;<br /><strong>SEARCH BY FIELD OF RESEARCH</strong></p>
+                                                <p style="text-align:justify; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; font-size: 1.0em;">Please select a research cluster from the left-hand panel to view its discipline groups and discipline fields. All clusters, groups and fields of research have been organised according to the latest Australia Research Council Discipline Matrix.</p>
+                                                <p style="text-align:left; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; font-size: 1.0em;">&nbsp;<br /><strong>YOUR GUIDE TO THE BEST JOURNALS</strong></p>
+                                                <p style="text-align:justify; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; font-size: 1.0em;">Journal Finder is a tool to help all Western Sydney University researchers publish their work in relevant high quality journals by providing contextual information on how a journal counts towards a particular field in Australia. This is a work in progress as we roll out new features and updates over the coming months. Please note that some functions are configured for use on a computer connected to a UWS campus network only and that it works best on large screens. As a web service in development, this tool is fully functional on the latest version of <a href="http://www.google.com/chrome" target="_GoogleChrome">Google Chrome</a>. If you would like to know more about the rationale behind this project, please click <a href="javascript: var target = document.getElementById('matrixBody'); var spinner = new Spinner().spin(target); var doThis = $( '#matrixBody' ).load( 'arc_paper.php' ); var doThisAlso = $('#scrollingP').scrollTop(0);">here</a> to read a <em>position paper</em> or contact the <a href="mailto:lib-research@westernsydney.edu.au?subject=Journal_Finder">Library</a>.</p>
+                                                <p style="text-align:left; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; font-size: 1.0em;">&nbsp;<br /><strong>ERA RESULTS 2015</strong> - <a href="./arc_era_results_2015_cat3.php" target="_ERAresults1">Ranking 3</a> | <a href="./arc_era_results_2015_cat4.php" target="_ERAresults1">Ranking 4</a> | <a href="./arc_era_results_2015_cat5.php" target="_ERAresults3">Ranking 5</a> | <strong>2012</strong> - <a href="./arc_era_results_cat3.php" target="_ERAresults4">Ranking 3</a> | <a href="./arc_era_results_cat4.php" target="_ERAresults5">Ranking 4</a> | <a href="./arc_era_results_cat5.php" target="_ERAresults6">Ranking 5</a><!-- | <strong>Interactive Graph</strong> - <a href="./arc_modal_era_factor.php" target="_ERAanalysis">Analysis (Beta)</a>//--></p>
+                                                 <p style="text-align:justify; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; font-size: 1.0em;">&nbsp;<br />Please note that only rankings 3, 4 and 5 are available as these demonstrate FoRs (fields of research) in Australia that are at World Standard or above. The FoRs are in the same order for each rank level although only universities that have an ERA rating in at least one of the FoRs appears on the list. FoRs are grouped according to discipline clusters and an FoR's citation or peer reviewed status. Going clockwise from the university list, they are grouped as follows: Citation-Based FoRs in Clusters BB, EE, MHS, MIC, PCE, followed by Peer-Review-Based FoRs in Clusters EC, EE, EHS, HCA, MIC. Some clusters have a mixture of citation and peer-review FoRs. For example, Pure Mathematics (0101) is a peer-reviewed FoR and not a Citation-reviewed FoR like its companions 0102, 0103, etc. So it is categorised with the peer-review side of the graph. The color code is meant to signal weight, moving from green (eight or more institution connections) to red (only one connection), with grey indicating no universities ranking in this field at this rating.</p>
                                                  <p style="text-align:left; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;">
                                                     &nbsp;<br />&nbsp;<br />
                                                     <img src="./img/logo_library.png" border="0" alt="" style="padding-right:0px;">
                                                     <!-- <img src="./img/logo_dhrg.png" border="0" alt="" style="padding-left:35px;"> //-->
                                                  </p>
-                                                 <p style="text-align:left; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; font-size: 11px; color: #777777;">&nbsp;<br />&nbsp;<br /><em>Last Updated 06 December 2018 Version 0.9.6<br />Authored by the Western Sydney University Library.<br />Project Team: Susan Robbins (2014-2018), Michael Gonzalez (2014-2018), Jason Ensor (2014-2018).<br />Western Sydney University CRICOS Provider No: 00917k.</em></p>
+                                                 <p style="text-align:left; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; font-size: 11px; color: #777777;">&nbsp;<br />&nbsp;<br /><em>Last Updated, Dr Jason Ensor, 06 December 2018 Version 0.9.7<br />Authored by the Western Sydney University Library.<br />Project Team: Susan Robbins (2014-2018), Michael Gonzalez (2014-2018), Jason Ensor (2014-2018).<br />Western Sydney University CRICOS Provider No: 00917k.</em></p>
                                              </div>
                                              &nbsp;<br /> 
   										</div>
@@ -578,12 +576,14 @@
 			$('#journalKeywords').focus();
 		});
 
-		$(window).resize(function () {
+		$(window).resize(function (e) {
+            var journalBox = $(".ui-widget").width();
+            var windowH = $(window).height();
     		$('#menu').multilevelpushmenu('option', 'menuHeight', $(document).height());
     		$('#menu').multilevelpushmenu('redraw');
 			$("#scrollingP").css("height", $(document).height());
-			var journalBox = $(".ui-widget").width();
 			$(".ui-autocomplete").css('width', ''+journalBox);
+            $("html, body").css("height", $(window).height(), "important");
 		});
 		
 		$.extend($.ui.autocomplete.prototype.options, {
