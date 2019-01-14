@@ -4,10 +4,7 @@
 //
 //
 //	ERA Journal Identification Toolkit
-//	Digital Humanities Research Group
-//  School of Humanities and Communication Arts
 //  University of Western Sydney
-//
 //	Procedural Scripting: PHP | MySQL | JQuery
 //
 //	FOR ALL ENQUIRIES ABOUT CODE
@@ -54,7 +51,7 @@
 //	24 MARCH - 11 APRIL 2014
 //
 //	LATEST UPDATE
-//	30 April 2018
+//	06 December 2018
 //
 //
 /////////////////////////////////////////////////////////// Clean post and get
@@ -139,9 +136,11 @@
 		echo "Top ranked journals are in the first quartile, which is 1.</td></tr>\n";
 		
 		echo "<tr><td width=\"10%\" style=\"width:10%;\" class=\"text-right\"><strong>Rank</strong></td>";
-		echo "<td width=\"90%\" style=\"width:90%;\">This is the Rank placement by Journal Impact Factor of the journal in its Thomson Reuters subject category or categories. ";
+		echo "<td width=\"90%\" style=\"width:90%;\">This is the Rank placement by Journal Impact Factor ";
+        echo "of the journal in its Thomson Reuters subject category or categories. ";
 		echo "The categories can be viewed by hovering the mouse over the rank value. ";
-		echo "Please note that these categories do not necessarily align with ARC fields of research and that some journals may be in more than one category.</td></tr>\n";
+		echo "Please note that these categories do not necessarily align with ARC fields of research ";
+        echo "and that some journals may be in more than one category.</td></tr>\n";
 		
 		echo "<tr><td width=\"10%\" style=\"width:10%;\" class=\"text-right\"><strong>IF</strong></td>";
 		echo "<td width=\"90%\" style=\"width:90%;\">The Thomson Reuters impact factor is a measure of the frequency with which the 'average article' ";
@@ -151,10 +150,14 @@
 		echo "the source items published in that journal during the previous two years.</td></tr>\n";
 		
 		echo "<tr><td width=\"10%\" style=\"width:10%;\" class=\"text-right\"><strong>5YR IF</strong></td>";
-		echo "<td width=\"90%\" style=\"width:90%;\">The 5-year journal Impact Factor is the average number of times articles from the journal published in the past five years have ";
-		echo "been cited in the year. It is caclulated by dividing the number of citations in the year by the total number of articles published in the five previous years. ";
-		echo "Although Impact Factors are based on cites to articles published in the previous two years, a base of five years may be more appropriate for journals in certain fields ";
-		echo "because the body of citations may not be large enough to make reasonable comparisons, publication schedules may be consistently late, or it may take longer than two ";
+		echo "<td width=\"90%\" style=\"width:90%;\">The 5-year journal Impact Factor is the average number of times ";
+        echo "articles from the journal published in the past five years have ";
+		echo "been cited in the year. It is caclulated by dividing the number of citations in the year by the total ";
+        echo "number of articles published in the five previous years. ";
+		echo "Although Impact Factors are based on cites to articles published in the previous two years, ";
+        echo "a base of five years may be more appropriate for journals in certain fields ";
+		echo "because the body of citations may not be large enough to make reasonable comparisons, ";
+        echo "publication schedules may be consistently late, or it may take longer than two ";
 		echo "years to disseminate and respond to published works.</td></tr>\n";
 		
 		echo "<tr><td width=\"10%\" style=\"width:10%;\" class=\"text-right\"><strong>SNIP</strong></td>";
@@ -206,15 +209,10 @@
 		if(($wildcard != "y") && ($keywords != "VIEWSAVED")) {
 
 ////////////////////////////////// 2010 Snip from all indexed
-
-//			$query = "SELECT (SUM(SNIP_2010) / COUNT(SNIP_2010)) AS AverageSnip ";
-//			$query .= "FROM 2017_journals_final_list WHERE (FoR1 = \"$forCode\" OR FoR2 = \"$forCode\" OR FoR3 = \"$forCode\") ";
-//			$query .= "AND SNIP_2010 != \"\" AND SNIP_2010 IS NOT NULL ";
 			
 			$query = "SELECT (SUM(2010_SNIP) / COUNT(2010_SNIP)) AS AverageSnip ";
 			$query .= "FROM 2017_journals_snips WHERE (FoR1 = \"$forCode\" OR FoR2 = \"$forCode\" OR FoR3 = \"$forCode\") ";
 			$query .= "AND 2010_SNIP != \"\" AND 2010_SNIP IS NOT NULL ";
-			
 			$mysqli_result = mysqli_query($mysqli_link, $query);
 			while($row = mysqli_fetch_row($mysqli_result)) { 
 				$Nten = number_format($row[0],3); 
@@ -222,89 +220,59 @@
 			
 ////////////////////////////////// 2011 Snip from all indexed
 
-//			$query = "SELECT (SUM(SNIP_2011) / COUNT(SNIP_2011)) AS AverageSnip ";
-//			$query .= "FROM 2017_journals_final_list WHERE (FoR1 = \"$forCode\" OR FoR2 = \"$forCode\" OR FoR3 = \"$forCode\") ";
-//			$query .= "AND SNIP_2011 != \"\" AND SNIP_2011 IS NOT NULL ";
-
 			$query = "SELECT (SUM(2011_SNIP) / COUNT(2011_SNIP)) AS AverageSnip ";
 			$query .= "FROM 2017_journals_snips WHERE (FoR1 = \"$forCode\" OR FoR2 = \"$forCode\" OR FoR3 = \"$forCode\") ";
 			$query .= "AND 2011_SNIP != \"\" AND 2011_SNIP IS NOT NULL ";
-
 			$mysqli_result = mysqli_query($mysqli_link, $query);
 			while($row = mysqli_fetch_row($mysqli_result)) { 
 				$NEleven = number_format($row[0],3); 
 			} 
 
 ////////////////////////////////// 2012 Snip from all indexed
-
-//			$query = "SELECT (SUM(SNIP_2012) / COUNT(SNIP_2012)) AS AverageSnip ";
-//			$query .= "FROM 2017_journals_final_list WHERE (FoR1 = \"$forCode\" OR FoR2 = \"$forCode\" OR FoR3 = \"$forCode\") ";
-//			$query .= "AND SNIP_2012 != \"\" AND SNIP_2012 IS NOT NULL ";
 			
 			$query = "SELECT (SUM(2012_SNIP) / COUNT(2012_SNIP)) AS AverageSnip ";
 			$query .= "FROM 2017_journals_snips WHERE (FoR1 = \"$forCode\" OR FoR2 = \"$forCode\" OR FoR3 = \"$forCode\") ";
-			$query .= "AND 2012_SNIP != \"\" AND 2012_SNIP IS NOT NULL ";
-			
+			$query .= "AND 2012_SNIP != \"\" AND 2012_SNIP IS NOT NULL ";			
 			$mysqli_result = mysqli_query($mysqli_link, $query);
 			while($row = mysqli_fetch_row($mysqli_result)) { 
 				$NTwelve = number_format($row[0],3); 
 			} 
 			
 ////////////////////////////////// 2013 Snip from all indexed
-
-//			$query = "SELECT (SUM(SNIP_2013) / COUNT(SNIP_2013)) AS AverageSnip ";
-//			$query .= "FROM 2017_journals_final_list WHERE (FoR1 = \"$forCode\" OR FoR2 = \"$forCode\" OR FoR3 = \"$forCode\") ";
-//			$query .= "AND SNIP_2013 != \"\" AND SNIP_2013 IS NOT NULL "; 
 			
 			$query = "SELECT (SUM(2013_SNIP) / COUNT(2013_SNIP)) AS AverageSnip ";
 			$query .= "FROM 2017_journals_snips WHERE (FoR1 = \"$forCode\" OR FoR2 = \"$forCode\" OR FoR3 = \"$forCode\") ";
-			$query .= "AND 2013_SNIP != \"\" AND 2013_SNIP IS NOT NULL ";
-			
+			$query .= "AND 2013_SNIP != \"\" AND 2013_SNIP IS NOT NULL ";			
 			$mysqli_result = mysqli_query($mysqli_link, $query);
 			while($row = mysqli_fetch_row($mysqli_result)) { 
 				$NThirteen = number_format($row[0],3); 
 			} 
 			
 ////////////////////////////////// 2014 Snip from all indexed
-
-//			$query = "SELECT (SUM(SNIP_2014) / COUNT(SNIP_2014)) AS AverageSnip ";
-//			$query .= "FROM 2017_journals_final_list WHERE (FoR1 = \"$forCode\" OR FoR2 = \"$forCode\" OR FoR3 = \"$forCode\") ";
-//			$query .= "AND SNIP_2014 != \"\" AND SNIP_2014 IS NOT NULL ";
 			
 			$query = "SELECT (SUM(2014_SNIP) / COUNT(2014_SNIP)) AS AverageSnip ";
 			$query .= "FROM 2017_journals_snips WHERE (FoR1 = \"$forCode\" OR FoR2 = \"$forCode\" OR FoR3 = \"$forCode\") ";
-			$query .= "AND 2014_SNIP != \"\" AND 2014_SNIP IS NOT NULL ";
-			 
+			$query .= "AND 2014_SNIP != \"\" AND 2014_SNIP IS NOT NULL ";			 
 			$mysqli_result = mysqli_query($mysqli_link, $query);
 			while($row = mysqli_fetch_row($mysqli_result)) { 
 				$NFourteen = number_format($row[0],3); 
 			} 
 			
 ////////////////////////////////// 2015 Snip from all indexed
-
-//			$query = "SELECT (SUM(SNIP_2015) / COUNT(SNIP_2015)) AS AverageSnip ";
-//			$query .= "FROM 2017_journals_final_list WHERE (FoR1 = \"$forCode\" OR FoR2 = \"$forCode\" OR FoR3 = \"$forCode\") ";
-//			$query .= "AND SNIP_2015 != \"\" AND SNIP_2015 IS NOT NULL "; 
 			
 			$query = "SELECT (SUM(2015_SNIP) / COUNT(2015_SNIP)) AS AverageSnip ";
 			$query .= "FROM 2017_journals_snips WHERE (FoR1 = \"$forCode\" OR FoR2 = \"$forCode\" OR FoR3 = \"$forCode\") ";
-			$query .= "AND 2015_SNIP != \"\" AND 2015_SNIP IS NOT NULL ";
-			
+			$query .= "AND 2015_SNIP != \"\" AND 2015_SNIP IS NOT NULL ";			
 			$mysqli_result = mysqli_query($mysqli_link, $query);
 			while($row = mysqli_fetch_row($mysqli_result)) { 
 				$NFifteen = number_format($row[0],3); 
 			} 			
 
 ////////////////////////////////// 2016 Snip from all indexed
-
-//			$query = "SELECT (SUM(SNIP_2016) / COUNT(SNIP_2016)) AS AverageSnip ";
-//			$query .= "FROM 2017_journals_final_list WHERE (FoR1 = \"$forCode\" OR FoR2 = \"$forCode\" OR FoR3 = \"$forCode\") ";
-//			$query .= "AND SNIP_2016 != \"\" AND SNIP_2016 IS NOT NULL ";
 			
 			$query = "SELECT (SUM(2016_SNIP) / COUNT(2016_SNIP)) AS AverageSnip ";
 			$query .= "FROM 2017_journals_snips WHERE (FoR1 = \"$forCode\" OR FoR2 = \"$forCode\" OR FoR3 = \"$forCode\") ";
-			$query .= "AND 2016_SNIP != \"\" AND 2016_SNIP IS NOT NULL ";
-			
+			$query .= "AND 2016_SNIP != \"\" AND 2016_SNIP IS NOT NULL ";			
 			$mysqli_result = mysqli_query($mysqli_link, $query);
 			while($row = mysqli_fetch_row($mysqli_result)) { 
 				$NSixteen = number_format($row[0],3); 
@@ -371,13 +339,12 @@
 			echo "</table>\n";
 			echo "<p><small>* A red background for the Mean 2016 SNIP indicates that it has risen since ";
 			echo "the last ERA round; a green background indicates it has fallen since the last ERA round.</small><p>";
-			echo "<p>&nbsp;</p>";
 		
 ////////////////////////////////// Close wildcard switch
 		
 		}
 		
-//////////////////////////////////////////////////////////////////// Display conferences
+////////////////////////////////// Display conferences
 
 		$ccount = 0;
 		if(strlen($forCode > 2)) {
@@ -500,10 +467,9 @@
 			echo "<p>&nbsp;</p>";
 			echo "</div>";
 		}
-        
-////////////////////////////////// Display journal data
 		
-        echo "<h3>";
+//////////////////////////////////////////// Display journal data
+		
 		$count=0;
 		if(($wildcard != "y") && ($keywords != "VIEWSAVED")) {
 			$query = "SELECT COUNT(*) FROM 2017_journals_final_list WHERE FoR1 = \"$forCode\" OR FoR2 = \"$forCode\" OR FoR3 = \"$forCode\" ORDER BY Title ASC"; 
@@ -519,21 +485,26 @@
 				$count="$row[0]";	 
 			}			
 		}
-        if(($keywords == "VIEWSAVED")) {
+		if(($keywords == "VIEWSAVED")) {
 			$count = count($_SESSION["ERAIDS"]);
 		}
+        
+//////////////////////////////////////////// Header
+        
+        echo "<h3>";
+        $ncount = number_format($count);
         if(($wildcard != "y") && ($keywords != "VIEWSAVED")) {
-			echo "<strong>$count Journals</strong>";
+			echo "<strong>$ncount Journals</strong>";
 		}
 		if(($wildcard == "y") && ($keywords != "VIEWSAVED")) {
-			echo "<strong>$count Journals with '".$keywords."' in title ...</strong>";
+			echo "<strong>$ncount Journals ";
+            echo "with '".$keywords."' in title ...</strong>";
 		}
 		if(($keywords == "VIEWSAVED")) {
-			echo "<strong>$count Journals saved for comparison ...</strong>";
-		}  
+			echo "<strong>$ncount Journals saved for ";
+            echo "comparison ...</strong>";
+		}
         echo "</h3>";
-
-////////////////////////////////// Display Short Links        
         
 ?>
         <br />
@@ -650,236 +621,46 @@
                     echo "title=\" \nOrder by Open Access\n \">"; 
                 ?>Order by Open Access</a></li>
 		</ul>
-<?php  
+        <br />
+<?php
         
-/////////////////////////////////////////////////////////////// Icon legend
-        
-        echo "<p style=\"padding-top: 10px; padding-bottom: 20px; \">";
-        echo "<em>If the these icons appear under a journal title they are links to the following websites and can be clicked on for seeing the indexed information for that journal title on the selected website.</em>";
-        echo "<br /><br />"; 
-        echo "<img ";
-        echo "src=\"./assets/images/link_elsevier.png\" ";
-        echo "height=\"30\" ";
-        echo "border=\"0\" ";
-        echo "style=\"";
-        echo "margin-top: 0px; ";
-        echo "margin-bottom: 0px; ";
-        echo "vertical-align: middle; ";
-        echo "padding: 0px; ";
-        echo "padding-right: 0.3em; ";
-        echo "\">";
-        echo "&nbsp;&nbsp;&nbsp;Elsevier&nbsp;&nbsp;&nbsp;";
-        echo "<img ";
-        echo "src=\"./assets/images/link_sjr.jpg\" ";
-        echo "height=\"30\" ";
-        echo "border=\"0\" ";
-        echo "style=\"";
-        echo "margin-top: 0px; ";
-        echo "margin-bottom: 0px; ";
-        echo "vertical-align: middle; ";
-        echo "padding: 0px; ";
-        echo "padding-right: 0.3em; ";
-        echo "\">";
-        echo "&nbsp;&nbsp;&nbsp;Scimago Journal & Country Rank&nbsp;&nbsp;&nbsp;";
-        echo "<img ";
-        echo "src=\"./assets/images/link_ulrichsweb.jpg\" ";
-        echo "height=\"30\" ";
-        echo "border=\"0\" ";
-        echo "style=\"";
-        echo "margin-top: 0px; ";
-        echo "margin-bottom: 0px; ";
-        echo "vertical-align: middle; ";
-        echo "padding: 0px; ";
-        echo "padding-right: 0.3em; ";
-        echo "\">";
-        echo "&nbsp;&nbsp;&nbsp;Ulrichsweb&nbsp;&nbsp;&nbsp;";
-        echo "<img ";
-        echo "src=\"./assets/images/link_wsu.jpg\" ";
-        echo "height=\"30\" ";
-        echo "border=\"0\" ";
-        echo "style=\"";
-        echo "margin-top: 0px; ";
-        echo "margin-bottom: 0px; ";
-        echo "vertical-align: middle; ";
-        echo "padding: 0px; ";
-        echo "padding-right: 0.3em; ";
-        echo "\">";
-        echo "&nbsp;&nbsp;&nbsp;Western Sydney University Library";
-        echo "</p>";
-		
-/////////////////////////////////////////////////////////////// Search in-page bar
+//////////////////////////////////////////// Search in-page bar
 		 
 		echo "<p>";
-		echo "<form id=\"live-search\" action=\"\" method=\"post\" class=\"form-inline\" role=\"form\">";
+		echo "<form id=\"live-search\" action=\"\" ";
+		echo "method=\"post\" class=\"form-inline\" role=\"form\">";
 		echo "<div class=\"form-group\">";
 		echo "<div class=\"input-group\">";
-		echo "<div class=\"input-group-addon\"><i class=\"glyphicon glyphicon-search\"></i></div>";
-		echo "<input class=\"form-control input-lg\" type=\"text\" id=\"filter\" value=\"\" placeholder=\"Type a keyword from a journal title to search this page ...\" />";
-		echo "<div class=\"input-group-addon\" style=\"background-color: #23748F;\">";
-		echo "<a href=\"./arc_journals_download.php?forCode=$forCode&Order=$Order&keywords=$keywords&eRAID=$eRAID\" data-toggle=\"tooltip\" ";
-		echo "title=\" \nClick here to download the\nresults on this page as\nan Excel Spreadsheet.";
-		echo "\nPlease allow up to a minute for\nthe file to be generated.\n \" style=\"color: #ffffff;\">";
+		echo "<div class=\"input-group-addon\">";
+		echo "<i class=\"glyphicon glyphicon-search\"></i></div>";
+		echo "<input class=\"form-control input-lg\" ";
+		echo "type=\"text\" id=\"filter\" value=\"\" ";
+        echo "placeholder=\"Type a keyword from a journal ";
+		echo "title to search this page ...\" />";
+		echo "<div class=\"input-group-addon\" ";
+		echo "style=\"background-color: #23748F;\">";
+		echo "<a href=\"./arc_journals_download.php?forCode=$forCode";
+		echo "&Order=$Order&keywords=$keywords&eRAID=$eRAID\" ";
+		echo "data-toggle=\"tooltip\" ";
+		echo "title=\" \nClick here to download the\nresults ";
+		echo "on this page as\nan Excel Spreadsheet.";
+		echo "\nPlease allow up to a minute for\nthe ";
+		echo "file to be generated.\n \" style=\"color: #ffffff;\">";
 		echo "<strong>Download Results (.XLS)</strong></a></div>";
 		echo "</div>";
 		echo "</div>";
 		echo "</form>";
-		echo "</p>";
-  
-////////////////////////////////// Open Table        
+		echo "</p>";        
+
+//////////////////////////////////////////// Table start        
         
-		echo "<table class=\"table table-bordered table-striped tablesorter\" ";
-		echo "id=\"myTable\" style=\"background-color: #ffffff;\">\n";
+		echo "<table class=\"";
+		echo "table table-bordered ";
+		echo "table-striped tablesorter\" ";
+		echo "id=\"myTable\" ";
+		echo "style=\"background-color: #ffffff;\" ";
+		echo ">\n";
 		echo "<tbody>\n";
-	
-//////////////////////////////////////////// Start rows
-	
-		echo "<tr>\n";
-
-//////////////////////////////////////////// Q
-
-		echo "<td class=\"text-right\" style=\"border-top: 7px solid #000000 !important; border-bottom: 7px solid #000000 !important;\"><strong>";
-		echo "<a href=\"javascript: var target = document.getElementById('matrixBody'); var spinner = new Spinner().spin(target); var doThisAlso = $('#scrollingP').scrollTop(0); ";
-		echo "var doThis = $( '#matrixBody' ).load( 'arc_journals.php?";
-		if(($wildcard != "y") && ($keywords != "VIEWSAVED")) {
-			echo "eRAID=".$eRAID."&";
-		} else {
-			echo "keywords=".$keywords."*&";
-		}
-		echo "for2=".$for2."&for4=".$for4."&Order=QUARTILE' ); \" ";
-		echo "data-toggle=\"tooltip\" title=\" \nClick to organise by Quartile. This is a Rank by Journal Impact Factor expressed as a quartile of the whole category. ";
-		echo "Top ranked journals are in the first quartile, which is 1.\n \">";
-		echo "Q</a></strong></td>\n";
-		
-//////////////////////////////////////////// Rank		
-		
-		echo "<td class=\"text-center\" style=\"border-top: 7px solid #000000 !important; border-bottom: 7px solid #000000 !important;\"><strong>";
-		echo "<a href=\"javascript: var target = document.getElementById('matrixBody'); var spinner = new Spinner().spin(target); var doThisAlso = $('#scrollingP').scrollTop(0); ";
-		echo "var doThis = $( '#matrixBody' ).load( 'arc_journals.php?";
-		if(($wildcard != "y") && ($keywords != "VIEWSAVED")) {
-			echo "eRAID=".$eRAID."&";
-		} else {
-			echo "keywords=".$keywords."*&";
-		}
-		echo "for2=".$for2."&for4=".$for4."&Order=QRANK' ); \" ";
-		echo "data-toggle=\"tooltip\" data-placement=\"top\" title=\" \nClick to organise by Rank Placement. ";
-		echo "This is calculated by Journal Impact Factor of the journal in its Thomson Reuters subject category or ";
-		echo "categories.\n\nHover the cursor over a rank to view publication JCR categories.\n\n";
-		echo "Please note that these categories do not necessarily align with ACR fields of research and that some journals may be in more than one category.\n \">";
-		echo "Rank</a></strong></td>\n";
-		
-//////////////////////////////////////////// IF		
-		
-		echo "<td class=\"text-center\" style=\"border-top: 7px solid #000000 !important; border-bottom: 7px solid #000000 !important;\"><strong>";
-		echo "<a href=\"javascript: var target = document.getElementById('matrixBody'); var spinner = new Spinner().spin(target); var doThisAlso = $('#scrollingP').scrollTop(0); var doThis = $( '#matrixBody' ).load( 'arc_journals.php?";
-		if(($wildcard != "y") && ($keywords != "VIEWSAVED")) {
-			echo "eRAID=".$eRAID."&";
-		} else {
-			echo "keywords=".$keywords."*&";
-		}
-		echo "for2=".$for2."&for4=".$for4."&Order=IF' ); \" ";
-		echo "data-toggle=\"tooltip\" title=\" \nClick to organise by Impact Factor score (2016 value).\n \">";
-		echo "IF</a></strong></td>\n";
-		
-//////////////////////////////////////////// 5YR IF
-
-		echo "<td class=\"text-right\" style=\"border-top: 7px solid #000000 !important; border-bottom: 7px solid #000000 !important;\"><strong>";
-		echo "<a href=\"javascript: var target = document.getElementById('matrixBody'); var spinner = new Spinner().spin(target); var doThisAlso = $('#scrollingP').scrollTop(0); var doThis = $( '#matrixBody' ).load( 'arc_journals.php?";
-		if(($wildcard != "y") && ($keywords != "VIEWSAVED")) {
-			echo "eRAID=".$eRAID."&";
-		} else {
-			echo "keywords=".$keywords."*&";
-		}
-		echo "for2=".$for2."&for4=".$for4."&Order=5YR' ); \" ";
-		echo "data-toggle=\"tooltip\" title=\" \nClick to organise by 5 year Impact Factor score (2016 value).\n \">";
-		echo "5YR&nbsp;IF</a></strong></td>\n";
-		
-//////////////////////////////////////////// SNIP
-
-		echo "<td class=\"text-right\" style=\"border-top: 7px solid #000000 !important; border-bottom: 7px solid #000000 !important;\"><strong>";
-		echo "<a href=\"javascript: var target = document.getElementById('matrixBody'); var spinner = new Spinner().spin(target); var doThisAlso = $('#scrollingP').scrollTop(0); var doThis = $( '#matrixBody' ).load( 'arc_journals.php?";
-		if(($wildcard != "y") && ($keywords != "VIEWSAVED")) {
-			echo "eRAID=".$eRAID."&";
-		} else {
-			echo "keywords=".$keywords."*&";
-		}
-		echo "for2=".$for2."&for4=".$for4."&Order=SNIP' ); \" ";
-		echo "data-toggle=\"tooltip\" title=\" \nClick to organise by Source Normalized Impact per Paper scores (2016 value).\n \">";
-		echo "SNIP</a></strong></td>\n";
-
-//////////////////////////////////////////// ISSN
-
-		echo "<td class=\"text-center\" style=\"border-top: 7px solid #000000 !important; border-bottom: 7px solid #000000 !important;\"><strong>ISSN(s)</strong></td>\n";
-		
-//////////////////////////////////////////// Title
-		
-		echo "<td class=\"text-left\" style=\"border-top: 7px solid #000000 !important; border-bottom: 7px solid #000000 !important;\"><strong>Title</strong></td>\n";
-		
-//////////////////////////////////////////// ABDC		
-		
-		echo "<td class=\"text-left\" style=\"border-top: 7px solid #000000 !important; border-bottom: 7px solid #000000 !important;\"><strong>";
-		echo "<a href=\"javascript: var target = document.getElementById('matrixBody'); var spinner = new Spinner().spin(target); var doThisAlso = $('#scrollingP').scrollTop(0); var doThis = $( '#matrixBody' ).load( 'arc_journals.php?";
-		if(($wildcard != "y") && ($keywords != "VIEWSAVED")) {
-			echo "eRAID=".$eRAID."&";
-		} else {
-			echo "keywords=".$keywords."*&";
-		}
-		echo "for2=".$for2."&for4=".$for4."&Order=ABDC' ); \" ";
-		echo "data-toggle=\"tooltip\" title=\" \nAustralian Business Deans Council journal quality rank.\n \">";
-		echo "ABDC</a></strong></td>\n";
-		
-//////////////////////////////////////////// FoRs 1-3		
-		
-		echo "<td class=\"text-left\" style=\"border-top: 7px solid #000000 !important; border-bottom: 7px solid #000000 !important;\"><strong>";
-		echo "<a href=\"javascript: var target = document.getElementById('matrixBody'); var spinner = new Spinner().spin(target); var doThisAlso = $('#scrollingP').scrollTop(0); var doThis = $( '#matrixBody' ).load( 'arc_journals.php?";
-		if(($wildcard != "y") && ($keywords != "VIEWSAVED")) {
-			echo "eRAID=".$eRAID."&";
-		} else {
-			echo "keywords=".$keywords."*&";
-		}
-		echo "for2=".$for2."&for4=".$for4."&Order=FoR1' ); \" ";
-		echo "data-toggle=\"tooltip\" title=\" \nField of Research.\n \">";
-		echo "FoR1</a></strong></td>\n";
-		
-		echo "<td class=\"text-left\" style=\"border-top: 7px solid #000000 !important; border-bottom: 7px solid #000000 !important;\"><strong>";
-		echo "<a href=\"javascript: var target = document.getElementById('matrixBody'); var spinner = new Spinner().spin(target); var doThisAlso = $('#scrollingP').scrollTop(0); var doThis = $( '#matrixBody' ).load( 'arc_journals.php?";
-		if(($wildcard != "y") && ($keywords != "VIEWSAVED")) {
-			echo "eRAID=".$eRAID."&";
-		} else {
-			echo "keywords=".$keywords."*&";
-		}
-		echo "for2=".$for2."&for4=".$for4."&Order=FoR2' ); \" ";
-		echo "data-toggle=\"tooltip\" title=\" \nField of Research.\n \">";
-		echo "FoR2</a></strong></td>\n";
-		
-		echo "<td class=\"text-left\" style=\"border-top: 7px solid #000000 !important; border-bottom: 7px solid #000000 !important;\"><strong>";
-		echo "<a href=\"javascript: var target = document.getElementById('matrixBody'); var spinner = new Spinner().spin(target); var doThisAlso = $('#scrollingP').scrollTop(0); var doThis = $( '#matrixBody' ).load( 'arc_journals.php?";
-		if(($wildcard != "y") && ($keywords != "VIEWSAVED")) {
-			echo "eRAID=".$eRAID."&";
-		} else {
-			echo "keywords=".$keywords."*&";
-		}
-		echo "for2=".$for2."&for4=".$for4."&Order=FoR3' ); \" ";
-		echo "data-toggle=\"tooltip\" title=\" \nField of Research.\n \">";
-		echo "FoR3</a></strong></td>\n";
-		
-//////////////////////////////////////////// OA		
-		
-		echo "<td class=\"text-left\" style=\"border-top: 7px solid #000000 !important; border-bottom: 7px solid #000000 !important;\"><strong>";
-		echo "<a href=\"javascript: var target = document.getElementById('matrixBody'); ";
-		echo "var spinner = new Spinner().spin(target); var doThisAlso = $('#scrollingP').scrollTop(0); var doThis = $( '#matrixBody' ).load( 'arc_journals.php?";
-		if(($wildcard != "y") && ($keywords != "VIEWSAVED")) {
-			echo "eRAID=".$eRAID."&";
-		} else {
-			echo "keywords=".$keywords."*&";
-		}
-		echo "for2=".$for2."&for4=".$for4."&Order=OA' ); \" ";
-		echo "data-toggle=\"tooltip\" title=\" \nOpen Access?\n \">";
-		echo "OA</a></strong></td>\n";
-		
-//////////////////////////////////////////// Buttons		
-		
-		echo "<td class=\"text-left\" style=\"border-top: 7px solid #000000 !important; border-bottom: 7px solid #000000 !important;\"><strong>#</strong></td>\n";
-		echo "</tr>\n";
 		
 ////////////////////////////////// Selected journal from search
 		
@@ -889,194 +670,353 @@
 			$query = "SELECT * FROM 2017_journals_final_list WHERE ERAID = \"$eRAID\" ";
 			$mysqli_result = mysqli_query($mysqli_link, $query);
 			while($row = mysqli_fetch_row($mysqli_result)) { 
+                
+//////////////////////// IDs                
+                
 				$m++;
 				$eRaids[$m] = $row[1];
-				$snip=number_format((float)$row[39], 3, '.', '');
-				$rank=$row[19];
-				$quartile=$row[29];
-				$quartile=preg_replace("/Q/","","$quartile");
-				$qrank=$row[28];
-				$qcat=$row[27];
-				$OAccess=$row[24];
-				$fiveyrif=$row[34];
-				$IFscore=number_format((float)$row[25], 3, '.', '');
-				$AIscore=number_format((float)$row[26], 3, '.', '');
-				$OAccessImg="";
-				if(($OAccess != "")) {
-					$OAccessImg = "<span class=\"glyphicon glyphicon glyphicon-ok\"></span>";	
-				}
-				$NJ="";
-				$newJournal=$row[18];
-				$pattern="/Y$forCode,/i";
-				$pattern2="/N$forCode,/i";
-				if(preg_match("$pattern","$newJournal")) { $NJ = "Yes";$rowClass = "info"; }
-				if(preg_match("$pattern2","$newJournal")) { $NJ = ""; $rowClass = ""; }
+                $metrics = "";
+                $fsnip = "n";
+                
+//////////////////////// Get Metrics                 
+                
+				$snip = number_format((float)$row[39], 3, '.', '');
+                $rank = $row[19];
+                $quartile = $row[29];
+                $quartile = preg_replace("/Q/","","$quartile");
+                $qrank = $row[28];
+                $qcat = $row[27];
+                $OAccess = $row[24];
+                $fiveyrif = $row[34];
+                $IFscore = number_format((float)$row[25], 3, '.', '');
+                $AIscore = number_format((float)$row[26], 3, '.', '');
+                $OAccessImg = "";
+                if(($OAccess != "")) {
+                    $OAccessImg = "<span class=\"glyphicon glyphicon glyphicon-ok\"></span>";	
+                }
+                $NJ = "";
+                $newJournal = $row[18];
+                $pattern = "/Y$forCode,/i";
+                $pattern2 = "/N$forCode,/i";
+                if(preg_match("$pattern","$newJournal")) { 
+                    $NJ = "Yes";
+                    $rowClass = "info";
+                }
+                if(preg_match("$pattern2","$newJournal")) { 
+                    $NJ = ""; 
+                    $rowClass = ""; 
+                } 
 				if(($rank == "No")) { $rank = "";}
-				if(($snip == "No") OR ($snip == "0.000")) { $snip = ""; }
-				$row[2]= preg_replace("/'/i","\\'","$row[2]");
+				if(($snip == "No") OR ($snip == "0.000")) { $snip = ""; }		
 				if(($IFscore == "0.000")) { $IFscore = ""; }
-				if(($AIscore == "0.000")) { $AIscore = ""; }
-				
+				if(($AIscore == "0.000")) { $AIscore = ""; }	
 				$quartile = rtrim($quartile, "; ");
 				$qcat = rtrim($qcat, "; ");
 				$qrank = rtrim($qrank, "; ");
 				$quartile = preg_replace("/; /i","<br />","$quartile");
-				$qcat = preg_replace("/; /i","; ","$qcat");
-				$qrank = preg_replace("/; /i","<br />","$qrank");
-				
+				$qcats = explode(";",$qcat);
+                $qranks = explode(";",$qrank);	
 				$IFscore = number_format($IFscore,3);
 				$fiveyrif = number_format($fiveyrif,3);
 				$snip = number_format($snip,3);
-				
-				echo "<tr class=\"success\">\n";
-				echo "<td class=\"text-center\">$quartile</a></td>";
-				echo "<td class=\"text-center\"><a href=\"#\" data-toggle=\"tooltip\" title=\"$qcat\" style=\"color:#000000;text-decoration:none;\">$qrank</a></td>";
-				echo "<td class=\"text-right\">$IFscore</td>";
-				echo "<td class=\"text-right\">$fiveyrif</td>";
-				echo "<td class=\"text-right\">$snip</td>";
-				echo "<td class=\"text-center\" nowrap>";
-				for($r=0;$r<7;$r++) {
-					$q=(10+$r);
-					if(($row[$q] != "") && ($row[$q] != " ")) {
-						echo "$row[$q]<br />";
-					}
-				}
-				echo "</td>";
-				echo "<td class=\"text-left\">";
-				echo stripslashes(htmlentities($row[2]));
-				echo "<br />";
-				echo "<div style=\"float:right; position:relative; padding-top: 10px;\">";
+				$row[2]= preg_replace("/'/i","\\'","$row[2]");
+                $ABDC = $row[30];
+                if(($snip != "") OR ($IFscore != "") OR ($fiveyrif != "") OR ($quartiles[0] != "") OR ($OAccess != "") OR ($ABDC != "")) {
+                    $metrics = "y";
+                    $fsnip = "y";
+                }
                 
-////////////////////////////////////////////////////////////////// Open Form                
+//////////////////////// Display Metrics List Row Item                 
                 
-				echo "<form action=\"http://ulrichsweb.serialssolutions.com/widget/search/?query=";
-				echo $row[10];
-				if(($row[11] != "")) { echo " OR ".$row[11]; }
-				if(($row[12] != "")) { echo " OR ".$row[12]; }
-				echo "\" method=\"POST\" target=\"_UlrichSearch\" style=\"margin-bottom:0px; padding: 0px;\">";
-                
-////////////////////////////////////////////////////////////////// Elsevier
-				
-				if(($row[32] != "")) {
-					echo "<a title=\"Search for this on the Elsevier website\" href=\"";
-					echo "http://www.elsevier.com/search-results?query=";
-					$searchTitlePub = preg_replace("/\s\s/"," ","$row[2]");
-					$searchTitlePub = preg_replace("/\s/","+","$row[2]");
-					echo "$searchTitlePub";
-					echo "&labels=journals";
-					echo "\" target=\"_ElsevierSearch\" style=\"margin:0px; padding: 0px;\">";
-//				    echo "<img src=\"./img/link_elsevier.png\" height=\"20\" ";
-//				    echo "border=\"0\" style=\"margin-top:0px; margin-bottom:14px; padding: 0px;\">";
-                    echo "<img src=\"./assets/images/link_elsevier.png\" ";
-                    echo "height=\"30\" border=\"0\" style=\"";
-                    echo "margin-top: 0px; ";
-                    echo "margin-bottom: 0px; ";
-                    echo "vertical-align: top; ";
-                    echo "padding: 0px; ";
-                    echo "padding-right: 0.3em; ";
-                    echo "border: 0px solid #222222; \">";
-					echo "</a> ";
-				}
-				
-////////////////////////////////////////////////////////////////// SJR
-
-				if(($row[33] != "")) {
-					echo "<a title=\"Search for this on the Scimago Journal & Country Rank website\" href=\"";
-                    echo "http://www.scimagojr.com/";
-                    echo "journalsearch.php?q=".$row[33]."&tip=iss\" target=\"_SJRSearch\" ";
-                    echo "style=\"margin:0px; padding: 0px;\">";
-//				    echo "<img src=\"./img/link_sjr.png\" height=\"20\" ";
-//                  echo "border=\"0\" style=\"margin-top:0px; margin-bottom:14px; padding: 0px;\">";
-                    echo "<img src=\"./assets/images/link_sjr.jpg\" ";
-                    echo "height=\"30\" border=\"0\" style=\"";
-                    echo "margin-top: 0px; ";
-                    echo "margin-bottom: 0px; ";
-                    echo "vertical-align: top; ";
-                    echo "padding: 0px; ";
-                    echo "padding-right: 0.3em; ";
-                    echo "border: 0px solid #222222; \">";
-					echo "</a> ";
-				}
-                
-////////////////////////////////////////////////////////////////// Ulrich
-				
-//			    echo "<input type=\"image\" src=\"./img/link_ulrich.png\" alt=\"Search Ulrich Database\" ";
-//	            echo "style=\"border: 1px solid #aaaaaa; margin-top:3px; margin-bottom:0px; padding: 0px;\" /> ";  
-                echo "<input type=\"image\" ";
-                echo "src=\"./assets/images/link_ulrichsweb.jpg\" ";
-                echo "alt=\"Search Ulrich Database\" ";
-                echo "style=\"";
-                echo "margin-top: 0px; ";
-                echo "margin-bottom: 0px; ";
-                echo "padding: 0px; ";
-                echo "width: 35px !important; ";
-                echo "height: 30px !important; ";
-                echo "vertical-align: top; ";
-                echo "padding-right: 0.3em; ";
-                echo "border: 0px solid #222222; ";
-                echo "\" /> ";  
-                
-////////////////////////////////////////////////////////////////// UWS Library
-				
-				echo "<a title=\"Search for this on the WSU Library website\" href=\"";
-                echo "https://west-sydney-primo.hosted.exlibrisgroup.com/";
-                echo "primo-explore/search?query=title,exact,";
-				echo htmlentities($row[2]);
-				echo ",AND&pfilter=pfilter,exact,journals,AND&tab=default_tab&";
-                echo "search_scope=default_scope&vid=UWS-ALMA&lang=en_US&";
-                echo "mode=advanced&offset=0&fn=search";
-				echo "\" target=\"_LibrarySearch\" style=\"margin:0px; padding: 0px;\">";
-//			    echo "<img src=\"./img/link_library.png\" height=\"20\" ";
-//              echo "border=\"0\" style=\"margin-top:0px; margin-bottom:14px; padding: 0px;\">";
-                echo "<img src=\"./assets/images/link_wsu.jpg\" height=\"30\" ";
-                echo "border=\"0\" ";
-                echo "style=\"";
-                echo "margin-top: 0px; ";
-                echo "vertical-align: top; ";
-                echo "margin-bottom: 0px; ";
-                echo "padding: 0px; ";
-                echo "padding-right: 0px; ";
-                echo "border: 0px solid #222222; ";
+                echo "<tr>\n";
+                echo "<td style=\"";
+                echo "margin-bottom: 1px; ";
+                echo "word-wrap: break-word; ";
+                echo "white-space: normal; ";
+                echo "color: #000000 !important; ";
+                echo "padding: 15px; ";
+                echo "border-top: 7px solid #000000 !important; ";
+                echo "border-left: 1px solid #cccccc !important; ";
+                echo "border-right: 0px solid #000000 !important; ";
+                echo "border-bottom: 0px solid #000000 !important; ";
+                if(($altRow == "b")) {
+                    echo "background-color: #eeeeee !important; ";
+                    $altRow = "a";
+                } else {
+                    $altRow = "b";
+                }
                 echo "\">";
-				echo "</a> ";               
-                
-////////////////////////////////////////////////////////////////// Close Form                
-                
-				echo "</form>";
-				echo "</div>";
-				echo "</td>";
-				
-				echo "<td class=\"text-center\"><a href=\"#\" data-toggle=\"tooltip\" title=\"$row[31]\" style=\"color:#000000;text-decoration:none;\">$row[30]</a></td>";
-				
-				echo "<td class=\"text-left\"><a ";
-				echo "href=\"javascript: var target = document.getElementById('matrixBody'); var spinner = new Spinner().spin(target); var doThisAlso = $('#scrollingP').scrollTop(0); var doThis = $( '#matrixBody' ).load( 'arc_journals.php?eRAID=".$eRAID."&for4=".$row[4]."&for2=&Order=' ); \" ";
-				echo "data-toggle=\"tooltip\" title=\"$row[5]\" style=\"color:#000000;text-decoration:none;\">$row[4]</a></td>";
-				echo "<td class=\"text-left\"><a ";
-				echo "href=\"javascript: var target = document.getElementById('matrixBody'); var spinner = new Spinner().spin(target); var doThisAlso = $('#scrollingP').scrollTop(0); var doThis = $( '#matrixBody' ).load( 'arc_journals.php?eRAID=".$eRAID."&for4=".$row[6]."&for2=&Order=' ); \" ";
-				echo "data-toggle=\"tooltip\" title=\"$row[7]\" style=\"color:#000000;text-decoration:none;\">$row[6]</a></td>";
-				echo "<td class=\"text-left\"><a ";
-				echo "href=\"javascript: var target = document.getElementById('matrixBody'); var spinner = new Spinner().spin(target); var doThisAlso = $('#scrollingP').scrollTop(0); var doThis = $( '#matrixBody' ).load( 'arc_journals.php?eRAID=".$eRAID."&for4=".$row[8]."&for2=&Order=' ); \" ";
-				echo "data-toggle=\"tooltip\" title=\"$row[9]\" style=\"color:#000000;text-decoration:none;\">$row[8]</a></td>";
-			
-/////////////////////////////////////////////////////////// View button trigger
-			
-				echo "<td class=\"text-center\">$OAccessImg</td>";
-				echo "<td class=\"text-left\"><a data-toggle=\"modal\" data-target=\".bs-example-modal-lg\" class=\"btn ";
-				if(($snip != "")) {
-					echo "btn-warning ";
-					$fsnip = "y";
-				} else {
-					echo "btn-default ";
-					$fsnip = "n";
-				}
-				echo "btn-sm\" ";
+                echo "<span style=\"";
+                echo "color: #800000; ";
+                echo "font-size: 1.2em; ";
+                echo "font-weight: 700; ";
+                echo "line-height: 2.4em; ";
+                echo "width: 100%; ";
+                echo "white-space: normal; ";
+                echo "\">".htmlentities($row[2])."</span>";
+                echo "<p style=\"";
+                echo "color: #000000 !important; ";
+                echo "word-wrap: break-word; ";
+                echo "white-space: normal; ";
+                echo "width: 100%; ";
+                echo "\">";
+
+//////////////////////// ISSN(S)
+
+                echo "ISSNs ";
+                for($r=0;$r<7;$r++) {
+                    $q=(10+$r);
+                    if(($row[$q] != "") && ($row[$q] != " ")) {
+                        echo "$row[$q] ";
+                    }
+                }
+                echo "<br />";
+
+//////////////////////// FoRs		
+
+                if(($row[5] != "")) { 
+                    echo "($row[4]) $row[5]"; 
+                }
+                if(($row[7] != "")) { 
+                    echo "<br />($row[6]) $row[7]"; 
+                }
+                if(($row[9] != "")) { 
+                    echo "<br />($row[8]) $row[9]";  
+                }   
+
+//////////////////////// Q            
+
+                if(($quartiles[0] != "")) {
+                    $q = count($quartiles);
+                    if($q > 0){
+                        for($v=0;$v<$q;$v++){					
+                            echo "<div class=\"ui-grid-a\" style=\"width:100%;\">";
+                            echo "<div class=\"ui-block-a\" ";
+                            echo "style=\"color: #000000; ";
+                            echo "font-size: 1.0em; ";
+                            echo "text-align: right; ";
+                            echo "padding-right: 0.7em; ";
+                            echo "width: 20%;\">";
+                            echo "<strong>Q</strong>";
+                            echo "</div>";
+                            echo "<div class=\"ui-block-b\" ";
+                            echo "style=\"color: #000000; font-size: 1.0em\">";
+                            echo ucwords(strtolower($qcats[$v]));
+                            echo "<br />(Quartile ";
+                            echo $quartiles[$v].", ".$qranks[$v];
+                            echo ")";
+                            echo "</div>";
+                            echo "</div>";
+                        }
+                    }
+                }            
+
+//////////////////////// 5YRIF		
+
+                if(($fiveyrif != "")) {
+                    echo "<div class=\"ui-grid-a\">";
+                    echo "<div class=\"ui-block-a\" ";
+                    echo "style=\"color: #000000; ";
+                    echo "font-size: 1.0em; ";
+                    echo "text-align: right; ";
+                    echo "padding-right: 0.7em; ";
+                    echo "width: 20%;\">";
+                    echo "<strong>5YR IF</strong>";
+                    echo "</div>";
+                    echo "<div class=\"ui-block-b\" ";
+                    echo "style=\"color: #000000; font-size: 1.0em;\">";
+                    echo $fiveyrif;
+                    echo "</div>";
+                    echo "</div>";
+                }
+
+//////////////////////// IF
+
+                if(($IFscore != "")) {
+                    echo "<div class=\"ui-grid-a\">";
+                    echo "<div class=\"ui-block-a\" ";
+                    echo "style=\"color: #000000; ";
+                    echo "font-size: 1.0em; ";
+                    echo "text-align: right; ";
+                    echo "padding-right: 0.7em; ";
+                    echo "width: 20%;\">";
+                    echo "<strong>IF</strong>";
+                    echo "</div>";
+                    echo "<div class=\"ui-block-b\" ";
+                    echo "style=\"color: #000000; font-size: 1.0em;\">";
+                    echo $IFscore;
+                    echo "</div>";
+                    echo "</div>";
+                }
+
+//////////////////////// SNIP
+
+                if(($snip != "")) {
+                    echo "<div class=\"ui-grid-a\">";
+                    echo "<div class=\"ui-block-a\" ";
+                    echo "style=\"color: #000000; ";
+                    echo "font-size: 1.0em; ";
+                    echo "text-align: right; ";
+                    echo "padding-right: 0.7em; ";
+                    echo "width: 20%;\">";
+                    echo "<strong>SNIP</strong>";
+                    echo "</div>";
+                    echo "<div class=\"ui-block-b\" ";
+                    echo "style=\"color: #000000; font-size: 1.0em;\">";
+                    echo $snip;
+                    echo "</div>";
+                    echo "</div>";
+                }		
+
+//////////////////////// ABDC
+
+                if(($ABDC != "")) {
+                    echo "<div class=\"ui-grid-a\">";
+                    echo "<div class=\"ui-block-a\" ";
+                    echo "style=\"color: #000000; ";
+                    echo "font-size: 1.0em; ";
+                    echo "text-align: right; ";
+                    echo "padding-right: 0.7em; ";
+                    echo "width: 20%;\">";
+                    echo "<strong>ABDC</strong>";
+                    echo "</div>";
+                    echo "<div class=\"ui-block-b\" ";
+                    echo "style=\"color: #000000; font-size: 1.0em;\">";
+                    echo $ABDC;
+                    echo "</div>";
+                    echo "</div>";
+                }		
+
+//////////////////////// QA
+
+                if(($OAccessImg != "")) {
+                    echo "<div class=\"ui-grid-a\">";
+                    echo "<div class=\"ui-block-a\" ";
+                    echo "style=\"color: #000000; ";
+                    echo "font-size: 1.0em; ";
+                    echo "text-align: right; ";
+                    echo "padding-right: 0.7em; ";
+                    echo "width: 20%;\">";
+                    echo "<strong>OA</strong>";
+                    echo "</div>";
+                    echo "<div class=\"ui-block-b\" ";
+                    echo "style=\"color: #000000; font-size: 1.0em;\">";
+                    echo $OAccessImg;
+                    echo "</div>";
+                    echo "</div>";
+                }
+
+                echo "</td>";
+
+//////////////////////// View, Save and Remove buttons triggers            
+
+                echo "<td style=\"";
+                echo "margin-bottom: 1px; ";
+                echo "word-wrap: break-word; ";
+                echo "width: 95px; ";
+                echo "white-space: normal; ";
+                echo "color: #000000 !important; ";
+                echo "padding: 15px; ";
+                echo "border-top: 7px solid #000000 !important; ";
+                echo "border-left: 1px solid #cccccc !important; ";
+                echo "border-right: 1px solid #cccccc !important; ";
+                echo "border-bottom: 0px solid #000000 !important; ";
+                echo "\">";        
+                echo "<a data-toggle=\"modal\" ";
+                echo "data-target=\".bs-example-modal-lg\" class=\"btn ";
+                if(($snip != "")) {
+                    echo "btn-warning ";
+                    $fsnip = "y";
+                } else {
+                    echo "btn-default ";
+                    $fsnip = "n";
+                }
+                echo "btn-sm\" ";
                 echo "style=\"width: 75px !important;\" ";
-				echo "href=\"./arc_modal.php?eraid=$row[1]&fsnip=$fsnip&AmeanSnip=$NSixteen&for4=$for4&for2=$for\">View</a>";
-				echo "</td>";
-				echo "</tr>";		
+                echo "href=\"./arc_modal.php?";
+                echo "eraid=$row[1]&fsnip=$fsnip&AmeanSnip=$NSixteen&for4=$for4&for2=$for2\">";
+                echo "View";
+                echo "</a><br />";
+                $eraidz = $row[1];
+                $myVar++;
+
+                if(($_SESSION["ERAIDS"]["$eraidz"] == "")) {
+
+                    echo "<button id=\"eraidSave_".$myVar."\" class=\"btn btn-default btn-sm\" ";
+                    echo "style=\"width: 75px !important; margin-top: 6px !important;\">";
+                    echo "<a id=\"eraidSaveHref_".$myVar."\" style=\"color: #000000; text-decoration: none;\" ";
+                    echo "href=\"javascript: ";
+                    echo "var eraidsaver = $.post('./arc_journals_saved.php',";
+                    echo "{'eraidSave': '$eraidz', 'doAction': 'SAVE'}).done(function(){";
+                    echo "var eraiddisable = $('#eraidSave_".$myVar."').attr('disabled','disabled');";
+                    echo "var eraiddisableB = $('#eraidSave_".$myVar."').addClass('btn-info');";
+                    echo "var eraiddisableC = $('#eraidSave_".$myVar."').removeClass('btn-default');";
+                    echo "var eraiddisableD = $('#eraidSaveHref_".$myVar."').css('color','white');";
+                    echo "var eraidremove = $('#eraidRemove_".$myVar."').removeAttr('disabled');";
+                    echo "});";
+                    echo "\">";
+                    echo "Save";
+                    echo "</a>";
+                    echo "</button><br />";
+
+                    echo "<button id=\"eraidRemove_".$myVar."\" class=\"btn btn-default btn-sm\" ";
+                    echo "disabled style=\"width: 75px !important; margin-top: 6px !important;\">";
+                    echo "<a style=\"color: #000000; text-decoration: none;\" ";
+                    echo "href=\"javascript: ";
+                    echo "var eraidsaver = $.post('./arc_journals_saved.php',";
+                    echo "{'eraidSave': '$eraidz', 'doAction': 'REMOVE'}).done(function(){";
+                    echo "var eraidremove = $('#eraidSave_".$myVar."').removeAttr('disabled');";
+                    echo "var eraiddisableB = $('#eraidSave_".$myVar."').addClass('btn-default');";
+                    echo "var eraiddisableC = $('#eraidSave_".$myVar."').removeClass('btn-info');";
+                    echo "var eraiddisableD = $('#eraidSaveHref_".$myVar."').css('color','black');";
+                    echo "var eraiddisable = $('#eraidRemove_".$myVar."').attr('disabled','disabled');";
+                    echo "});";
+                    echo "\">";
+                    echo "Remove";
+                    echo "</a>";
+                    echo "</button>";
+
+                } else {
+
+                    echo "<button id=\"eraidSave_".$myVar."\" class=\"btn btn-info btn-sm\" ";
+                    echo "disabled style=\"width: 75px !important; margin-top: 6px !important;\">";
+                    echo "<a id=\"eraidSaveHref_".$myVar."\" style=\"color: #FFFFFF; text-decoration: none;\" ";
+                    echo "href=\"javascript: ";
+                    echo "var eraidsaver = $.post('./arc_journals_saved.php',";
+                    echo "{'eraidSave': '$eraidz', 'doAction': 'SAVE'}).done(function(){";
+                    echo "var eraiddisable = $('#eraidSave_".$myVar."').attr('disabled','disabled');";
+                    echo "var eraiddisableB = $('#eraidSave_".$myVar."').addClass('btn-info');";
+                    echo "var eraiddisableC = $('#eraidSave_".$myVar."').removeClass('btn-default');";
+                    echo "var eraiddisableD = $('#eraidSaveHref_".$myVar."').css('color','white');";
+                    echo "var eraidremove = $('#eraidRemove_".$myVar."').removeAttr('disabled');";
+                    echo "});";
+                    echo "\">";
+                    echo "Save";
+                    echo "</a>";
+                    echo "</button><br />";
+
+                    echo "<button id=\"eraidRemove_".$myVar."\" class=\"btn btn-default btn-sm\" ";
+                    echo "style=\"width: 75px !important; margin-top: 6px !important;\">";
+                    echo "<a style=\"color: #000000; text-decoration: none;\" ";
+                    echo "href=\"javascript: ";
+                    echo "var eraidsaver = $.post('./arc_journals_saved.php',";
+                    echo "{'eraidSave': '$eraidz', 'doAction': 'REMOVE'}).done(function(){";
+                    echo "var eraidremove = $('#eraidSave_".$myVar."').removeAttr('disabled');";
+                    echo "var eraiddisableB = $('#eraidSave_".$myVar."').addClass('btn-default');";
+                    echo "var eraiddisableC = $('#eraidSave_".$myVar."').removeClass('btn-info');";
+                    echo "var eraiddisableD = $('#eraidSaveHref_".$myVar."').css('color','black');";
+                    echo "var eraiddisable = $('#eraidRemove_".$myVar."').attr('disabled','disabled');";
+                    echo "});";
+                    echo "\">";
+                    echo "Remove";
+                    echo "</a>";
+                    echo "</button>";
+                }
+                echo "</td>";
+                echo "</tr>";		
 			}
-		}
-		
+		}        
+        
 ////////////////////////////////// All journals non-wildcard
 		
 		if(($wildcard != "y") && ($keywords != "VIEWSAVED")) {
@@ -1374,135 +1314,296 @@
 			}			
 		}
 		
-/////////////////////////////////////////////////////////// Run sql statement
+//////////////////////// Run sql statement
 		
 		$mysqli_result = mysqli_query($mysqli_link, $query);
 		while($row = mysqli_fetch_row($mysqli_result)) { 
 		
-/////////////////////////////////////////////////////////// Clean Vars
+//////////////////////// IDs
 		
 			$m++;
 			$eRaids[$m] = $row[1];
-			$snip=number_format((float)$row[39], 3, '.', '');
-			$rank=$row[19];
-			$quartile=$row[29];
-			$quartile=preg_replace("/Q/","","$quartile");
-			$qrank=$row[28];
-			$qcat=$row[27];
-			$OAccess=$row[24];
-			$fiveyrif=$row[34];
-			$IFscore=number_format((float)$row[25], 3, '.', '');
-			$AIscore=number_format((float)$row[26], 3, '.', '');
-			$OAccessImg="";
-			if(($OAccess != "")) {
+            $metrics = "";
+            $fsnip = "n";
+            
+//////////////////////// Get Metrics            
+            
+			$snip = number_format((float)$row[39], 3, '.', '');
+            $rank = $row[19];
+            $quartile = $row[29];
+            $quartile = preg_replace("/Q/","","$quartile");
+            $qrank = $row[28];
+            $qcat = $row[27];
+            $OAccess = $row[24];
+            $fiveyrif = $row[34];
+            $IFscore = number_format((float)$row[25], 3, '.', '');
+            $AIscore = number_format((float)$row[26], 3, '.', '');
+            $OAccessImg = "";
+            if(($OAccess != "")) {
 				$OAccessImg = "<span class=\"glyphicon glyphicon glyphicon-ok\"></span>";	
 			}
-			$NJ="";
-			$newJournal=$row[18];
-			$pattern="/Y$forCode,/i";
-			$pattern2="/N$forCode,/i";
+			$NJ = "";
+			$newJournal = $row[18];
+			$pattern = "/Y$forCode,/i";
+			$pattern2 = "/N$forCode,/i";
 			if(preg_match("$pattern","$newJournal")) { 
-				$NJ = "Yes"; 
-			//	$rowClass = "info"; 
+				$NJ = "Yes";
 			}
-			if(preg_match("$pattern2","$newJournal")) { $NJ = ""; $rowClass = ""; }
+			if(preg_match("$pattern2","$newJournal")) { 
+                $NJ = ""; 
+                $rowClass = ""; 
+            }       
 			if(($rank == "No")) { $rank = "";}
-			if(($snip == "No") OR ($snip == "0.000")) { $snip = ""; }
-			$row[2]= preg_replace("/'/i","\\'","$row[2]");
-			if(($IFscore == "0.000")) { $IFscore = ""; }
-			if(($AIscore == "0.000")) { $AIscore = ""; }
-			
-			$quartile = rtrim($quartile, "; ");
-			$qcat = rtrim($qcat, "; ");
-			$qrank = rtrim($qrank, "; ");
-			$quartile = preg_replace("/; /i","<br />","$quartile");
-			$qcat = preg_replace("/; /i",". ","$qcat");
-			$qrank = preg_replace("/; /i","<br />","$qrank");
-			
-			$IFscore = number_format($IFscore,3);
-			$fiveyrif = number_format($fiveyrif,3);
-			$snip = number_format($snip,3);
-			
-			echo "<tr class=\"$rowClass\">\n";
-			echo "<td class=\"text-center\">$quartile</a></td>";
-			echo "<td class=\"text-center\">";
-			echo "<a href=\"#\" data-toggle=\"tooltip\" title=\"$qcat\" style=\"color:#000000;text-decoration:none;\">$qrank</a></td>";
-			echo "<td class=\"text-right\">$IFscore</td>";
-			echo "<td class=\"text-right\">$fiveyrif</td>";
-			echo "<td class=\"text-right\">$snip</td>";
-			echo "<td class=\"text-center\" nowrap>";
-			for($r=0;$r<7;$r++) {
-				$q=(10+$r);
-				if(($row[$q] != "") && ($row[$q] != " ")) {
-					echo "$row[$q]<br />";
-				}
-			}
-			echo "</td>";
-			echo "<td class=\"text-left\">";
-			echo stripslashes(htmlentities($row[2]));
-			echo "<br />";
-			echo "<div style=\"float:right; position:relative; padding-top: 10px;\">";
+            if(($snip == "No") OR ($snip == "0.000")) { $snip = ""; }
+            if(($IFscore == "0.000")) { $IFscore = ""; }
+            if(($AIscore == "0.000")) { $AIscore = ""; }
+            $quartile = rtrim($quartile, "; ");
+            $qcat = rtrim($qcat, "; ");
+            $qrank = rtrim($qrank, "; ");	
+            $quartiles = explode(";",$quartile);
+            $qcats = explode(";",$qcat);
+            $qranks = explode(";",$qrank);	
+            $IFscore = number_format($IFscore,3);
+            $fiveyrif = number_format($fiveyrif,3);
+            $snip = number_format($snip,3);
+            $row[2]= preg_replace("/'/i","\\'","$row[2]");
+            $ABDC = $row[30];
+            if(($snip != "") OR ($IFscore != "") OR ($fiveyrif != "") OR ($quartiles[0] != "") OR ($OAccess != "") OR ($ABDC != "")) {
+                $metrics = "y";
+                $fsnip = "y";
+            }
+
+//////////////////////// Display Metrics List Row Item            
             
-////////////////////////////////////////////////////////////////// Open Form            
+			echo "<tr>\n";
+			echo "<td style=\"";
+            echo "margin-bottom: 1px; ";
+            echo "word-wrap: break-word; ";
+            echo "white-space: normal; ";
+            echo "color: #000000 !important; ";
+            echo "padding: 15px; ";
+            echo "border-top: 7px solid #000000 !important; ";
+            echo "border-left: 1px solid #cccccc !important; ";
+            echo "border-right: 0px solid #000000 !important; ";
+            echo "border-bottom: 0px solid #000000 !important; ";
+            if(($altRow == "b")) {
+                echo "background-color: #eeeeee !important; ";
+                $altRow = "a";
+            } else {
+                $altRow = "b";
+            }
+            echo "\">";
+            echo "<span style=\"";
+            echo "color: #800000; ";
+            echo "font-size: 1.2em; ";
+            echo "font-weight: 700; ";
+            echo "line-height: 2.4em; ";
+            echo "width: 100%; ";	
+            echo "white-space: normal; ";
+            echo "\">".htmlentities($row[2])."</span>";
+            echo "<p style=\"";
+            echo "color: #000000 !important; ";
+            echo "word-wrap: break-word; ";
+            echo "white-space: normal; ";
+            echo "width: 100%; ";
+            echo "\">";
             
-			echo "<form action=\"http://ulrichsweb.serialssolutions.com/widget/search/";
-			echo $row[10];
-			if(($row[11] != "")) { echo " OR ".$row[11]; }
-			if(($row[12] != "")) { echo " OR ".$row[12]; }
-			echo "\" method=\"POST\" target=\"_UlrichSearch\" style=\"margin-bottom:0px; padding: 0px;\">"; 
+//////////////////////// ISSN(S)
+		
+            echo "ISSNs ";
+            for($r=0;$r<7;$r++) {
+                $q=(10+$r);
+                if(($row[$q] != "") && ($row[$q] != " ")) {
+                    echo "$row[$q] ";
+                }
+            }
+            echo "<br />";
+		
+//////////////////////// FoRs		
+		
+            if(($row[5] != "")) { 
+                echo "($row[4]) $row[5]"; 
+            }
+            if(($row[7] != "")) { 
+                echo "<br />($row[6]) $row[7]"; 
+            }
+            if(($row[9] != "")) { 
+                echo "<br />($row[8]) $row[9]";  
+            }   
+
+//////////////////////// Q            
+            
+            if(($quartiles[0] != "")) {
+                $q = count($quartiles);
+                if($q > 0){
+                    for($v=0;$v<$q;$v++){					
+                        echo "<div class=\"ui-grid-a\" style=\"width:100%;\">";
+                        echo "<div class=\"ui-block-a\" ";
+                        echo "style=\"color: #000000; ";
+                        echo "font-size: 1.0em; ";
+                        echo "text-align: right; ";
+                        echo "padding-right: 0.7em; ";
+                        echo "width: 20%;\">";
+                        echo "<strong>Q</strong>";
+                        echo "</div>";
+                        echo "<div class=\"ui-block-b\" ";
+                        echo "style=\"color: #000000; font-size: 1.0em\">";
+                        echo ucwords(strtolower($qcats[$v]));
+                        echo "<br />(Quartile ";
+                        echo $quartiles[$v].", ".$qranks[$v];
+                        echo ")";
+                        echo "</div>";
+                        echo "</div>";
+                    }
+                }
+            }            
+			
+//////////////////////// 5YRIF		
+		
+            if(($fiveyrif != "")) {
+                echo "<div class=\"ui-grid-a\">";
+                echo "<div class=\"ui-block-a\" ";
+                echo "style=\"color: #000000; ";
+                echo "font-size: 1.0em; ";
+                echo "text-align: right; ";
+                echo "padding-right: 0.7em; ";
+                echo "width: 20%;\">";
+                echo "<strong>5YR IF</strong>";
+                echo "</div>";
+                echo "<div class=\"ui-block-b\" ";
+                echo "style=\"color: #000000; font-size: 1.0em;\">";
+                echo $fiveyrif;
+                echo "</div>";
+                echo "</div>";
+            }
+		
+//////////////////////// IF
+		
+            if(($IFscore != "")) {
+                echo "<div class=\"ui-grid-a\">";
+                echo "<div class=\"ui-block-a\" ";
+                echo "style=\"color: #000000; ";
+                echo "font-size: 1.0em; ";
+                echo "text-align: right; ";
+                echo "padding-right: 0.7em; ";
+                echo "width: 20%;\">";
+                echo "<strong>IF</strong>";
+                echo "</div>";
+                echo "<div class=\"ui-block-b\" ";
+                echo "style=\"color: #000000; font-size: 1.0em;\">";
+                echo $IFscore;
+                echo "</div>";
+                echo "</div>";
+            }
+		
+//////////////////////// SNIP
+
+            if(($snip != "")) {
+                echo "<div class=\"ui-grid-a\">";
+                echo "<div class=\"ui-block-a\" ";
+                echo "style=\"color: #000000; ";
+                echo "font-size: 1.0em; ";
+                echo "text-align: right; ";
+                echo "padding-right: 0.7em; ";
+                echo "width: 20%;\">";
+                echo "<strong>SNIP</strong>";
+                echo "</div>";
+                echo "<div class=\"ui-block-b\" ";
+                echo "style=\"color: #000000; font-size: 1.0em;\">";
+                echo $snip;
+                echo "</div>";
+                echo "</div>";
+            }		
+		
+//////////////////////// ABDC
+
+            if(($ABDC != "")) {
+                echo "<div class=\"ui-grid-a\">";
+                echo "<div class=\"ui-block-a\" ";
+                echo "style=\"color: #000000; ";
+                echo "font-size: 1.0em; ";
+                echo "text-align: right; ";
+                echo "padding-right: 0.7em; ";
+                echo "width: 20%;\">";
+                echo "<strong>ABDC</strong>";
+                echo "</div>";
+                echo "<div class=\"ui-block-b\" ";
+                echo "style=\"color: #000000; font-size: 1.0em;\">";
+                echo $ABDC;
+                echo "</div>";
+                echo "</div>";
+            }		
+		
+//////////////////////// QA
+		
+            if(($OAccessImg != "")) {
+                echo "<div class=\"ui-grid-a\">";
+                echo "<div class=\"ui-block-a\" ";
+                echo "style=\"color: #000000; ";
+                echo "font-size: 1.0em; ";
+                echo "text-align: right; ";
+                echo "padding-right: 0.7em; ";
+                echo "width: 20%;\">";
+                echo "<strong>OA</strong>";
+                echo "</div>";
+                echo "<div class=\"ui-block-b\" ";
+                echo "style=\"color: #000000; font-size: 1.0em;\">";
+                echo $OAccessImg;
+                echo "</div>";
+                echo "</div>";
+            }
+            
+//////////////////////// Library Links
+		
+            echo "<div class=\"ui-grid-b\" style=\"";
+            echo "padding-top: 0.5em; ";
+            echo "padding-bottom: 0.5em; ";
+            echo "white-space: nowrap; ";
+            echo "\">";
+
+//////////////////////// WSU		
+		
+            echo "<form action=\"";
+            echo "http://ulrichsweb.serialssolutions.com/widget/search/\" ";
+            echo "method=\"POST\" target=\"_UlrichSearch\" ";
+            echo "style=\"";
+            echo "margin-top: 0px; ";
+            echo "margin-bottom: 0px; ";
+            echo "padding: 0px; ";
+            echo "padding-left: 0.9em; ";
+            echo "\" />";
+            echo "<a href=\"";
+            echo "https://west-sydney-primo.hosted.exlibrisgroup.com/";
+            echo "primo-explore/search?query=title,exact,";
+            echo htmlentities($row[2]);
+            echo ",AND&pfilter=pfilter,exact,journals,";
+            echo "AND&tab=default_tab&search_scope=default_scope&";
+            echo "vid=UWS-ALMA&lang=en_US&mode=advanced&offset=0&";
+            echo "fn=search";
+            echo "\" target=\"_LibrarySearch\" ";
+            echo "style=\"";
+            echo "margin:0px; ";
+            echo "padding: 0px; ";
+            echo "\">";
+            echo "<img src=\"./assets/images/link_wsu.jpg\" height=\"30\" ";
+            echo "border=\"0\" ";
+            echo "style=\"";
+            echo "margin-top: 0px; ";
+            echo "vertical-align: top; ";
+            echo "margin-bottom: 0px; ";
+            echo "padding: 0px; ";
+            echo "padding-right: 0.3em; ";
+            echo "border: 0px solid #222222; ";
+            echo "\">";
+            echo "</a> ";
+		
+//////////////////////// Ulrichsweb		
+		
             echo "<input type=\"hidden\" name=\"query\" value=\"";
             echo $row[10];
             if(($row[11] != "")) { echo " OR ".$row[11]; }
             if(($row[12] != "")) { echo " OR ".$row[12]; }
             echo"\">";
-			
-////////////////////////////////////////////////////////////////// Elsevier
-			
-			if(($row[32] != "")) {
-				echo "<a title=\"Search for this on the Elsevier website\" href=\"";
-				echo "http://www.elsevier.com/search-results?query=";
-				$searchTitlePub = preg_replace("/\s\s/"," ","$row[2]");
-				$searchTitlePub = preg_replace("/\s/","+","$row[2]");
-				echo "$searchTitlePub";
-				echo "&labels=journals";
-				echo "\" target=\"_ElsevierSearch\" style=\"margin:0px; padding: 0px;\">";
-//				echo "<img src=\"./img/link_elsevier.png\" height=\"20\" ";
-//				echo "border=\"0\" style=\"margin-top:0px; margin-bottom:14px; padding: 0px;\">";
-                echo "<img src=\"./assets/images/link_elsevier.png\" ";
-                echo "height=\"30\" border=\"0\" style=\"";
-                echo "margin-top: 0px; ";
-                echo "margin-bottom: 0px; ";
-                echo "vertical-align: top; ";
-                echo "padding: 0px; ";
-                echo "padding-right: 0.3em; ";
-                echo "border: 0px solid #222222; \">";
-				echo "</a> ";
-			}
-			
-////////////////////////////////////////////////////////////////// SJR
-
-			if(($row[33] != "")) {
-				echo "<a title=\"Search for this on the Scimago Journal & Country Rank website\" href=\"";
-                echo "http://www.scimagojr.com/";
-                echo "journalsearch.php?q=".$row[33]."&tip=iss\" target=\"_SJRSearch\" ";
-                echo "style=\"margin:0px; padding: 0px;\">";
-//				echo "<img src=\"./img/link_sjr.png\" height=\"20\" ";
-//              echo "border=\"0\" style=\"margin-top:0px; margin-bottom:14px; padding: 0px;\">";
-                echo "<img src=\"./assets/images/link_sjr.jpg\" ";
-                echo "height=\"30\" border=\"0\" style=\"";
-                echo "margin-top: 0px; ";
-                echo "margin-bottom: 0px; ";
-                echo "vertical-align: top; ";
-                echo "padding: 0px; ";
-                echo "padding-right: 0.3em; ";
-                echo "border: 0px solid #222222; \">";
-				echo "</a> ";
-			}
-			
-////////////////////////////////////////////////////////////////// Ulrich
-			
-//			echo "<input type=\"image\" src=\"./img/link_ulrich.png\" alt=\"Search Ulrich Database\" ";
-//			echo "style=\"border: 1px solid #aaaaaa; margin-top:3px; margin-bottom:0px; padding: 0px;\" /> ";  
             echo "<input type=\"image\" ";
             echo "src=\"./assets/images/link_ulrichsweb.jpg\" ";
             echo "alt=\"Search Ulrich Database\" ";
@@ -1516,51 +1617,74 @@
             echo "padding-right: 0.3em; ";
             echo "border: 0px solid #222222; ";
             echo "\" /> ";
-            
-////////////////////////////////////////////////////////////////// UWS Library
 		
-            echo "<a title=\"Search for this on the WSU Library website\" href=\"";
-			echo "https://west-sydney-primo.hosted.exlibrisgroup.com/primo-explore/search?query=title,exact,";
-			echo htmlentities($row[2]);
-			echo ",AND&pfilter=pfilter,exact,journals,AND&tab=default_tab&";
-            echo "search_scope=default_scope&vid=UWS-ALMA&lang=en_US&mode=advanced&offset=0&fn=search";
-			echo "\" target=\"_LibrarySearch\" style=\"margin:0px; padding: 0px;\">";
-//			echo "<img src=\"./img/link_library.png\" height=\"20\" ";
-//          echo "border=\"0\" style=\"margin-top:0px; margin-bottom:14px; padding: 0px;\">";
-            echo "<img src=\"./assets/images/link_wsu.jpg\" height=\"30\" ";
-            echo "border=\"0\" ";
-            echo "style=\"";
-            echo "margin-top: 0px; ";
-            echo "vertical-align: top; ";
-            echo "margin-bottom: 0px; ";
-            echo "padding: 0px; ";
-            echo "padding-right: 0px; ";
-            echo "border: 0px solid #222222; ";
-            echo "\">";
-			echo "</a> ";            
+//////////////////////// SJR		
+		
+            if(($row[33] != "")) {
+                echo "<a href=\"http://www.scimagojr.com/journalsearch.php";
+                echo "?q=".$row[33]."&tip=iss\" target=\"_SJRSearch\" ";
+                echo "style=\"";
+                echo "margin: 0px; ";
+                echo "padding: 0px;\">";
+                echo "<img src=\"./assets/images/link_sjr.jpg\" ";
+                echo "height=\"30\" border=\"0\" style=\"";
+                echo "margin-top: 0px; ";
+                echo "margin-bottom: 0px; ";
+                echo "vertical-align: top; ";
+                echo "padding: 0px; ";
+                echo "padding-right: 0.3em; ";
+                echo "border: 0px solid #222222; \">";
+                echo "</a> ";
+            }
             
-////////////////////////////////////////////////////////////////// Close Form            
+//////////////////////// Elsevier
+		
+            if(($row[32] != "")) {
+                echo "<a href=\"";
+                echo "http://www.elsevier.com/search-results?query=";
+                $searchTitlePub = preg_replace("/\s\s/"," ","$row[2]");
+                $searchTitlePub = preg_replace("/\s/","+","$row[2]");
+                echo "$searchTitlePub";
+                echo "&labels=journals";
+                echo "\" target=\"_ElsevierSearch\" ";
+                echo "style=\"";
+                echo "margin: 0px; ";
+                echo "padding: 0px; \">";
+                echo "<img src=\"./assets/images/link_elsevier.png\" ";
+                echo "height=\"30\" border=\"0\" style=\"";
+                echo "margin-top: 0px; ";
+                echo "margin-bottom: 0px; ";
+                echo "vertical-align: top; ";
+                echo "padding: 0px; ";
+                echo "padding-right: 0.3em; ";
+                echo "border: 0px solid #222222; \">";
+                echo "</a> ";
+            }
             
-			echo "</form>";
-			echo "</div>";
+//////////////////////// Finish
+            
+            echo "</form>";
+            echo "</div>";
+			
+//////////////////////// Close first table column            
+            
 			echo "</td>";
-			
-			echo "<td class=\"text-center\"><a href=\"#\" data-toggle=\"tooltip\" title=\"$row[31]\" style=\"color:#000000;text-decoration:none;\">$row[30]</a></td>";
-				
-			echo "<td class=\"text-left\"><a ";
-			echo "href=\"javascript: var target = document.getElementById('matrixBody'); var spinner = new Spinner().spin(target); var doThisAlso = $('#scrollingP').scrollTop(0); var doThis = $( '#matrixBody' ).load( 'arc_journals.php?eRAID=".$row[1]."&for4=".$row[4]."&for2=&Order=' ); \" ";
-			echo "data-toggle=\"tooltip\" title=\"$row[5]\" style=\"color:#000000;text-decoration:none;\">$row[4]</a></td>";
-			echo "<td class=\"text-left\"><a ";
-			echo "href=\"javascript: var target = document.getElementById('matrixBody'); var spinner = new Spinner().spin(target); var doThisAlso = $('#scrollingP').scrollTop(0); var doThis = $( '#matrixBody' ).load( 'arc_journals.php?eRAID=".$row[1]."&for4=".$row[6]."&for2=&Order=' ); \" ";
-			echo "data-toggle=\"tooltip\" title=\"$row[7]\" style=\"color:#000000;text-decoration:none;\">$row[6]</a></td>";
-			echo "<td class=\"text-left\"><a ";
-			echo "href=\"javascript: var target = document.getElementById('matrixBody'); var spinner = new Spinner().spin(target); var doThisAlso = $('#scrollingP').scrollTop(0); var doThis = $( '#matrixBody' ).load( 'arc_journals.php?eRAID=".$row[1]."&for4=".$row[8]."&for2=&Order=' ); \" ";
-			echo "data-toggle=\"tooltip\" title=\"$row[9]\" style=\"color:#000000;text-decoration:none;\">$row[8]</a></td>";
-			
-/////////////////////////////////////////////////////////// View, Save and Remove buttons triggers
-			
-			echo "<td class=\"text-center\">$OAccessImg</td>";
-			echo "<td class=\"text-left\" style=\"white-space: nowrap;\" nowrap><a data-toggle=\"modal\" ";
+            
+//////////////////////// View, Save and Remove buttons triggers            
+            
+            echo "<td style=\"";
+            echo "margin-bottom: 1px; ";
+            echo "word-wrap: break-word; ";
+            echo "width: 95px; ";
+            echo "white-space: normal; ";
+            echo "color: #000000 !important; ";
+            echo "padding: 15px; ";
+            echo "border-top: 7px solid #000000 !important; ";
+            echo "border-left: 1px solid #cccccc !important; ";
+            echo "border-right: 1px solid #cccccc !important; ";
+            echo "border-bottom: 0px solid #000000 !important; ";
+            echo "\">";        
+			echo "<a data-toggle=\"modal\" ";
 			echo "data-target=\".bs-example-modal-lg\" class=\"btn ";
 			if(($snip != "")) {
 				echo "btn-warning ";
@@ -1570,18 +1694,18 @@
 				$fsnip = "n";
 			}
 			echo "btn-sm\" ";
-            echo "style=\"width: 75px !important; margin-bottom: 5px !important; \" ";
+            echo "style=\"width: 75px !important;\" ";
 			echo "href=\"./arc_modal.php?";
 			echo "eraid=$row[1]&fsnip=$fsnip&AmeanSnip=$NSixteen&for4=$for4&for2=$for2\">";
 			echo "View";
 			echo "</a><br />";
 			$eraidz = $row[1];
 			$myVar++;
+            
 			if(($_SESSION["ERAIDS"]["$eraidz"] == "")) {
 				
 				echo "<button id=\"eraidSave_".$myVar."\" class=\"btn btn-default btn-sm\" ";
-                echo "style=\"width: 75px !important; margin-bottom: 5px !important; \" ";
-                echo ">";
+				echo "style=\"width: 75px !important; margin-top: 6px !important;\">";
 				echo "<a id=\"eraidSaveHref_".$myVar."\" style=\"color: #000000; text-decoration: none;\" ";
 				echo "href=\"javascript: ";
 				echo "var eraidsaver = $.post('./arc_journals_saved.php',";
@@ -1597,9 +1721,8 @@
 				echo "</a>";
 				echo "</button><br />";
 				
-				echo "<button id=\"eraidRemove_".$myVar."\" class=\"btn btn-default btn-sm\" disabled ";
-                echo "style=\"width: 75px !important; margin-bottom: 5px !important; \" ";
-                echo ">";
+				echo "<button id=\"eraidRemove_".$myVar."\" class=\"btn btn-default btn-sm\" ";
+				echo "disabled style=\"width: 75px !important; margin-top: 6px !important;\">";
 				echo "<a style=\"color: #000000; text-decoration: none;\" ";
 				echo "href=\"javascript: ";
 				echo "var eraidsaver = $.post('./arc_journals_saved.php',";
@@ -1617,9 +1740,8 @@
 				
 			} else {
 				
-				echo "<button id=\"eraidSave_".$myVar."\" class=\"btn btn-info btn-sm\" disabled ";
-                echo "style=\"width: 75px !important; margin-bottom: 5px !important; \" ";
-                echo ">";
+                echo "<button id=\"eraidSave_".$myVar."\" class=\"btn btn-info btn-sm\" ";
+				echo "disabled style=\"width: 75px !important; margin-top: 6px !important;\">";
 				echo "<a id=\"eraidSaveHref_".$myVar."\" style=\"color: #FFFFFF; text-decoration: none;\" ";
 				echo "href=\"javascript: ";
 				echo "var eraidsaver = $.post('./arc_journals_saved.php',";
@@ -1636,8 +1758,7 @@
 				echo "</button><br />";
 				
 				echo "<button id=\"eraidRemove_".$myVar."\" class=\"btn btn-default btn-sm\" ";
-                echo "style=\"width: 75px !important; margin-bottom: 5px !important; \" ";
-                echo ">";
+				echo "style=\"width: 75px !important; margin-top: 6px !important;\">";
 				echo "<a style=\"color: #000000; text-decoration: none;\" ";
 				echo "href=\"javascript: ";
 				echo "var eraidsaver = $.post('./arc_journals_saved.php',";
@@ -1673,6 +1794,17 @@
 	</div>
     <script type="text/javascript">
 		
+        function delay(callback, ms) {
+          var timer = 0;
+          return function() {
+            var context = this, args = arguments;
+            clearTimeout(timer);
+            timer = setTimeout(function () {
+              callback.apply(context, args);
+            }, ms || 0);
+          };
+        }
+        
 		$(document).ready(function(){
 			
 			$.ajaxSetup ({
@@ -1681,7 +1813,7 @@
 				
 			$("#tableLegend").toggle();
 			
-			$('[data-toggle="tooltip"]').tooltip({'placement': 'top'});
+			$('[data-toggle="tooltip"]').tooltip({'placement': 'right'});
 			
     		$(".Toggle").click(function () {
           		$("#tableLegend").toggle();
@@ -1690,11 +1822,11 @@
 			$(".ToggleC").click(function () {
           		$("#menu").toggle();
 				var panelW = $("#pushobj").css("margin-left");
-				if(panelW == "470px") {
-					$("#pushobj").css({marginLeft: "25px"});
+				if(panelW == "411px") {
+					$("#pushobj").css({marginLeft: "1px"});
         		};
-				if(panelW == "25px") {
-    				$("#pushobj").css({marginLeft: "470px"});
+				if(panelW == "1px") {
+    				$("#pushobj").css({marginLeft: "411px"});
 				};
 			});
 			
@@ -1721,32 +1853,27 @@
 				);
 			});
 			
-			$("#filter").keyup(function(){
+            
+			$("#filter").keyup(delay(function(){
 				var filter = $(this).val(), count = 0;
-				$("#myTable tr").each(function(){
-					if ($(this).text().search(new RegExp(filter, "i")) < 0) {
-						if ($(this).text().search(new RegExp("ISSN", "i")) < 0) {
-							$(this).fadeOut();
-						}
-					} else {
-						$(this).show();
-						count++;
-					}
-				});
-			});
+                var nfilter = $(this).val().length;
+                if (nfilter > 3) {
+                    $("#myTable tr").each(function(){
+                        if ($(this).text().search(new RegExp(filter, "i")) < 0) {
+                            $(this).fadeOut();
+                        } else {
+                            $(this).show();
+                            count++;
+                        }
+                    });
+                }
+			},350));
 
 <?php
 
 /////////////////////////////////////////////////////////// Modal logic
 
 ?>
-			
-//			$('body').off('hidden.bs.modal').on('hidden.bs.modal', '.modal', function () {
-//				$("#chartdiv").empty();	
-//				$("#sherpadiv").empty();
-//				$(this).removeData('bs.modal').find(".modal-content").empty();
-//				$(this).data('bs.modal', null);
-//			});
 
 			$(".bs-example-modal-lg").on('hidden.bs.modal', function () {
 				$("#chartdiv").empty();	
