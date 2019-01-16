@@ -16,34 +16,34 @@
 //
 //  DATA SOURCES
 //
-//  ARC ERA 2010 Journals List | http://www.arc.gov.au/era/era_2010/archive/era_journal_list.htm
-//  ARC ERA 2012 Journals List | http://www.arc.gov.au/era/era_2012/era_journal_list.htm
-//  ARC ERA 2015 Draft Journals List | http://www.arc.gov.au/era/current_consult.htm
-//  ARC ERA 2015 Draft Conferences List | http://www.arc.gov.au/era/current_consult.htm
-//  ARC ERA 2015 Draft Disciplinary Matrix | http://www.arc.gov.au/era/current_consult.htm
-//  DOAJ Open Access Journal Metadata | http://www.doaj.org/faq
-//  Journal Metrics SNIP & SJR Historical Data | http://www.journalmetrics.com/snip.php
-//  JCR Impact Factors & Citation Reports | http://admin-apps.webofknowledge.com/JCR/JCR
-//  JCR Impact Factors Excel SCI | https://docs.zoho.com/sheet/published.do?rid=ulvpzac533844c7c44b6d9411894426d1ab1c
-//  SCImago Journal and Country Rank | http://www.scimagojr.com/journalrank.php
+//  ARC ERA 2010 Journals List | www.arc.gov.au/era/era_2010/archive/era_journal_list.htm
+//  ARC ERA 2012 Journals List | www.arc.gov.au/era/era_2012/era_journal_list.htm
+//  ARC ERA 2015 Draft Journals List | www.arc.gov.au/era/current_consult.htm
+//  ARC ERA 2015 Draft Conferences List | www.arc.gov.au/era/current_consult.htm
+//  ARC ERA 2015 Draft Disciplinary Matrix | www.arc.gov.au/era/current_consult.htm
+//  DOAJ Open Access Journal Metadata | www.doaj.org/faq
+//  Journal Metrics SNIP & SJR Historical Data | www.journalmetrics.com/snip.php
+//  JCR Impact Factors & Citation Reports | admin-apps.webofknowledge.com/JCR/JCR
+//  JCR Impact Factors Excel SCI | docs.zoho.com/sheet/published.do?rid=ulvpzac533844c7c44b6d9411894426d1ab1c
+//  SCImago Journal and Country Rank | www.scimagojr.com/journalrank.php
 //
 //	DATA API
 //
-//	ISI Web of Knowledge | http://wokinfo.com/wok-ws-docs 
-//	Elsevier | http://searchapidocs.scopus.com/
-//	OAKlist | https://www.oaklist.qut.edu.au/api/
-//	Sherpa/ RoMEO | http://www.sherpa.ac.uk/romeo/api.html
+//	ISI Web of Knowledge | wokinfo.com/wok-ws-docs 
+//	Elsevier | searchapidocs.scopus.com/
+//	OAKlist | www.oaklist.qut.edu.au/api/
+//	Sherpa/ RoMEO | www.sherpa.ac.uk/romeo/api.html
 //
 //  WEB FRAMEWORK
 //
-//  Bootstrap Twitter v3.1.1 | http://getbootstrap.com/
-//  Font Awesome v4.0.3 | http://fortawesome.github.io/Font-Awesome/
-//  Google Fonts API | http://fonts.googleapis.com
-//  Modernizr v.2.6.2 | http://modernizr.com/
-//  Multi-Level Push Menu v2.1.4 | http://multi-level-push-menu.make.rs/
-//  JQuery v.1.11.0 | http://jquery.com/download/
-//	JQuery JQPlot v.1.0.8 | http://www.jqplot.com/
-//	JQuery UI v.10.4 | https://jqueryui.com/
+//  Bootstrap Twitter v3.1.1 | getbootstrap.com/
+//  Font Awesome v4.0.3 | fortawesome.github.io/Font-Awesome/
+//  Google Fonts API | fonts.googleapis.com
+//  Modernizr v.2.6.2 | modernizr.com/
+//  Multi-Level Push Menu v2.1.4 | multi-level-push-menu.make.rs/
+//  JQuery v.1.11.0 | jquery.com/download/
+//	JQuery JQPlot v.1.0.8 | www.jqplot.com/
+//	JQuery UI v.10.4 | jqueryui.com/
 //
 //  UPDATED
 //  18-19 FEBRUARY 2014
@@ -77,20 +77,20 @@
 
 	Who:	Dr Jason Ensor
 	Email: 	j.ensor@westernsydney.edu.au | jasondensor@gmail.com
-	Web: 	http://www.jasonensor.com
+	Web: 	www.jasonensor.com
 	Mobile:	0419 674 770
 
 
 
   	WEB FRAMEWORK
 
-  	Bootstrap Twitter v3.3.5 | http://getbootstrap.com/
-  	Font Awesome v4.4.0 | http://fortawesome.github.io/Font-Awesome/
-  	Google Fonts API | http://fonts.googleapis.com
-  	Modernizr v.2.8.3 | http://modernizr.com/
-  	JQuery v.2.1.4 | http://jquery.com/download/
-	JQuery UI v.1.11.4 | https://jqueryui.com/
-	Bootstrap Material Design  | https://fezvrasta.github.io/bootstrap-material-design/
+  	Bootstrap Twitter v3.3.5 | getbootstrap.com/
+  	Font Awesome v4.4.0 | fortawesome.github.io/Font-Awesome/
+  	Google Fonts API | fonts.googleapis.com
+  	Modernizr v.2.8.3 | modernizr.com/
+  	JQuery v.2.1.4 | jquery.com/download/
+	JQuery UI v.1.11.4 | jqueryui.com/
+	Bootstrap Material Design | fezvrasta.github.io/bootstrap-material-design/
 
 
 
@@ -131,7 +131,7 @@
 		<meta http-equiv='cache-control' content='no-cache'>
 		<meta http-equiv='expires' content='0'>
 		<meta http-equiv='pragma' content='no-cache'>
-		<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300italic,700&subset=latin,cyrillic-ext,latin-ext,cyrillic' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300italic,700&subset=latin,cyrillic-ext,latin-ext,cyrillic' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="./js/font-awesome/css/font-awesome.min.css">
         <link rel="stylesheet" href="./js/mlpm/jquery.multilevelpushmenu_grey.css">
 		<link rel="stylesheet" href="./js/jquery-ui/themes/base/jquery.ui.all.css">
@@ -271,16 +271,16 @@
         <link rel="stylesheet" href="./css/bootstrap.min.css">
         <link rel="stylesheet" href="./css/bootstrap-theme.min.css">
 		<link rel="stylesheet" type="text/css" href="./js/jqplot/jquery.jqplot.css" />
-        <link rel="stylesheet" type="text/css" href="http://code.jquery.com/mobile/1.2.1/jquery.mobile-1.2.1.min.css" />
+        <link rel="stylesheet" type="text/css" href="https://code.jquery.com/mobile/1.2.1/jquery.mobile-1.2.1.min.css" />
         <!--[if lt IE 9]>
-			<script language="javascript" type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+			<script language="javascript" type="text/javascript" src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
             <script language="javascript" type="text/javascript" src="./js/jqplot/excanvas.js"></script>
 		<![endif]-->
     </head>
     <body style="overflow-x: hidden;">
 	<!--[if lt IE 7]>
     	<p class="browsehappy">You are using an <strong>outdated</strong> browser. 
-    	Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    	Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 	<![endif]-->
 <?php
 
@@ -340,7 +340,7 @@
                                                 <p style="text-align:left; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; font-size: 1.0em;">&nbsp;<br /><strong>SEARCH BY FIELD OF RESEARCH</strong></p>
                                                 <p style="text-align:justify; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; font-size: 1.0em;">Please select a research cluster from the left-hand panel to view its discipline groups and discipline fields. All clusters, groups and fields of research have been organised according to the latest Australia Research Council Discipline Matrix.</p>
                                                 <p style="text-align:left; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; font-size: 1.0em;">&nbsp;<br /><strong>YOUR GUIDE TO THE BEST JOURNALS</strong></p>
-                                                <p style="text-align:justify; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; font-size: 1.0em;">Journal Finder is a tool to help all Western Sydney University researchers publish their work in relevant high quality journals by providing contextual information on how a journal counts towards a particular field in Australia. This is a work in progress as we roll out new features and updates over the coming months. Please note that some functions are configured for use on a computer connected to a UWS campus network only and that it works best on large screens. As a web service in development, this tool is fully functional on the latest version of <a href="http://www.google.com/chrome" target="_GoogleChrome">Google Chrome</a>. If you would like to know more about the rationale behind this project, please click <a href="javascript: var target = document.getElementById('matrixBody'); var spinner = new Spinner().spin(target); var doThis = $( '#matrixBody' ).load( 'arc_paper.php' ); var doThisAlso = $('#scrollingP').scrollTop(0);">here</a> to read a <em>position paper</em> or contact the <a href="mailto:lib-research@westernsydney.edu.au?subject=Journal_Finder">Library</a>.</p>
+                                                <p style="text-align:justify; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; font-size: 1.0em;">Journal Finder is a tool to help all Western Sydney University researchers publish their work in relevant high quality journals by providing contextual information on how a journal counts towards a particular field in Australia. This is a work in progress as we roll out new features and updates over the coming months. Please note that some functions are configured for use on a computer connected to a UWS campus network only and that it works best on large screens. As a web service in development, this tool is fully functional on the latest version of <a href="https://www.google.com/chrome" target="_GoogleChrome">Google Chrome</a>. If you would like to know more about the rationale behind this project, please click <a href="javascript: var target = document.getElementById('matrixBody'); var spinner = new Spinner().spin(target); var doThis = $( '#matrixBody' ).load( 'arc_paper.php' ); var doThisAlso = $('#scrollingP').scrollTop(0);">here</a> to read a <em>position paper</em> or contact the <a href="mailto:lib-research@westernsydney.edu.au?subject=Journal_Finder">Library</a>.</p>
                                                 <p style="text-align:left; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; font-size: 1.0em;">&nbsp;<br /><strong>ERA RESULTS 2015</strong> - <a href="./arc_era_results_2015_cat3.php" target="_ERAresults1">Ranking 3</a> | <a href="./arc_era_results_2015_cat4.php" target="_ERAresults1">Ranking 4</a> | <a href="./arc_era_results_2015_cat5.php" target="_ERAresults3">Ranking 5</a> | <strong>2012</strong> - <a href="./arc_era_results_cat3.php" target="_ERAresults4">Ranking 3</a> | <a href="./arc_era_results_cat4.php" target="_ERAresults5">Ranking 4</a> | <a href="./arc_era_results_cat5.php" target="_ERAresults6">Ranking 5</a><!-- | <strong>Interactive Graph</strong> - <a href="./arc_modal_era_factor.php" target="_ERAanalysis">Analysis (Beta)</a>//--></p>
                                                  <p style="text-align:justify; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; font-size: 1.0em;">&nbsp;<br />Please note that only rankings 3, 4 and 5 are available as these demonstrate FoRs (fields of research) in Australia that are at World Standard or above. The FoRs are in the same order for each rank level although only universities that have an ERA rating in at least one of the FoRs appears on the list. FoRs are grouped according to discipline clusters and an FoR's citation or peer reviewed status. Going clockwise from the university list, they are grouped as follows: Citation-Based FoRs in Clusters BB, EE, MHS, MIC, PCE, followed by Peer-Review-Based FoRs in Clusters EC, EE, EHS, HCA, MIC. Some clusters have a mixture of citation and peer-review FoRs. For example, Pure Mathematics (0101) is a peer-reviewed FoR and not a Citation-reviewed FoR like its companions 0102, 0103, etc. So it is categorised with the peer-review side of the graph. The color code is meant to signal weight, moving from green (eight or more institution connections) to red (only one connection), with grey indicating no universities ranking in this field at this rating.</p>
                                                  <p style="text-align:left; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;">
