@@ -53,6 +53,9 @@
 //	VERSION 0.2
 //	24 MARCH - 11 APRIL 2014
 //
+//	LAST UPDATE
+//	11 March 2019
+//
 //
 /////////////////////////////////////////////////////////// Clean post and get
 
@@ -60,7 +63,7 @@
 	$wildcard = "";
 	include("./admin/config.php");
 	include("./admin/era.dbconnect.php");
-	require_once dirname(__FILE__) . '/classes/PHPExcel.php';
+	require_once("./classes/PHPExcel.php");
 	
 /////////////////////////////////////////////////////////// Vars
 
@@ -71,7 +74,7 @@
 	$Order = $_GET['Order'];
 	$wildcardSearch = "";
 	$found = "";
-	$dataShow = "n";
+	$dataShow = "y";
 	
 /////////////////////////////////////////////////////////// Logic switch
 	
@@ -93,9 +96,9 @@
 /////////////////////////////////////////////////////////// Write header row
 							 
 	$objPHPExcel->setActiveSheetIndex(0)
-        	->setCellValue("A" . $i, "Quartile")
-            ->setCellValue("B" . $i, "JCR Rank")
-            ->setCellValue("C" . $i, "JCR Field")
+        	->setCellValue("A" . $i, "WSU OA Funded")
+            ->setCellValue("B" . $i, "SCImago Quartile")
+            ->setCellValue("C" . $i, "SCImago Fields")
             ->setCellValue("D" . $i, "Impact Factor")
 			->setCellValue("E" . $i, "5 Year IF")
 			->setCellValue("F" . $i, "SNIP")
@@ -133,7 +136,7 @@
 		
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// All FoR journals		
 		
-		if(($keywords != "VIEWSAVED")) {
+		if(($keywords != "VIEWSAVED")) { 
 			if(($Order == "QUARTILE")) {
 				$query = "SELECT * FROM 2017_journals_final_list ";
 				$query .= "WHERE (FoR1 = \"$forCode\" OR FoR2 = \"$forCode\" OR FoR3 = \"$forCode\") ";
@@ -141,8 +144,8 @@
 					$query .= "AND ERAID != \"$eRAID\" ";
 				}
 				$query .= "ORDER BY ";
-				$query .= "case when JCR_Quartile in('', '0') then 1 else 0 end, JCR_Quartile ASC, cast(JCR_Rank as unsigned)";
-			} 
+				$query .= "case when SCIMAGO_Rank in('', '0') then 1 else 0 end, SCIMAGO_Rank ASC";
+			}
 			if(($Order == "QRANK")) {
 				$query = "SELECT * FROM 2017_journals_final_list ";
 				$query .= "WHERE (FoR1 = \"$forCode\" OR FoR2 = \"$forCode\" OR FoR3 = \"$forCode\") ";
@@ -231,8 +234,17 @@
 					$query .= "AND ERAID != \"$eRAID\" ";
 				}
 				$query .= "ORDER BY ";
-				$query .= "OpenAccess DESC, SNIP_2014 DESC";
-			} 
+				$query .= "OpenAccess DESC, SNIP_2016 DESC";
+			}
+			if(($Order == "OAF")) {
+				$query = "SELECT * FROM 2017_journals_final_list ";
+				$query .= "WHERE (FoR1 = \"$forCode\" OR FoR2 = \"$forCode\" OR FoR3 = \"$forCode\") ";
+				if(($eRAID != "")) {
+					$query .= "AND ERAID != \"$eRAID\" ";
+				}
+				$query .= "ORDER BY ";
+				$query .= "WSU_Funded DESC, SNIP_2016 DESC";
+			}
 			if(($Order == "") && ($wildcardSearch == "")) {
 				$query = "SELECT * FROM 2017_journals_final_list ";
 				$query .= "WHERE (FoR1 = \"$forCode\" OR FoR2 = \"$forCode\" OR FoR3 = \"$forCode\") ";
@@ -265,10 +277,13 @@
 			}
 			if(($Order == "QUARTILE")) {
 				$query = "SELECT * FROM 2017_journals_final_list ";
-				$query .= "WHERE ($constructSQL) ";
+				$query .= "WHERE (FoR1 = \"$forCode\" OR FoR2 = \"$forCode\" OR FoR3 = \"$forCode\") ";
+				if(($eRAID != "")) {
+					$query .= "AND ERAID != \"$eRAID\" ";
+				}
 				$query .= "ORDER BY ";
-				$query .= "case when JCR_Quartile in('', '0') then 1 else 0 end, JCR_Quartile ASC, cast(JCR_Rank as unsigned)";
-			} 
+				$query .= "case when SCIMAGO_Rank in('', '0') then 1 else 0 end, SCIMAGO_Rank ASC";
+			}
 			if(($Order == "QRANK")) {
 				$query = "SELECT * FROM 2017_journals_final_list ";
 				$query .= "WHERE ($constructSQL) ";
@@ -329,6 +344,15 @@
 				$query .= "ORDER BY ";
 				$query .= "OpenAccess DESC, SNIP_2014 DESC";
 			} 
+			if(($Order == "OAF")) {
+				$query = "SELECT * FROM 2017_journals_final_list ";
+				$query .= "WHERE (FoR1 = \"$forCode\" OR FoR2 = \"$forCode\" OR FoR3 = \"$forCode\") ";
+				if(($eRAID != "")) {
+					$query .= "AND ERAID != \"$eRAID\" ";
+				}
+				$query .= "ORDER BY ";
+				$query .= "WSU_Funded DESC, SNIP_2016 DESC";
+			}
 			if(($Order == "")) {
 				$query = "SELECT * FROM 2017_journals_final_list ";
 				$query .= "WHERE ($constructSQL) ";
@@ -349,10 +373,15 @@
 			$snip=number_format((float)$row[39], 3, '.', '');
 			$rank=$row[19];
 			$FiveIF=$row[34];
-			$quartile=$row[29];
+//			$quartile=$row[29];
+//			$quartile=preg_replace("/Q/","","$quartile");
+//			$qrank=$row[28];
+//			$qcat=$row[27];
+			$wsufund=$row[42];
+			$quartile=$row[41];
 			$quartile=preg_replace("/Q/","","$quartile");
-			$qrank=$row[28];
-			$qcat=$row[27];
+			$qrank=$quartile;
+			$qcat=$row[40];
 			$OAccess=$row[24];
 			if(($row[30] == "")) { $row[30] = " "; }
 			$IFscore=number_format((float)$row[25], 3, '.', '');
@@ -371,10 +400,9 @@
 			if(($row[14] != "") && ($row[14] != " ")) { $ISSN .= ",".$row[14]; }
 			if(($row[15] != "") && ($row[15] != " ")) { $ISSN .= ",".$row[15]; }
 			if(($row[16] != "") && ($row[16] != " ")) { $ISSN .= ",".$row[16]; }
-			if(($row[17] != "") && ($row[17] != " ")) { $ISSN .= ",".$row[17]; }
 		
 			$objPHPExcel->setActiveSheetIndex(0)
-            	->setCellValue("A" . $i, "$quartile")
+            	->setCellValue("A" . $i, "$wsufund")
             	->setCellValue("B" . $i, "$qrank")
             	->setCellValue("C" . $i, "$qcat")
             	->setCellValue("D" . $i, "$IFscore")
@@ -411,10 +439,10 @@
 	header ('Pragma: public');
 	$objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel5');
 	$objWriter->save('php://output');
-	exit;	
 
 /////////////////////////////////////////////////////////// Footer
 
 	include("./admin/era.dbdisconnect.php");
+	exit;
 
 ?>

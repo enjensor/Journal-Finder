@@ -50,6 +50,8 @@
 //	24 MARCH - 11 APRIL 2014
 //	29 AUGUST 2017
 //  12 December 2018
+//  17 January 2019
+//  08 March 2019
 //
 //
 /////////////////////////////////////////////////////////// Clean post and get
@@ -67,7 +69,7 @@
 
 
 	Project: ERA Journal Identification Toolkit
-	Project Team: Susan Robbins, Michael Gonzalez, Jason Ensor (Team Leader & Developer)
+	Project Team: Susan Robbins, Michael Gonzalez, Jason Ensor (Project Lead & Developer)
 	Project Base: Western Sydney University Library
 	Project Methodology: Procedural Scripting PHP | MySQL | JQuery
 
@@ -75,29 +77,29 @@
 
 	FOR ALL ENQUIRIES ABOUT CODE
 
-	Who:	Dr Jason Ensor
-	Email: 	j.ensor@westernsydney.edu.au | jasondensor@gmail.com
-	Web: 	www.jasonensor.com
+	Who: Dr Jason Ensor
+	Email: j.ensor@westernsydney.edu.au | jasondensor@gmail.com
+	Web: www.jasonensor.com
 	Mobile:	0419 674 770
 
 
 
-  	WEB FRAMEWORK
+  WEB FRAMEWORK
 
-  	Bootstrap Twitter v3.3.5 | getbootstrap.com/
-  	Font Awesome v4.4.0 | fortawesome.github.io/Font-Awesome/
-  	Google Fonts API | fonts.googleapis.com
-  	Modernizr v.2.8.3 | modernizr.com/
-  	JQuery v.2.1.4 | jquery.com/download/
+  Bootstrap Twitter v3.3.5 | getbootstrap.com/
+	Font Awesome v4.4.0 | fortawesome.github.io/Font-Awesome/
+	Google Fonts API | fonts.googleapis.com
+	Modernizr v.2.8.3 | modernizr.com/
+	JQuery v.2.1.4 | jquery.com/download/
 	JQuery UI v.1.11.4 | jqueryui.com/
 	Bootstrap Material Design | fezvrasta.github.io/bootstrap-material-design/
 
 
 
-  	UPDATED
+  UPDATED
     
-  	Development Started: 18 February 2014
-	Last updated: 11 December 2018
+  Development Started: 18 February 2014
+	Last updated: 8 March 2019
 
 
 
@@ -348,7 +350,7 @@
                                                     <img src="./img/logo_library.png" border="0" alt="" style="padding-right:0px;">
                                                     <!-- <img src="./img/logo_dhrg.png" border="0" alt="" style="padding-left:35px;"> //-->
                                                  </p>
-                                                 <p style="text-align:left; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; font-size: 11px; color: #777777;">&nbsp;<br />&nbsp;<br /><em>Last Updated, Dr Jason Ensor, 06 December 2018 Version 0.9.7<br />Authored by the Western Sydney University Library.<br />Project Team: Susan Robbins (2014-2018), Michael Gonzalez (2014-2018), Jason Ensor (2014-2018).<br />Western Sydney University CRICOS Provider No: 00917k.</em></p>
+                                                 <p style="text-align:left; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; font-size: 11px; color: #777777;">&nbsp;<br />&nbsp;<br /><em>Last Updated, Dr Jason Ensor, 7 March 2019 Version 0.9.7<br />Authored by the Western Sydney University Library.<br />Project Team: Susan Robbins (2014-2018), Michael Gonzalez (2014-2018), Jason Ensor (Project Lead & Developer, 2014-2019).<br />Western Sydney University CRICOS Provider No: 00917k.</em></p>
                                              </div>
                                              &nbsp;<br /> 
   										</div>
@@ -431,17 +433,19 @@
 ?>      
 								<!-- <li><p><img src="./img/combined.png" style="display: block; margin-left: auto; margin-right: auto; margin-top:15px; margin-bottom:30px;"></p></li> //-->
                                 <li><p style="color: #ffffff; text-align: right;padding-right:7px;">&nbsp;<br /><strong>Data Sources</strong><br />
+                                Elsevier Database<br />
+                                ERA Discipline Matrix<br />
+                                ERA Submission Journal List<br />
                                 Ulrich's Periodicals Directory<br />
-								The Australian Business Dean's Council List<br />
+                                DOAJ Open Access Journal Metadata<br />
+                                The Australian Business Dean's Council List<br />
                                 Western Sydney University Library Databases<br />
-                                ARC ERA 2010 Journals List, ARC ERA 2012 Journals List<br />
-                                ARC ERA 2018 Journals List, ARC ERA 2018 Disciplinary Matrix<br />
-                                DOAJ Open Access Journal Metadata, Journal Metrics SNIP & SJR Historical Data<br />
-                                JCR Impact Factors & Citation Reports, JCR Impact Factors Excel SCI<br />
-                                SHERPA/RoMEO Publisher Copyright &amp; Self-Archiving Policies<br />
+                                SHERPA/RoMEO Publisher Copyright Policies<br />
+                                Journal Metrics SNIP & SJR Historical Data<br />
+                                JCR Impact Factors & Citation Reports<br />
                                 SCImago Journal and Country Rank<br />
-                                Scopus Journal Metrics 2017<br />
-                                Elsevier Database<br />&nbsp;</p></li>
+                                JCR Impact Factors Excel SCI<br />
+                                Scopus Journal Metrics<br />&nbsp;</p></li>
                    	     	</ul>
                     	</nav>
                 	</div>

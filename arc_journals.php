@@ -54,7 +54,7 @@
 //	24 MARCH - 11 APRIL 2014
 //
 //	LATEST UPDATE
-//	30 April 2018
+//	08 March 2019
 //
 //
 /////////////////////////////////////////////////////////// Clean post and get
@@ -135,13 +135,7 @@
 		echo "<tbody>\n";
 		
 		echo "<tr><td width=\"10%\" style=\"width:10%;\" class=\"text-right\"><strong>Q</strong></td>";
-		echo "<td width=\"90%\" style=\"width:90%;\">Quartile Rank. This is a Rank by Journal Impact Factor expressed as a quartile of the whole category. ";
-		echo "Top ranked journals are in the first quartile, which is 1.</td></tr>\n";
-		
-		echo "<tr><td width=\"10%\" style=\"width:10%;\" class=\"text-right\"><strong>Rank</strong></td>";
-		echo "<td width=\"90%\" style=\"width:90%;\">This is the Rank placement by Journal Impact Factor of the journal in its Thomson Reuters subject category or categories. ";
-		echo "The categories can be viewed by hovering the mouse over the rank value. ";
-		echo "Please note that these categories do not necessarily align with ARC fields of research and that some journals may be in more than one category.</td></tr>\n";
+		echo "<td width=\"90%\" style=\"width:90%;\">Quartile Rank. This is a Rank by SCIMago expressed as a quartile of the whole category. Top ranked journals are in the first quartile, which is 1.v The Rank placement by SCIMago of the journal in its subject category or categories can be viewed by hovering the mouse over the rank value. Please note that these categories may differ to the ERA 2018 Journal submission List and that they may be in more than one category.</td></tr>\n";
 		
 		echo "<tr><td width=\"10%\" style=\"width:10%;\" class=\"text-right\"><strong>IF</strong></td>";
 		echo "<td width=\"90%\" style=\"width:90%;\">The Thomson Reuters impact factor is a measure of the frequency with which the 'average article' ";
@@ -557,33 +551,11 @@
                     echo "data-toggle=\"tooltip\" ";
                     echo "data-placement=\"right\" ";
                     echo "title=\" \nClick to organise by Quartile. ";
-                    echo "This is a Rank by Journal Impact Factor ";
+                    echo "This is a Rank by SCIMago ";
                     echo "expressed as a quartile of the whole category. ";
                     echo "Top ranked journals are in the first ";
                     echo "quartile, which is 1.\n \">";
-                ?>Order by Quartile</a></li>
-            <li><a href="javascript: var target = document.getElementById('matrixBody'); var spinner = new Spinner().spin(target); var doThisAlso = $('#scrollingP').scrollTop(0); var doThis = $( '#matrixBody' ).load( 'arc_journals.php?<?php
-                if(($wildcard != "y") && ($keywords != "VIEWSAVED")) {
-                    echo "eRAID=".$eRAID."&";
-                } else {
-                    echo "keywords=".$keywords."*&";
-                }
-                echo "for2=".$for2."&for4=".$for4."&Order=QRANK' );";
-                ?>" style="text-decoration: none !important; <?php if(($Order == "QRANK")) { echo "color: #800000 !important;"; } ?>" <?php
-                    echo "data-toggle=\"tooltip\" ";
-                    echo "data-placement=\"right\" ";
-                    echo "title=\" \nClick to organise ";
-                    echo "by Rank Placement. ";
-                    echo "This is calculated by Journal Impact ";
-                    echo "Factor of the journal in its ";
-                    echo "Thomson Reuters subject category or ";
-                    echo "categories.\n\n";
-                    echo "Please note that these categories ";
-                    echo "do not necessarily align with ARC ";
-                    echo "fields of research and that some ";
-                    echo "journals may be in more than ";
-                    echo "one category.\n \">"; 
-                ?>Order by Quartile Rank</a></li>
+                ?>Order by Quartile (Q)</a></li>
 			<li><a href="javascript: var target = document.getElementById('matrixBody'); var spinner = new Spinner().spin(target); var doThisAlso = $('#scrollingP').scrollTop(0); var doThis = $( '#matrixBody' ).load( 'arc_journals.php?<?php
                 if(($wildcard != "y") && ($keywords != "VIEWSAVED")) {
                     echo "eRAID=".$eRAID."&";
@@ -596,7 +568,7 @@
                     echo "data-placement=\"right\" ";
                     echo "title=\" \nClick to organise ";
                     echo "by Impact Factor score.\n \">"; 
-                ?>Order by Impact Factor</a></li>
+                ?>Order by Impact Factor (IF)</a></li>
 			<li><a href="javascript: var target = document.getElementById('matrixBody'); var spinner = new Spinner().spin(target); var doThisAlso = $('#scrollingP').scrollTop(0); var doThis = $( '#matrixBody' ).load( 'arc_journals.php?<?php
                 if(($wildcard != "y") && ($keywords != "VIEWSAVED")) {
                     echo "eRAID=".$eRAID."&";
@@ -648,7 +620,19 @@
                     echo "data-toggle=\"tooltip\" ";
                     echo "data-placement=\"right\" ";
                     echo "title=\" \nOrder by Open Access\n \">"; 
-                ?>Order by Open Access</a></li>
+                ?>Order by Open Access (OA)</a></li>
+        	<li><a href="javascript: var target = document.getElementById('matrixBody'); var spinner = new Spinner().spin(target); var doThisAlso = $('#scrollingP').scrollTop(0); var doThis = $( '#matrixBody' ).load( 'arc_journals.php?<?php
+                if(($wildcard != "y") && ($keywords != "VIEWSAVED")) {
+                    echo "eRAID=".$eRAID."&";
+                } else {
+                    echo "keywords=".$keywords."*&";
+                }
+                echo "for2=".$for2."&for4=".$for4."&Order=OAF' );";
+                ?>" style="text-decoration: none !important; <?php if(($Order == "OAF")) { echo "color: #800000 !important;"; } ?>" <?php
+                    echo "data-toggle=\"tooltip\" ";
+                    echo "data-placement=\"right\" ";
+                    echo "title=\" \nOrder by WSU OA Funding Available\n \">"; 
+                ?>Order by WSU OA Funding Available</a></li>
 		</ul>
 <?php  
         
@@ -666,7 +650,7 @@
         echo "margin-bottom: 0px; ";
         echo "vertical-align: middle; ";
         echo "padding: 0px; ";
-        echo "padding-right: 0.3em; ";
+        echo "padding-right: 0.0em; ";
         echo "\">";
         echo "&nbsp;&nbsp;&nbsp;Elsevier&nbsp;&nbsp;&nbsp;";
         echo "<img ";
@@ -678,9 +662,9 @@
         echo "margin-bottom: 0px; ";
         echo "vertical-align: middle; ";
         echo "padding: 0px; ";
-        echo "padding-right: 0.3em; ";
+        echo "padding-right: 0.0em; ";
         echo "\">";
-        echo "&nbsp;&nbsp;&nbsp;Scimago Journal & Country Rank&nbsp;&nbsp;&nbsp;";
+        echo "&nbsp;&nbsp;&nbsp;Scimago&nbsp;&nbsp;&nbsp;";
         echo "<img ";
         echo "src=\"./assets/images/link_ulrichsweb.jpg\" ";
         echo "height=\"30\" ";
@@ -690,7 +674,7 @@
         echo "margin-bottom: 0px; ";
         echo "vertical-align: middle; ";
         echo "padding: 0px; ";
-        echo "padding-right: 0.3em; ";
+        echo "padding-right: 0.0em; ";
         echo "\">";
         echo "&nbsp;&nbsp;&nbsp;Ulrichsweb&nbsp;&nbsp;&nbsp;";
         echo "<img ";
@@ -702,9 +686,21 @@
         echo "margin-bottom: 0px; ";
         echo "vertical-align: middle; ";
         echo "padding: 0px; ";
-        echo "padding-right: 0.3em; ";
+        echo "padding-right: 0.0em; ";
         echo "\">";
-        echo "&nbsp;&nbsp;&nbsp;Western Sydney University Library";
+        echo "&nbsp;&nbsp;&nbsp;Library&nbsp;&nbsp;&nbsp;";
+        echo "<img ";
+        echo "src=\"./assets/images/link_checkmark.png\" ";
+        echo "height=\"30\" ";
+        echo "border=\"0\" ";
+        echo "style=\"";
+        echo "margin-top: 0px; ";
+        echo "margin-bottom: 0px; ";
+        echo "vertical-align: middle; ";
+        echo "padding: 0px; ";
+        echo "padding-right: 0.0em; ";
+        echo "\">";
+        echo "&nbsp;&nbsp;&nbsp;OA Funding Available";
         echo "</p>";
 		
 /////////////////////////////////////////////////////////////// Search in-page bar
@@ -746,27 +742,26 @@
 			echo "keywords=".$keywords."*&";
 		}
 		echo "for2=".$for2."&for4=".$for4."&Order=QUARTILE' ); \" ";
-		echo "data-toggle=\"tooltip\" title=\" \nClick to organise by Quartile. This is a Rank by Journal Impact Factor expressed as a quartile of the whole category. ";
-		echo "Top ranked journals are in the first quartile, which is 1.\n \">";
+		echo "data-toggle=\"tooltip\" title=\" \nClick to organise by Quartile. This is a Rank by SCIMago expressed as a quartile of the whole category. Top ranked journals are in the first quartile, which is 1.\n\nHover the cursor over a rank to view publication categories.\n\nPlease note that these categories may differ to the ERA 2018 Journal submission List and that they may be in more than one category.\n \">";
 		echo "Q</a></strong></td>\n";
 		
 //////////////////////////////////////////// Rank		
-		
-		echo "<td class=\"text-center\" style=\"border-top: 7px solid #000000 !important; border-bottom: 7px solid #000000 !important;\"><strong>";
-		echo "<a href=\"javascript: var target = document.getElementById('matrixBody'); var spinner = new Spinner().spin(target); var doThisAlso = $('#scrollingP').scrollTop(0); ";
-		echo "var doThis = $( '#matrixBody' ).load( 'arc_journals.php?";
-		if(($wildcard != "y") && ($keywords != "VIEWSAVED")) {
-			echo "eRAID=".$eRAID."&";
-		} else {
-			echo "keywords=".$keywords."*&";
-		}
-		echo "for2=".$for2."&for4=".$for4."&Order=QRANK' ); \" ";
-		echo "data-toggle=\"tooltip\" data-placement=\"top\" title=\" \nClick to organise by Rank Placement. ";
-		echo "This is calculated by Journal Impact Factor of the journal in its Thomson Reuters subject category or ";
-		echo "categories.\n\nHover the cursor over a rank to view publication JCR categories.\n\n";
-		echo "Please note that these categories do not necessarily align with ACR fields of research and that some journals may be in more than one category.\n \">";
-		echo "Rank</a></strong></td>\n";
-		
+//		
+//		echo "<td class=\"text-center\" style=\"border-top: 7px solid #000000 !important; border-bottom: 7px solid #000000 !important;\"><strong>";
+//		echo "<a href=\"javascript: var target = document.getElementById('matrixBody'); var spinner = new Spinner().spin(target); var doThisAlso = $('#scrollingP').scrollTop(0); ";
+//		echo "var doThis = $( '#matrixBody' ).load( 'arc_journals.php?";
+//		if(($wildcard != "y") && ($keywords != "VIEWSAVED")) {
+//			echo "eRAID=".$eRAID."&";
+//		} else {
+//			echo "keywords=".$keywords."*&";
+//		}
+//		echo "for2=".$for2."&for4=".$for4."&Order=QRANK' ); \" ";
+//		echo "data-toggle=\"tooltip\" data-placement=\"top\" title=\" \nClick to organise by Rank Placement. ";
+//		echo "This is calculated by Journal Impact Factor of the journal in its Thomson Reuters subject category or ";
+//		echo "categories.\n\nHover the cursor over a rank to view publication JCR categories.\n\n";
+//		echo "Please note that these categories do not necessarily align with ACR fields of research and that some journals may be in more than one category.\n \">";
+//		echo "Rank</a></strong></td>\n";
+//		
 //////////////////////////////////////////// IF		
 		
 		echo "<td class=\"text-center\" style=\"border-top: 7px solid #000000 !important; border-bottom: 7px solid #000000 !important;\"><strong>";
@@ -893,10 +888,15 @@
 				$eRaids[$m] = $row[1];
 				$snip=number_format((float)$row[39], 3, '.', '');
 				$rank=$row[19];
-				$quartile=$row[29];
+//				$quartile=$row[29];
+//				$quartile=preg_replace("/Q/","","$quartile");
+//				$qrank=$row[28];
+//				$qcat=$row[27];
+				$wsufund=$row[42];
+				$quartile=$row[41];
 				$quartile=preg_replace("/Q/","","$quartile");
-				$qrank=$row[28];
-				$qcat=$row[27];
+				$qrank=$quartile;
+				$qcat=$row[40];
 				$OAccess=$row[24];
 				$fiveyrif=$row[34];
 				$IFscore=number_format((float)$row[25], 3, '.', '');
@@ -921,7 +921,7 @@
 				$qcat = rtrim($qcat, "; ");
 				$qrank = rtrim($qrank, "; ");
 				$quartile = preg_replace("/; /i","<br />","$quartile");
-				$qcat = preg_replace("/; /i","; ","$qcat");
+				$qcat = preg_replace("/; /i",". ","$qcat");
 				$qrank = preg_replace("/; /i","<br />","$qrank");
 				
 				$IFscore = number_format($IFscore,3);
@@ -929,8 +929,8 @@
 				$snip = number_format($snip,3);
 				
 				echo "<tr class=\"success\">\n";
-				echo "<td class=\"text-center\">$quartile</a></td>";
-				echo "<td class=\"text-center\"><a href=\"#\" data-toggle=\"tooltip\" title=\"$qcat\" style=\"color:#000000;text-decoration:none;\">$qrank</a></td>";
+//				echo "<td class=\"text-center\">$quartile</a></td>";
+				echo "<td class=\"text-right\"><a href=\"#\" data-toggle=\"tooltip\" title=\"$qcat\" style=\"color:#000000;text-decoration:none;\">$qrank</a></td>";
 				echo "<td class=\"text-right\">$IFscore</td>";
 				echo "<td class=\"text-right\">$fiveyrif</td>";
 				echo "<td class=\"text-right\">$snip</td>";
@@ -976,6 +976,24 @@
                     echo "padding-right: 0.3em; ";
                     echo "border: 0px solid #222222; \">";
 					echo "</a> ";
+				}
+
+////////////////////////////////////////////////////////////////// WSU OA Funding
+
+				if(($row[42] == "Yes")){
+					echo "<a title=\"Read more about Western's Open Access Memberships\" href=\"";
+	                echo "https://library.westernsydney.edu.au/main/researchers/open-access/open-access-membership";
+	                echo "\" target=\"_SJRSearch\" ";
+	                echo "style=\"margin:0px; padding: 0px;\">";
+	                echo "<img src=\"./assets/images/link_checkmark.png\" ";
+	                echo "height=\"30\" border=\"0\" style=\"";
+	                echo "margin-top: 0px; ";
+	                echo "margin-bottom: 0px; ";
+	                echo "vertical-align: top; ";
+	                echo "padding: 0px; ";
+	                echo "padding-right: 0.3em; ";
+	                echo "border: 0px solid #222222; \">";
+	                echo "</a> ";
 				}
 				
 ////////////////////////////////////////////////////////////////// SJR
@@ -1080,6 +1098,15 @@
 ////////////////////////////////// All journals non-wildcard
 		
 		if(($wildcard != "y") && ($keywords != "VIEWSAVED")) {
+//			if(($Order == "QUARTILE")) {
+//				$query = "SELECT * FROM 2017_journals_final_list ";
+//				$query .= "WHERE (FoR1 = \"$forCode\" OR FoR2 = \"$forCode\" OR FoR3 = \"$forCode\") ";
+//				if(($eRAID != "")) {
+//					$query .= "AND ERAID != \"$eRAID\" ";
+//				}
+//				$query .= "ORDER BY ";
+//				$query .= "case when JCR_Quartile in('', '0') then 1 else 0 end, JCR_Quartile ASC, cast(JCR_Rank as unsigned)";
+//			} 
 			if(($Order == "QUARTILE")) {
 				$query = "SELECT * FROM 2017_journals_final_list ";
 				$query .= "WHERE (FoR1 = \"$forCode\" OR FoR2 = \"$forCode\" OR FoR3 = \"$forCode\") ";
@@ -1087,7 +1114,7 @@
 					$query .= "AND ERAID != \"$eRAID\" ";
 				}
 				$query .= "ORDER BY ";
-				$query .= "case when JCR_Quartile in('', '0') then 1 else 0 end, JCR_Quartile ASC, cast(JCR_Rank as unsigned)";
+				$query .= "case when SCIMAGO_Rank in('', '0') then 1 else 0 end, SCIMAGO_Rank ASC";
 			} 
 			if(($Order == "QRANK")) {
 				$query = "SELECT * FROM 2017_journals_final_list ";
@@ -1186,7 +1213,16 @@
 					$query .= "AND ERAID != \"$eRAID\" ";
 				}
 				$query .= "ORDER BY ";
-				$query .= "OpenAccess DESC, SNIP_2013 DESC";
+				$query .= "OpenAccess DESC, SNIP_2016 DESC";
+			} 
+			if(($Order == "OAF")) {
+				$query = "SELECT * FROM 2017_journals_final_list ";
+				$query .= "WHERE (FoR1 = \"$forCode\" OR FoR2 = \"$forCode\" OR FoR3 = \"$forCode\") ";
+				if(($eRAID != "")) {
+					$query .= "AND ERAID != \"$eRAID\" ";
+				}
+				$query .= "ORDER BY ";
+				$query .= "WSU_Funded DESC, SNIP_2016 DESC";
 			} 
 			if(($Order == "")) {
 				$query = "SELECT * FROM 2017_journals_final_list ";
@@ -1201,11 +1237,17 @@
 ////////////////////////////////// All journals with wildcard
 			
 		if(($wildcard == "y") && ($keywords != "VIEWSAVED")) {
+//			if(($Order == "QUARTILE")) {
+//				$query = "SELECT * FROM 2017_journals_final_list ";
+//				$query .= "WHERE Title LIKE \"%$keywords%\" ";
+//				$query .= "ORDER BY ";
+//				$query .= "case when JCR_Quartile in('', '0') then 1 else 0 end, JCR_Quartile ASC, cast(JCR_Rank as unsigned)";
+//			} 
 			if(($Order == "QUARTILE")) {
 				$query = "SELECT * FROM 2017_journals_final_list ";
 				$query .= "WHERE Title LIKE \"%$keywords%\" ";
 				$query .= "ORDER BY ";
-				$query .= "case when JCR_Quartile in('', '0') then 1 else 0 end, JCR_Quartile ASC, cast(JCR_Rank as unsigned)";
+				$query .= "case when SCIMAGO_Rank in('', '0') then 1 else 0 end, SCIMAGO_Rank ASC";
 			} 
 			if(($Order == "QRANK")) {
 				$query = "SELECT * FROM 2017_journals_final_list ";
@@ -1271,8 +1313,17 @@
 				$query = "SELECT * FROM 2017_journals_final_list ";
 				$query .= "WHERE Title LIKE \"%$keywords%\" ";
 				$query .= "ORDER BY ";
-				$query .= "OpenAccess DESC, SNIP_2013 DESC";
+				$query .= "OpenAccess DESC, SNIP_2016 DESC";
 			} 
+			if(($Order == "OAF")) {
+				$query = "SELECT * FROM 2017_journals_final_list ";
+				$query .= "WHERE (FoR1 = \"$forCode\" OR FoR2 = \"$forCode\" OR FoR3 = \"$forCode\") ";
+				if(($eRAID != "")) {
+					$query .= "AND ERAID != \"$eRAID\" ";
+				}
+				$query .= "ORDER BY ";
+				$query .= "WSU_Funded DESC, SNIP_2016 DESC";
+			}
 			if(($Order == "")) {
 				$query = "SELECT * FROM 2017_journals_final_list ";
 				$query .= "WHERE Title LIKE \"%$keywords%\" ";
@@ -1295,12 +1346,19 @@
 					$constructSQL .= "ERAID = \"$e\"";
 				}
 			}
+//			if(($Order == "QUARTILE")) {
+//				$query = "SELECT * FROM 2017_journals_final_list ";
+//				$query .= "WHERE ($constructSQL) ";
+//				$query .= "ORDER BY ";
+//				$query .= "case when JCR_Quartile in('', '0') then 1 else 0 end, JCR_Quartile ASC, cast(JCR_Rank as unsigned)";
+//			} 
 			if(($Order == "QUARTILE")) {
 				$query = "SELECT * FROM 2017_journals_final_list ";
 				$query .= "WHERE ($constructSQL) ";
 				$query .= "ORDER BY ";
-				$query .= "case when JCR_Quartile in('', '0') then 1 else 0 end, JCR_Quartile ASC, cast(JCR_Rank as unsigned)";
-			} 
+				$query .= "ORDER BY ";
+				$query .= "case when SCIMAGO_Rank in('', '0') then 1 else 0 end, SCIMAGO_Rank ASC";
+			}
 			if(($Order == "QRANK")) {
 				$query = "SELECT * FROM 2017_journals_final_list ";
 				$query .= "WHERE ($constructSQL) ";
@@ -1365,15 +1423,24 @@
 				$query = "SELECT * FROM 2017_journals_final_list ";
 				$query .= "WHERE ($constructSQL) ";
 				$query .= "ORDER BY ";
-				$query .= "OpenAccess DESC, SNIP_2013 DESC";
+				$query .= "OpenAccess DESC, SNIP_2016 DESC";
 			} 
+			if(($Order == "OAF")) {
+				$query = "SELECT * FROM 2017_journals_final_list ";
+				$query .= "WHERE (FoR1 = \"$forCode\" OR FoR2 = \"$forCode\" OR FoR3 = \"$forCode\") ";
+				if(($eRAID != "")) {
+					$query .= "AND ERAID != \"$eRAID\" ";
+				}
+				$query .= "ORDER BY ";
+				$query .= "WSU_Funded DESC, SNIP_2016 DESC";
+			}
 			if(($Order == "")) {
 				$query = "SELECT * FROM 2017_journals_final_list ";
 				$query .= "WHERE ($constructSQL) ";
 				$query .= "ORDER BY Title ASC"; 
 			}			
 		}
-		
+
 /////////////////////////////////////////////////////////// Run sql statement
 		
 		$mysqli_result = mysqli_query($mysqli_link, $query);
@@ -1385,10 +1452,15 @@
 			$eRaids[$m] = $row[1];
 			$snip=number_format((float)$row[39], 3, '.', '');
 			$rank=$row[19];
-			$quartile=$row[29];
+//			$quartile=$row[29];
+//			$quartile=preg_replace("/Q/","","$quartile");
+//			$qrank=$row[28];
+//			$qcat=$row[27];
+			$wsufund=$row[42];
+			$quartile=$row[41];
 			$quartile=preg_replace("/Q/","","$quartile");
-			$qrank=$row[28];
-			$qcat=$row[27];
+			$qrank=$quartile;
+			$qcat=$row[40];
 			$OAccess=$row[24];
 			$fiveyrif=$row[34];
 			$IFscore=number_format((float)$row[25], 3, '.', '');
@@ -1416,7 +1488,7 @@
 			$qcat = rtrim($qcat, "; ");
 			$qrank = rtrim($qrank, "; ");
 			$quartile = preg_replace("/; /i","<br />","$quartile");
-			$qcat = preg_replace("/; /i",". ","$qcat");
+			$qcat = preg_replace("/; /i",".\n","$qcat");
 			$qrank = preg_replace("/; /i","<br />","$qrank");
 			
 			$IFscore = number_format($IFscore,3);
@@ -1424,8 +1496,8 @@
 			$snip = number_format($snip,3);
 			
 			echo "<tr class=\"$rowClass\">\n";
-			echo "<td class=\"text-center\">$quartile</a></td>";
-			echo "<td class=\"text-center\">";
+//			echo "<td class=\"text-center\">$quartile</a></td>";
+			echo "<td class=\"text-right\">";
 			echo "<a href=\"#\" data-toggle=\"tooltip\" title=\"$qcat\" style=\"color:#000000;text-decoration:none;\">$qrank</a></td>";
 			echo "<td class=\"text-right\">$IFscore</td>";
 			echo "<td class=\"text-right\">$fiveyrif</td>";
@@ -1477,6 +1549,24 @@
                 echo "padding-right: 0.3em; ";
                 echo "border: 0px solid #222222; \">";
 				echo "</a> ";
+			}
+
+////////////////////////////////////////////////////////////////// WSU OA Funding
+
+			if(($row[42] == "Yes")){
+				echo "<a title=\"Read more about Western's Open Access Memberships\" href=\"";
+                echo "https://library.westernsydney.edu.au/main/researchers/open-access/open-access-membership";
+                echo "\" target=\"_SJRSearch\" ";
+                echo "style=\"margin:0px; padding: 0px;\">";
+                echo "<img src=\"./assets/images/link_checkmark.png\" ";
+                echo "height=\"30\" border=\"0\" style=\"";
+                echo "margin-top: 0px; ";
+                echo "margin-bottom: 0px; ";
+                echo "vertical-align: top; ";
+                echo "padding: 0px; ";
+                echo "padding-right: 0.3em; ";
+                echo "border: 0px solid #222222; \">";
+                echo "</a> ";
 			}
 			
 ////////////////////////////////////////////////////////////////// SJR
