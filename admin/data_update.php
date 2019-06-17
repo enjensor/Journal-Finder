@@ -18,6 +18,317 @@
 	include("config.php");
 	include("era.dbconnect.php");
 
+/////////////////////////////////////// Scopus Data Updates
+        
+    $query = "SELECT ERAID, ISSN1, ISSN2, ISSN3, ISSN4, ISSN5, ISSN6, ISSN7, FoR1, FoR2, FoR3 FROM `2017_journals_final_list` ORDER BY ID ASC"; 
+    $mysqli_result = mysqli_query($mysqli_link, $query);
+    while($row = mysqli_fetch_row($mysqli_result)) { 
+
+///////////////////// Start Record
+
+        $eraid = $row[0];
+        $row[1] = preg_replace("/-/","","$row[1]");
+        $row[2] = preg_replace("/-/","","$row[2]");
+        $row[3] = preg_replace("/-/","","$row[3]");
+        $row[4] = preg_replace("/-/","","$row[4]");
+        $row[5] = preg_replace("/-/","","$row[5]");
+        $row[6] = preg_replace("/-/","","$row[6]");
+        $row[7] = preg_replace("/-/","","$row[7]");
+    
+///////////////////// 2011 SNIP       
+    
+        $snip = "";
+        $queryD = "SELECT SNIP FROM `2017_Scopus_2011` WHERE Print_ISSN = \"$row[1]\" ";
+        if(($row[2] != "") && ($row[2] != " ")) {
+            $queryD = $queryD."OR Print_ISSN = \"$row[2]\" ";
+        }
+        if(($row[3] != "") && ($row[3] != " ")) {
+            $queryD = $queryD."OR Print_ISSN = \"$row[3]\" ";
+        }
+        if(($row[4] != "") && ($row[4] != " ")) {
+            $queryD = $queryD."OR Print_ISSN = \"$row[4]\" ";
+        }
+        if(($row[5] != "") && ($row[5] != " ")) {
+            $queryD = $queryD."OR Print_ISSN = \"$row[5]\" ";
+        }
+        if(($row[6] != "") && ($row[6] != " ")) {
+            $queryD = $queryD."OR Print_ISSN = \"$row[6]\" ";
+        }
+        if(($row[7] != "") && ($row[7] != " ")) {
+            $queryD = $queryD."OR Print_ISSN = \"$row[7]\" "; 
+        }
+        $queryD = $queryD."ORDER BY ID DESC LIMIT 1"; 
+        $mysqli_resultD = mysqli_query($mysqli_link, $queryD);
+        while($rowD = mysqli_fetch_row($mysqli_resultD)) { 
+            $snip = $rowD[0];
+        }
+        if(($snip != "")) {
+            $queryDa = "UPDATE `2017_journals_snips` SET `2011_SNIP` = \"$snip\" WHERE ERAID = \"$eraid\"; ";
+            $mysqli_resultDa = mysqli_query($mysqli_link, $queryDa);
+            $queryDc = "UPDATE `2017_journals_final_list` SET `SNIP_2011` = \"$snip\" WHERE ERAID = \"$eraid\"; ";
+            $mysqli_resultDc = mysqli_query($mysqli_link, $queryDc);
+            $x++;
+        }
+        
+///////////////////// 2012 SNIP       
+    
+        $snip = "";
+        $queryD = "SELECT SNIP FROM `2017_Scopus_2012` WHERE Print_ISSN = \"$row[1]\" ";
+        if(($row[2] != "") && ($row[2] != " ")) {
+            $queryD = $queryD."OR Print_ISSN = \"$row[2]\" ";
+        }
+        if(($row[3] != "") && ($row[3] != " ")) {
+            $queryD = $queryD."OR Print_ISSN = \"$row[3]\" ";
+        }
+        if(($row[4] != "") && ($row[4] != " ")) {
+            $queryD = $queryD."OR Print_ISSN = \"$row[4]\" ";
+        }
+        if(($row[5] != "") && ($row[5] != " ")) {
+            $queryD = $queryD."OR Print_ISSN = \"$row[5]\" ";
+        }
+        if(($row[6] != "") && ($row[6] != " ")) {
+            $queryD = $queryD."OR Print_ISSN = \"$row[6]\" ";
+        }
+        if(($row[7] != "") && ($row[7] != " ")) {
+            $queryD = $queryD."OR Print_ISSN = \"$row[7]\" "; 
+        }
+        $queryD = $queryD."ORDER BY ID DESC LIMIT 1"; 
+        $mysqli_resultD = mysqli_query($mysqli_link, $queryD);
+        while($rowD = mysqli_fetch_row($mysqli_resultD)) { 
+            $snip = $rowD[0];
+        }
+        if(($snip != "")) {
+            $queryDa = "UPDATE `2017_journals_snips` SET `2012_SNIP` = \"$snip\" WHERE ERAID = \"$eraid\"; ";
+            $mysqli_resultDa = mysqli_query($mysqli_link, $queryDa);
+            $queryDc = "UPDATE `2017_journals_final_list` SET `SNIP_2012` = \"$snip\" WHERE ERAID = \"$eraid\"; ";
+            $mysqli_resultDc = mysqli_query($mysqli_link, $queryDc);
+            $x++;
+        }
+        
+///////////////////// 2013 SNIP       
+    
+        $snip = "";
+        $queryD = "SELECT SNIP FROM `2017_Scopus_2013` WHERE Print_ISSN = \"$row[1]\" ";
+        if(($row[2] != "") && ($row[2] != " ")) {
+            $queryD = $queryD."OR Print_ISSN = \"$row[2]\" ";
+        }
+        if(($row[3] != "") && ($row[3] != " ")) {
+            $queryD = $queryD."OR Print_ISSN = \"$row[3]\" ";
+        }
+        if(($row[4] != "") && ($row[4] != " ")) {
+            $queryD = $queryD."OR Print_ISSN = \"$row[4]\" ";
+        }
+        if(($row[5] != "") && ($row[5] != " ")) {
+            $queryD = $queryD."OR Print_ISSN = \"$row[5]\" ";
+        }
+        if(($row[6] != "") && ($row[6] != " ")) {
+            $queryD = $queryD."OR Print_ISSN = \"$row[6]\" ";
+        }
+        if(($row[7] != "") && ($row[7] != " ")) {
+            $queryD = $queryD."OR Print_ISSN = \"$row[7]\" "; 
+        }
+        $queryD = $queryD."ORDER BY ID DESC LIMIT 1"; 
+        $mysqli_resultD = mysqli_query($mysqli_link, $queryD);
+        while($rowD = mysqli_fetch_row($mysqli_resultD)) { 
+            $snip = $rowD[0];
+        }
+        if(($snip != "")) {
+            $queryDa = "UPDATE `2017_journals_snips` SET `2013_SNIP` = \"$snip\" WHERE ERAID = \"$eraid\"; ";
+            $mysqli_resultDa = mysqli_query($mysqli_link, $queryDa);
+            $queryDc = "UPDATE `2017_journals_final_list` SET `SNIP_2013` = \"$snip\" WHERE ERAID = \"$eraid\"; ";
+            $mysqli_resultDc = mysqli_query($mysqli_link, $queryDc);
+            $x++;
+        }
+        
+///////////////////// 2014 SNIP       
+    
+        $snip = "";
+        $queryD = "SELECT SNIP FROM `2017_Scopus_2014` WHERE Print_ISSN = \"$row[1]\" ";
+        if(($row[2] != "") && ($row[2] != " ")) {
+            $queryD = $queryD."OR Print_ISSN = \"$row[2]\" ";
+        }
+        if(($row[3] != "") && ($row[3] != " ")) {
+            $queryD = $queryD."OR Print_ISSN = \"$row[3]\" ";
+        }
+        if(($row[4] != "") && ($row[4] != " ")) {
+            $queryD = $queryD."OR Print_ISSN = \"$row[4]\" ";
+        }
+        if(($row[5] != "") && ($row[5] != " ")) {
+            $queryD = $queryD."OR Print_ISSN = \"$row[5]\" ";
+        }
+        if(($row[6] != "") && ($row[6] != " ")) {
+            $queryD = $queryD."OR Print_ISSN = \"$row[6]\" ";
+        }
+        if(($row[7] != "") && ($row[7] != " ")) {
+            $queryD = $queryD."OR Print_ISSN = \"$row[7]\" "; 
+        }
+        $queryD = $queryD."ORDER BY ID DESC LIMIT 1"; 
+        $mysqli_resultD = mysqli_query($mysqli_link, $queryD);
+        while($rowD = mysqli_fetch_row($mysqli_resultD)) { 
+            $snip = $rowD[0];
+        }
+        if(($snip != "")) {
+            $queryDa = "UPDATE `2017_journals_snips` SET `2014_SNIP` = \"$snip\" WHERE ERAID = \"$eraid\"; ";
+            $mysqli_resultDa = mysqli_query($mysqli_link, $queryDa);
+            $queryDc = "UPDATE `2017_journals_final_list` SET `SNIP_2014` = \"$snip\" WHERE ERAID = \"$eraid\"; ";
+            $mysqli_resultDc = mysqli_query($mysqli_link, $queryDc);
+            $x++;
+        }
+        
+///////////////////// 2015 SNIP       
+    
+        $snip = "";
+        $queryD = "SELECT SNIP FROM `2017_Scopus_2015` WHERE Print_ISSN = \"$row[1]\" ";
+        if(($row[2] != "") && ($row[2] != " ")) {
+            $queryD = $queryD."OR Print_ISSN = \"$row[2]\" ";
+        }
+        if(($row[3] != "") && ($row[3] != " ")) {
+            $queryD = $queryD."OR Print_ISSN = \"$row[3]\" ";
+        }
+        if(($row[4] != "") && ($row[4] != " ")) {
+            $queryD = $queryD."OR Print_ISSN = \"$row[4]\" ";
+        }
+        if(($row[5] != "") && ($row[5] != " ")) {
+            $queryD = $queryD."OR Print_ISSN = \"$row[5]\" ";
+        }
+        if(($row[6] != "") && ($row[6] != " ")) {
+            $queryD = $queryD."OR Print_ISSN = \"$row[6]\" ";
+        }
+        if(($row[7] != "") && ($row[7] != " ")) {
+            $queryD = $queryD."OR Print_ISSN = \"$row[7]\" "; 
+        }
+        $queryD = $queryD."ORDER BY ID DESC LIMIT 1"; 
+        $mysqli_resultD = mysqli_query($mysqli_link, $queryD);
+        while($rowD = mysqli_fetch_row($mysqli_resultD)) { 
+            $snip = $rowD[0];
+        }
+        if(($snip != "")) {
+            $queryDa = "UPDATE `2017_journals_snips` SET `2015_SNIP` = \"$snip\" WHERE ERAID = \"$eraid\"; ";
+            $mysqli_resultDa = mysqli_query($mysqli_link, $queryDa);
+            $queryDc = "UPDATE `2017_journals_final_list` SET `SNIP_2015` = \"$snip\" WHERE ERAID = \"$eraid\"; ";
+            $mysqli_resultDc = mysqli_query($mysqli_link, $queryDc);
+            $x++;
+        }
+        
+///////////////////// 2016 SNIP       
+    
+        $snip = "";
+        $queryD = "SELECT SNIP FROM `2017_Scopus_2016` WHERE Print_ISSN = \"$row[1]\" ";
+        if(($row[2] != "") && ($row[2] != " ")) {
+            $queryD = $queryD."OR Print_ISSN = \"$row[2]\" ";
+        }
+        if(($row[3] != "") && ($row[3] != " ")) {
+            $queryD = $queryD."OR Print_ISSN = \"$row[3]\" ";
+        }
+        if(($row[4] != "") && ($row[4] != " ")) {
+            $queryD = $queryD."OR Print_ISSN = \"$row[4]\" ";
+        }
+        if(($row[5] != "") && ($row[5] != " ")) {
+            $queryD = $queryD."OR Print_ISSN = \"$row[5]\" ";
+        }
+        if(($row[6] != "") && ($row[6] != " ")) {
+            $queryD = $queryD."OR Print_ISSN = \"$row[6]\" ";
+        }
+        if(($row[7] != "") && ($row[7] != " ")) {
+            $queryD = $queryD."OR Print_ISSN = \"$row[7]\" "; 
+        }
+        $queryD = $queryD."ORDER BY ID DESC LIMIT 1"; 
+        $mysqli_resultD = mysqli_query($mysqli_link, $queryD);
+        while($rowD = mysqli_fetch_row($mysqli_resultD)) { 
+            $snip = $rowD[0];
+        }
+        if(($snip != "")) {
+            $queryDa = "UPDATE `2017_journals_snips` SET `2016_SNIP` = \"$snip\" WHERE ERAID = \"$eraid\"; ";
+            $mysqli_resultDa = mysqli_query($mysqli_link, $queryDa);
+            $queryDc = "UPDATE `2017_journals_final_list` SET `SNIP_2016` = \"$snip\" WHERE ERAID = \"$eraid\"; ";
+            $mysqli_resultDc = mysqli_query($mysqli_link, $queryDc);
+            $x++;
+        }  
+
+///////////////////// 2017 SNIP
+
+        $snip = "";
+        $queryD = "SELECT SNIP FROM `2017_Scopus_2017` WHERE Print_ISSN = \"$row[1]\" ";
+        if(($row[2] != "") && ($row[2] != " ")) {
+            $queryD = $queryD."OR Print_ISSN = \"$row[2]\" ";
+        }
+        if(($row[3] != "") && ($row[3] != " ")) {
+            $queryD = $queryD."OR Print_ISSN = \"$row[3]\" ";
+        }
+        if(($row[4] != "") && ($row[4] != " ")) {
+            $queryD = $queryD."OR Print_ISSN = \"$row[4]\" ";
+        }
+        if(($row[5] != "") && ($row[5] != " ")) {
+            $queryD = $queryD."OR Print_ISSN = \"$row[5]\" ";
+        }
+        if(($row[6] != "") && ($row[6] != " ")) {
+            $queryD = $queryD."OR Print_ISSN = \"$row[6]\" ";
+        }
+        if(($row[7] != "") && ($row[7] != " ")) {
+            $queryD = $queryD."OR Print_ISSN = \"$row[7]\" "; 
+        }
+        $queryD = $queryD."ORDER BY ID DESC LIMIT 1"; 
+        $mysqli_resultD = mysqli_query($mysqli_link, $queryD);
+        while($rowD = mysqli_fetch_row($mysqli_resultD)) { 
+            $snip = $rowD[0];
+        }
+        if(($snip != "")) {
+            $queryDa = "UPDATE `2017_journals_snips` SET `2017_SNIP` = \"$snip\" WHERE ERAID = \"$eraid\"; ";
+            $mysqli_resultDa = mysqli_query($mysqli_link, $queryDa);
+            $queryDc = "UPDATE `2017_journals_final_list` SET `SNIP_2017` = \"$snip\" WHERE ERAID = \"$eraid\"; ";
+            $mysqli_resultDc = mysqli_query($mysqli_link, $queryDc);
+            $x++;
+        }         
+
+///////////////////// Finish Record
+
+    }
+    echo "$parse: $x rows updated";
+    die;  
+
+/////////////////////////////////////////////////////////// Record OA record id
+        
+    $parse="Open Access";
+    $query = "UPDATE 2017_journals_final_list SET OpenAccess = \"\" "; 
+    $mysqli_result = mysqli_query($mysqli_link, $query);
+    
+    $query = "SELECT ERAID, ISSN1, ISSN2, ISSN3, ISSN4, ISSN5, ISSN6, ISSN7 FROM 2017_journals_final_list WHERE OpenAccess =\"\" "; 
+    $mysqli_result = mysqli_query($mysqli_link, $query);
+    while($row = mysqli_fetch_row($mysqli_result)) { 
+        $OA = "";
+        $queryD = "SELECT ID FROM 2018_data_oa WHERE Print_ISSN = \"$row[1]\" OR EISSN = \"$row[1]\" ";
+        if(($row[2] != "") && ($row[2] != " ")) {
+            $queryD = $queryD."OR Print_ISSN = \"$row[2]\" OR EISSN = \"$row[2]\" ";
+        }
+        if(($row[3] != "") && ($row[3] != " ")) {
+            $queryD = $queryD."OR Print_ISSN = \"$row[3]\" OR EISSN = \"$row[3]\" ";
+        }
+        if(($row[4] != "") && ($row[4] != " ")) {
+            $queryD = $queryD."OR Print_ISSN = \"$row[4]\" OR EISSN = \"$row[4]\" ";
+        }
+        if(($row[5] != "") && ($row[5] != " ")) {
+            $queryD = $queryD."OR Print_ISSN = \"$row[5]\" OR EISSN = \"$row[5]\" ";
+        }
+        if(($row[6] != "") && ($row[6] != " ")) {
+            $queryD = $queryD."OR Print_ISSN = \"$row[6]\" OR EISSN = \"$row[6]\" ";
+        }
+        if(($row[7] != "") && ($row[7] != " ")) {
+            $queryD = $queryD."OR Print_ISSN = \"$row[7]\" OR EISSN = \"$row[7]\" "; 
+        }
+        $mysqli_resultD = mysqli_query($mysqli_link, $queryD);
+        while($rowD = mysqli_fetch_row($mysqli_resultD)) { 
+            $OA = "$rowD[0]";
+        }
+        if(($OA !="")) {
+            $r++;
+            $queryD = "UPDATE 2017_journals_final_list SET OpenAccess = \"Yes\" WHERE ERAID = \"$row[0]\" ";
+            $mysqli_resultD = mysqli_query($mysqli_link, $queryD);
+        }
+        $x++;
+    }
+    echo "$parse: $x rows processed | $r updated with OA";
+    die;
+
 ///////////////////// WSU Funded
 
     $r = 0;

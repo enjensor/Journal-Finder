@@ -52,6 +52,7 @@
 //  12 December 2018
 //  17 January 2019
 //  08 March 2019
+//	13-14 June  2019
 //
 //
 /////////////////////////////////////////////////////////// Clean post and get
@@ -99,7 +100,7 @@
   UPDATED
     
   Development Started: 18 February 2014
-	Last updated: 8 March 2019
+	Last updated: 14 June 2019
 
 
 
@@ -124,31 +125,31 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]> 	   <html class="no-js"> <![endif]-->
     <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Journal Finder - Western Sydney University Library</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="Journal Finder">
-        <meta name="robots" content="noindex,nofollow">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Journal Finder - Western Sydney University Library</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Journal Finder">
+    <meta name="robots" content="noindex,nofollow">
 		<meta http-equiv='cache-control' content='no-cache'>
 		<meta http-equiv='expires' content='0'>
 		<meta http-equiv='pragma' content='no-cache'>
 		<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300italic,700&subset=latin,cyrillic-ext,latin-ext,cyrillic' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="./js/font-awesome/css/font-awesome.min.css">
-        <link rel="stylesheet" href="./js/mlpm/jquery.multilevelpushmenu_grey.css">
+    <link rel="stylesheet" href="./js/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./js/mlpm/jquery.multilevelpushmenu_grey.css">
 		<link rel="stylesheet" href="./js/jquery-ui/themes/base/jquery.ui.all.css">
-        <style type="text/css">
+    <style type="text/css">
 		
 			body {
-				background: #FFFFFF;
-                overflow: hidden !important;
-                height: 100%;
+				  background: #FFFFFF;
+          overflow: hidden !important;
+          height: 100%;
 			}
 
 			#pushobj {
-    			margin-left: 411px;
-                margin-bottom: 0px;
-                padding-bottom: 0px;
+    			margin-left: 381px;
+          margin-bottom: 0px;
+          padding-bottom: 0px;
 			}
 
 			#menu {
@@ -157,15 +158,15 @@
 			}
 			
 			.ui-autocomplete {
-				max-height: 360px;
-				overflow-y: auto;
-				overflow-x: hidden;
+  				max-height: 360px;
+  				overflow-y: auto;
+  				overflow-x: hidden;
 			}
 			
 			.axis path, .axis line {
-				fill: none;
-				stroke: #000;
-				shape-rendering: crispEdges;
+  				fill: none;
+  				stroke: #000;
+  				shape-rendering: crispEdges;
 			}
 			
 			.bar {
@@ -173,21 +174,21 @@
 			}
 
 			.x.axis path {
-				display: none;
+				  display: none;
 			}
 
 			.line {
-				fill: none;
-				stroke: steelblue;
-				stroke-width: 1.5px;
+  				fill: none;
+  				stroke: steelblue;
+  				stroke-width: 1.5px;
 			}
 			
 			* html .ui-autocomplete {
-				height: 360px;
+				  height: 360px;
 			}
 			
 			.fancybox-custom .fancybox-skin {
-				box-shadow: 0 0 50px #222;
+				  box-shadow: 0 0 50px #222;
 			}
 			
 			.tooltip-inner {
@@ -201,13 +202,13 @@
 			
 			::-webkit-scrollbar-thumb {
     			border-radius: 3px;
-                background-color: #aaaaaa;
+          background-color: #aaaaaa;
     			-webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
 			}
 
-            ::-webkit-scrollbar-track-piece {
-                background: #dddddd;
-            }
+      ::-webkit-scrollbar-track-piece {
+          background: #dddddd;
+      }
 
 			.btn-customa {
   				background-color: hsl(0, 0%, 36%) !important;
@@ -272,7 +273,7 @@
         <script language="javascript" type="text/javascript" src="./js/d3.v3.min.js"></script>
         <link rel="stylesheet" href="./css/bootstrap.min.css">
         <link rel="stylesheet" href="./css/bootstrap-theme.min.css">
-		<link rel="stylesheet" type="text/css" href="./js/jqplot/jquery.jqplot.css" />
+		    <link rel="stylesheet" type="text/css" href="./js/jqplot/jquery.jqplot.css" />
         <link rel="stylesheet" type="text/css" href="https://code.jquery.com/mobile/1.2.1/jquery.mobile-1.2.1.min.css" />
         <!--[if lt IE 9]>
 			<script language="javascript" type="text/javascript" src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -334,27 +335,33 @@
 														}
 													?> 
 												</p>
-                                            </form>
-                                        </div>                                               
-                                        &nbsp;<br />                           
+                              </form>
+                                      </div>                           
                                     	<div class="col-lg-12" style="padding-left:30px;padding-right:30px;">
                                         	<div class="col-lg-12" style="padding: 30px; background-color:#ffffff;">
+                                                <p style="text-align:left; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; font-size: 1.0em;">&nbsp;<br /><strong>YOUR GUIDE TO THE BEST JOURNALS</strong></p>
+                                                <p style="text-align:justify; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; font-size: 1.0em;">Journal Finder is a tool to help all Western Sydney University researchers compare and evaluate the relevant journals in their field, with the aim of ensuring your work is published in high quality outlets that fit the scope of your research appropriately.  Journal Finder provides contextual information on how a journal counts towards a particular field of research in Australia, as well as additional data and links to external sources to aid comparison.</p>
+                                                <p>It is highly recommended that you use Journal Finder to identify and compare a list of relevant journals to target BEFORE you write the article.  Ensuring your work fits the scope, aims and criteria of the journal before you have submitted it for consideration enhances the likelihood of acceptance.  </p>
+                                                <p><ul><li>This tool is best accessed on the latest version of <a href="https://www.google.com/chrome" target="_GoogleChrome">Google Chrome</a>.</li><li>Do not use the ‘back’ button on your browser. Instead, click on the Journal Finder header in the red band at the top. However, when browsing by research cluster there is a back button built in to that menu.</li></ul></p>
+                                                <p>If you would like to know more about the rationale behind this project, please click <a href="javascript: var target = document.getElementById('matrixBody'); var spinner = new Spinner().spin(target); var doThis = $( '#matrixBody' ).load( 'arc_paper.php' ); var doThisAlso = $('#scrollingP').scrollTop(0);">here</a> to read a <em>position paper</em>.</p>
                                                 <p style="text-align:left; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; font-size: 1.0em;">&nbsp;<br /><strong>SEARCH BY FIELD OF RESEARCH</strong></p>
                                                 <p style="text-align:justify; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; font-size: 1.0em;">Please select a research cluster from the left-hand panel to view its discipline groups and discipline fields. All clusters, groups and fields of research have been organised according to the latest Australia Research Council Discipline Matrix.</p>
-                                                <p style="text-align:left; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; font-size: 1.0em;">&nbsp;<br /><strong>YOUR GUIDE TO THE BEST JOURNALS</strong></p>
-                                                <p style="text-align:justify; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; font-size: 1.0em;">Journal Finder is a tool to help all Western Sydney University researchers publish their work in relevant high quality journals by providing contextual information on how a journal counts towards a particular field in Australia. This is a work in progress as we roll out new features and updates over the coming months. Please note that some functions are configured for use on a computer connected to a UWS campus network only and that it works best on large screens. As a web service in development, this tool is fully functional on the latest version of <a href="https://www.google.com/chrome" target="_GoogleChrome">Google Chrome</a>. If you would like to know more about the rationale behind this project, please click <a href="javascript: var target = document.getElementById('matrixBody'); var spinner = new Spinner().spin(target); var doThis = $( '#matrixBody' ).load( 'arc_paper.php' ); var doThisAlso = $('#scrollingP').scrollTop(0);">here</a> to read a <em>position paper</em> or contact the <a href="mailto:lib-research@westernsydney.edu.au?subject=Journal_Finder">Library</a>.</p>
-                                                <p style="text-align:left; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; font-size: 1.0em;">&nbsp;<br /><strong>ERA RESULTS 2015</strong> - <a href="./arc_era_results_2015_cat3.php" target="_ERAresults1">Ranking 3</a> | <a href="./arc_era_results_2015_cat4.php" target="_ERAresults1">Ranking 4</a> | <a href="./arc_era_results_2015_cat5.php" target="_ERAresults3">Ranking 5</a> | <strong>2012</strong> - <a href="./arc_era_results_cat3.php" target="_ERAresults4">Ranking 3</a> | <a href="./arc_era_results_cat4.php" target="_ERAresults5">Ranking 4</a> | <a href="./arc_era_results_cat5.php" target="_ERAresults6">Ranking 5</a><!-- | <strong>Interactive Graph</strong> - <a href="./arc_modal_era_factor.php" target="_ERAanalysis">Analysis (Beta)</a>//--></p>
-                                                 <p style="text-align:justify; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; font-size: 1.0em;">&nbsp;<br />Please note that only rankings 3, 4 and 5 are available as these demonstrate FoRs (fields of research) in Australia that are at World Standard or above. The FoRs are in the same order for each rank level although only universities that have an ERA rating in at least one of the FoRs appears on the list. FoRs are grouped according to discipline clusters and an FoR's citation or peer reviewed status. Going clockwise from the university list, they are grouped as follows: Citation-Based FoRs in Clusters BB, EE, MHS, MIC, PCE, followed by Peer-Review-Based FoRs in Clusters EC, EE, EHS, HCA, MIC. Some clusters have a mixture of citation and peer-review FoRs. For example, Pure Mathematics (0101) is a peer-reviewed FoR and not a Citation-reviewed FoR like its companions 0102, 0103, etc. So it is categorised with the peer-review side of the graph. The color code is meant to signal weight, moving from green (eight or more institution connections) to red (only one connection), with grey indicating no universities ranking in this field at this rating.</p>
-                                                 <p style="text-align:left; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;">
-                                                    &nbsp;<br />&nbsp;<br />
+                                          </div>
+                                          <br />&nbsp;<br />&nbsp;<br />
+                                          <div class="col-lg-12" style="padding: 30px; background-color:#ffffff;">
+                                                 <p style="text-align:center; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;">
                                                     <img src="./img/logo_library.png" border="0" alt="" style="padding-right:0px;">
-                                                    <!-- <img src="./img/logo_dhrg.png" border="0" alt="" style="padding-left:35px;"> //-->
                                                  </p>
-                                                 <p style="text-align:left; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; font-size: 11px; color: #777777;">&nbsp;<br />&nbsp;<br /><em>Last Updated, Dr Jason Ensor, 7 March 2019 Version 0.9.7<br />Authored by the Western Sydney University Library.<br />Project Team: Susan Robbins (2014-2018), Michael Gonzalez (2014-2018), Jason Ensor (Project Lead & Developer, 2014-2019).<br />Western Sydney University CRICOS Provider No: 00917k.</em></p>
-                                             </div>
-                                             &nbsp;<br /> 
-  										</div>
-                                        &nbsp;
+                                                 <p style="text-align:center; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; font-size: 11px; color: #777777;">&nbsp;<br />&nbsp;<br />
+                                                  <em>Last Updated, Dr Jason Ensor, 14 June 2019 Version 1.1
+                                                    <br />Authored by the Western Sydney University Library.
+                                                    <br />Project Team: Jason Ensor (Project Lead & Developer, 2014-), Katrina Trewin (2019-), Ria Hamblett (2019-)
+                                                    <br />Susan Robbins (2014-2018), Michael Gonzalez (2014-2018).
+                                                    <br />Western Sydney University CRICOS Provider No: 00917k.</em></p>
+                                          </div>
+                                          &nbsp;<br /> 
+  										                </div>
+                        &nbsp;
 
 <?php
 
@@ -432,20 +439,23 @@
 
 ?>      
 								<!-- <li><p><img src="./img/combined.png" style="display: block; margin-left: auto; margin-right: auto; margin-top:15px; margin-bottom:30px;"></p></li> //-->
-                                <li><p style="color: #ffffff; text-align: right;padding-right:7px;">&nbsp;<br /><strong>Data Sources</strong><br />
-                                Elsevier Database<br />
-                                ERA Discipline Matrix<br />
-                                ERA Submission Journal List<br />
-                                Ulrich's Periodicals Directory<br />
-                                DOAJ Open Access Journal Metadata<br />
-                                The Australian Business Dean's Council List<br />
-                                Western Sydney University Library Databases<br />
-                                SHERPA/RoMEO Publisher Copyright Policies<br />
-                                Journal Metrics SNIP & SJR Historical Data<br />
-                                JCR Impact Factors & Citation Reports<br />
+                                <li><p style="color: #ffffff; text-align: right;padding-right:7px;">&nbsp;<br /><strong>Data Sources</strong><br /><br />
+                                <em>(Publishers’ open access journals are included as they<br />provided the journal lists for the OA funding tick)</em><br /><br />
+                                ARC ERA 2018 Discipline Matrix<br />
+                                ARC ERA 2018 Submission Journal List<br />
+                                Australian Business Dean's Council Quality List<br />
+                                Elsevier Journals<br />
+                                InCites Journal Citation Reports (Clarivate Analytics)<br />
                                 SCImago Journal and Country Rank<br />
-                                JCR Impact Factors Excel SCI<br />
-                                Scopus Journal Metrics<br />&nbsp;</p></li>
+                                SHERPA/RoMEO Publisher Copyright Policies<br />
+                                Scopus Journal Metrics (Elsevier)<br />
+                                Ulrichsweb Global Serials Directory<br />
+                                Western Sydney University Library Collection Search<br />
+                                Directory of Open Access Journals<br />
+                                BioMed Central / Springer Open Journals<br />
+                                Taylor & Francis Open Access Journals<br />
+                                Wiley Open Access Journals<br />
+                                &nbsp;</p></li>
                    	     	</ul>
                     	</nav>
                 	</div>
@@ -564,7 +574,7 @@
 				
         		containersToPush: [$('#pushobj')],
 				mode: 'cover',
-        		menuWidth: '410px',
+        		menuWidth: '380px',
         		menuHeight: '100%',
 				backText: 'Back',
 				backItemIcon: 'fa fa-angle-left',

@@ -55,6 +55,7 @@
 //
 //	LAST UPDATE
 //	11 March 2019
+//	17 June 2019
 //
 //
 /////////////////////////////////////////////////////////// Clean post and get
@@ -94,21 +95,54 @@
 			->setCategory("Publications");
 	
 /////////////////////////////////////////////////////////// Write header row
-							 
+//						 
+//	$objPHPExcel->setActiveSheetIndex(0)
+//        	->setCellValue("A" . $i, "WSU OA Funded")
+//			->setCellValue("B" . $i, "SCImago Quartile")
+//			->setCellValue("C" . $i, "SCImago Fields")
+//			->setCellValue("D" . $i, "Impact Factor")
+//			->setCellValue("E" . $i, "5 Year IF")
+//			->setCellValue("F" . $i, "SNIP")
+//			->setCellValue("G" . $i, "ISSN")
+//			->setCellValue("H" . $i, "Title")
+//			->setCellValue("I" . $i, "Australian Business Deans Council Rank")
+//			->setCellValue("J" . $i, "FoR 1")
+//			->setCellValue("K" . $i, "FoR 2")
+//			->setCellValue("L" . $i, "FoR 3")
+//			->setCellValue("M" . $i, "Open Access");
+//
+//	WSI OA Funded
+//	Q SCImago
+//	Q SCImago Fields
+//	SNIP
+//	Q JCR
+//	Rank JCR
+//	IF
+//	IF 5YR
+//	ISSN
+//	Title
+//	ABDC
+//	FoR1
+//	FoR2
+//	FoR3
+//	DOAJ
+
 	$objPHPExcel->setActiveSheetIndex(0)
         	->setCellValue("A" . $i, "WSU OA Funded")
-            ->setCellValue("B" . $i, "SCImago Quartile")
-            ->setCellValue("C" . $i, "SCImago Fields")
-            ->setCellValue("D" . $i, "Impact Factor")
-			->setCellValue("E" . $i, "5 Year IF")
-			->setCellValue("F" . $i, "SNIP")
-			->setCellValue("G" . $i, "ISSN")
-			->setCellValue("H" . $i, "Title")
-			->setCellValue("I" . $i, "Australian Business Deans Council Rank")
-			->setCellValue("J" . $i, "FoR 1")
-			->setCellValue("K" . $i, "FoR 2")
-			->setCellValue("L" . $i, "FoR 3")
-			->setCellValue("M" . $i, "Open Access");
+            ->setCellValue("B" . $i, "Q SCImago")
+            ->setCellValue("C" . $i, "Q SCImago Fields")
+            ->setCellValue("D" . $i, "SNIP")
+            ->setCellValue("E" . $i, "Q JCR")
+            ->setCellValue("F" . $i, "Rank JCR")
+            ->setCellValue("G" . $i, "Impact Factor")
+			->setCellValue("H" . $i, "Impact Factor 5 Year")
+			->setCellValue("I" . $i, "ISSN")
+			->setCellValue("J" . $i, "Title")
+			->setCellValue("K" . $i, "Australian Business Deans Council Rank")
+			->setCellValue("L" . $i, "FoR 1")
+			->setCellValue("M" . $i, "FoR 2")
+			->setCellValue("N" . $i, "FoR 3")
+			->setCellValue("O" . $i, "DOAJ");		
 	
 /////////////////////////////////////////////////////////// Write no data if invalid get vars
 
@@ -127,7 +161,9 @@
 			->setCellValue("J" . $i, "--")
 			->setCellValue("K" . $i, "--")
 			->setCellValue("L" . $i, "--")
-			->setCellValue("M" . $i, "--");
+			->setCellValue("M" . $i, "--")
+			->setCellValue("N" . $i, "--")
+			->setCellValue("O" . $i, "--");
 	}
 	
 /////////////////////////////////////////////////////////// Else construct database queries
@@ -162,7 +198,7 @@
 					$query .= "AND ERAID != \"$eRAID\" ";
 				}
 				$query .= "ORDER BY ";
-				$query .= "case when SNIP_2014 in('', '0') then 1 else 0 end, convert(`SNIP_2014`, decimal(5,3)) DESC";
+				$query .= "case when SNIP_2017 in('', '0') then 1 else 0 end, convert(`SNIP_2017`, decimal(5,3)) DESC";
 			} 
 			if(($Order == "IF")) {
 				$query = "SELECT * FROM 2017_journals_final_list ";
@@ -234,7 +270,7 @@
 					$query .= "AND ERAID != \"$eRAID\" ";
 				}
 				$query .= "ORDER BY ";
-				$query .= "OpenAccess DESC, SNIP_2016 DESC";
+				$query .= "OpenAccess DESC, SNIP_2017 DESC";
 			}
 			if(($Order == "OAF")) {
 				$query = "SELECT * FROM 2017_journals_final_list ";
@@ -243,7 +279,7 @@
 					$query .= "AND ERAID != \"$eRAID\" ";
 				}
 				$query .= "ORDER BY ";
-				$query .= "WSU_Funded DESC, SNIP_2016 DESC";
+				$query .= "WSU_Funded DESC, SNIP_2017 DESC";
 			}
 			if(($Order == "") && ($wildcardSearch == "")) {
 				$query = "SELECT * FROM 2017_journals_final_list ";
@@ -294,7 +330,7 @@
 				$query = "SELECT * FROM 2017_journals_final_list ";
 				$query .= "WHERE ($constructSQL) ";
 				$query .= "ORDER BY ";
-				$query .= "case when SNIP_2014 in('', '0') then 1 else 0 end, convert(`SNIP_2014`, decimal(5,3)) DESC";
+				$query .= "case when SNIP_2017 in('', '0') then 1 else 0 end, convert(`SNIP_2017`, decimal(5,3)) DESC";
 			} 
 			if(($Order == "IF")) {
 				$query = "SELECT * FROM 2017_journals_final_list ";
@@ -342,7 +378,7 @@
 				$query = "SELECT * FROM 2017_journals_final_list ";
 				$query .= "WHERE ($constructSQL) ";
 				$query .= "ORDER BY ";
-				$query .= "OpenAccess DESC, SNIP_2014 DESC";
+				$query .= "OpenAccess DESC, SNIP_2017 DESC";
 			} 
 			if(($Order == "OAF")) {
 				$query = "SELECT * FROM 2017_journals_final_list ";
@@ -351,7 +387,7 @@
 					$query .= "AND ERAID != \"$eRAID\" ";
 				}
 				$query .= "ORDER BY ";
-				$query .= "WSU_Funded DESC, SNIP_2016 DESC";
+				$query .= "WSU_Funded DESC, SNIP_2017 DESC";
 			}
 			if(($Order == "")) {
 				$query = "SELECT * FROM 2017_journals_final_list ";
@@ -370,13 +406,13 @@
 			$i++;
 			$m++;
 			$eRaids[$m] = $row[1];
-			$snip=number_format((float)$row[39], 3, '.', '');
+			$snip=number_format((float)$row[43], 3, '.', '');
 			$rank=$row[19];
 			$FiveIF=$row[34];
-//			$quartile=$row[29];
-//			$quartile=preg_replace("/Q/","","$quartile");
-//			$qrank=$row[28];
-//			$qcat=$row[27];
+			$quartilejcr=$row[29];
+			$quartilejcr=preg_replace("/Q/","","$quartilejcr");
+			$qjcrrank=$row[28];
+			$qjcrcat=$row[27];
 			$wsufund=$row[42];
 			$quartile=$row[41];
 			$quartile=preg_replace("/Q/","","$quartile");
@@ -400,21 +436,39 @@
 			if(($row[14] != "") && ($row[14] != " ")) { $ISSN .= ",".$row[14]; }
 			if(($row[15] != "") && ($row[15] != " ")) { $ISSN .= ",".$row[15]; }
 			if(($row[16] != "") && ($row[16] != " ")) { $ISSN .= ",".$row[16]; }
+
+//	WSI OA Funded
+//	Q SCImago
+//	Q SCImago Fields
+//	SNIP
+//	Q JCR
+//	Rank JCR
+//	IF
+//	IF 5YR
+//	ISSN
+//	Title
+//	ABDC
+//	FoR1
+//	FoR2
+//	FoR3
+//	DOAJ
 		
 			$objPHPExcel->setActiveSheetIndex(0)
             	->setCellValue("A" . $i, "$wsufund")
             	->setCellValue("B" . $i, "$qrank")
             	->setCellValue("C" . $i, "$qcat")
-            	->setCellValue("D" . $i, "$IFscore")
-				->setCellValue("E" . $i, "$FiveIF")
-				->setCellValue("F" . $i, "$snip")
-				->setCellValue("G" . $i, "$ISSN")
-				->setCellValue("H" . $i, "$title")
-				->setCellValue("I" . $i, "$row[30]")
-				->setCellValue("J" . $i, "$row[4]")
-				->setCellValue("K" . $i, "$row[6]")
-				->setCellValue("L" . $i, "$row[8]")
-				->setCellValue("M" . $i, "$OAccess");		
+            	->setCellValue("D" . $i, "$snip")
+            	->setCellValue("E" . $i, "$quartilejcr")
+            	->setCellValue("F" . $i, "$qjcrrank")
+            	->setCellValue("G" . $i, "$IFscore")
+				->setCellValue("H" . $i, "$FiveIF")
+				->setCellValue("I" . $i, "$ISSN")
+				->setCellValue("J" . $i, "$title")
+				->setCellValue("K" . $i, "$row[30]")
+				->setCellValue("L" . $i, "$row[4]")
+				->setCellValue("M" . $i, "$row[6]")
+				->setCellValue("N" . $i, "$row[8]")
+				->setCellValue("O" . $i, "$OAccess");		
 		}
 	}
 

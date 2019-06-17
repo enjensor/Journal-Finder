@@ -54,6 +54,8 @@
 //	24 MARCH - 11 APRIL 2014
 //	19 September 2017
 //  07 December 2018
+//	13 June 2019
+//	17 June 2019
 //
 //
 /////////////////////////////////////////////////////////// Clean post and get
@@ -73,21 +75,16 @@
 /////////////////////////////////////////////////////////// Explanatory text
 	
 	if(($display == "default")) {
-		echo "<p style=\"text-align:justify;\">";
-		echo "No discipline matrix data is available at the cluster level.<br /><br />";
-		echo "Please select a discipline group or discipline field from the left-hand panel. A group will have a 2-digit number next to its name and a field will have a 4-digit number next to its name. If you cannot find the field of research code or name that your are seeking, please contact the administrator of this service. All fields of research have been organised according to the latest Australia Research Council Discipline Matrix.</p>";
+		echo "<div class=\"ui-widget col-lg-12\" style=\"padding:30px;\"><div class=\"col-lg-12\" style=\"padding: 30px; background-color:#ffffff;\"><p style=\"text-align:justify; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; font-size: 1.0em !important;\">Fields of Research have been organised into clusters according to the latest Australian Research Council Discipline Matrix (2018). No journal data is available at the cluster level. Please select a 4-digit or 2-digit Field of Research from the left-hand panel. If you cannot find the field of research code or name that you are seeking, please contact the administrator of this service.</p></div></div>";
 	}
 	
 	if((!$for2 && !$for4 && !$display)) {
-		echo "<p style=\"text-align:justify;\">";
-		echo "No discipline matrix data is available at the cluster level.<br /><br />";
-		echo "Please select a discipline group or discipline field from the left-hand panel. A group will have a 2-digit number next to its name and a field will have a 4-digit number next to its name. If you cannot find the field of research code or name that your are seeking, please contact the administrator of this service. All fields of research have been organised according to the latest Australia Research Council Discipline Matrix.</p>";
+		echo "<div class=\"ui-widget col-lg-12\" style=\"padding:30px;\"><div class=\"col-lg-12\" style=\"padding: 30px; background-color:#ffffff;\"><p style=\"text-align:justify; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; font-size: 1.0em !important;\">Fields of Research have been organised into clusters according to the latest Australian Research Council Discipline Matrix (2018). No journal data is available at the cluster level. Please select a 4-digit or 2-digit Field of Research from the left-hand panel. If you cannot find the field of research code or name that you are seeking, please contact the administrator of this service.</p></div></div>";
 	}
 	
 	if(($for2)) {
 		$dataShow = "y";
 		echo "<p style=\"text-align:justify;\">";
-	//	echo "The table below is presented at the 2-digit level and shows the discipline-specific indicators for measuring research excellence across all Australian universities for the group. ";
 		echo "<strong>Please click on the 'List' button for publication and impact factor information ";
 		echo "which can help identify high quality journals within this group.</strong> ";
 		echo "For more field-specific information, please select a 4-digit research area from the left-hand panel.</p>";
@@ -96,7 +93,6 @@
 	if(($for4)) {
 		$dataShow = "y";
 		echo "<p style=\"text-align:justify;\">";
-	//	echo "The table below is presented at the 4-digit level and shows the discipline-specific indicators for measuring research excellence across all Australian universities for the field. ";
 		echo "<strong>Please click on the 'List' button for publication and impact factor information ";
 		echo "which can help identify high quality journals within this field.</strong> ";
 		echo "For broader group information, please click 'back' and then select a 2-digit research area from the left-hand panel.</p>";
@@ -163,11 +159,6 @@
 			echo "<strong>* SNIP</strong> measures a source’s contextual citation impact by weighting citations based on the ";
 			echo "total number of citations in a subject field.";
 			echo "It helps you make a direct comparison of sources in different subject fields.</p>";
-//			echo "<p>&nbsp;</p>";	
-//			echo "<p style=\"font-size:0.9em;\"><em>PLEASE NOTE: These graphs have been calculated with regards to curent journal assignment to fields of research by the ";
-//			echo "Australian Research Council. As journals are occasionally reassigned to different fields of research during ";
-//			echo "each ERA round, the history of SNIP data is indicative only as some journals whose historical SNIP data is currently being counted ";
-//			echo "in a field may not have been in that field during previous ERA rounds.</em></p>";
 			echo "</div>";
 			echo "<p>&nbsp;</p>";
 		}
@@ -184,12 +175,7 @@
 			echo "<p style=\"padding-left: 10px; text-indent: -10px;\">";
 			echo "<strong>* SNIP</strong> measures a source’s contextual citation impact by weighting citations based on the ";
 			echo "total number of citations in a subject field.";
-			echo "It helps you make a direct comparison of sources in different subject fields.</p>";
-//			echo "<p>&nbsp;</p>";	
-//			echo "<p style=\"font-size:0.9em;\"><em>PLEASE NOTE: These graphs have been calculated with regards to curent journal assignment to fields of research by the ";
-//			echo "Australian Research Council. As journals are occasionally reassigned to different fields of research during ";
-//			echo "each ERA round, the history of SNIP data is indicative only as some journals whose historical SNIP data is currently being counted ";
-//			echo "in a field may not have been in that field during previous ERA rounds.</em></p>";
+			echo "It helps you make a direct comparison of sources in different subject fields.</p>"; 
 			echo "</div>";
 			echo "<p>&nbsp;</p>";
 		}
@@ -235,7 +221,7 @@
 	$g = count($FoRs);
 	if(($for2 != "") && ($for4 == "") && ($gotFoRs == "y")) {
 		foreach($FoRs as $F) {
-			for($x=1999;$x<2017; $x++) {
+			for($x=1999;$x<2018; $x++) {
 				$snip[$F][$x] = "0";
 				$query = "SELECT (SUM(".$x."_SNIP) / COUNT(".$x."_SNIP)) AS AverageSnip ";
 				$query .= "FROM 2017_journals_snips WHERE (FoR1 = \"$F\" OR FoR2 = \"$F\" OR FoR3 = \"$F\") ";
@@ -260,11 +246,7 @@
 	
 		var ensorL = $("#chartdivB").empty();
 		
-<?php
-	
-//		$colors = array("#ff0200", "#ff270a", "#ff5306" ,"#ffa801", "#ffd301", "#eef302", "#c0ff02", "#73ff01", "#27ff01", "#00ff00");
-//		$colors = array("#c43c35", "#d65227", "#f27312" ,"#f57711", "#f8840a", "#e89b0a", "#bda119", "#9fa225", "#7ba332", "#47a546");
-		
+<?php		
 		$colors = array(
 		
 			"Indian Red" 		 => "#CD5C5C",
@@ -452,7 +434,8 @@
 				['2013', <?php echo $snip[$F][2013]; ?>],
 				['2014', <?php echo $snip[$F][2014]; ?>],
 				['2015', <?php echo $snip[$F][2015]; ?>],
-				['2016', <?php echo $snip[$F][2016]; ?>]
+				['2016', <?php echo $snip[$F][2016]; ?>],
+				['2017', <?php echo $snip[$F][2017]; ?>]
 			];
 
 <?php
@@ -470,7 +453,7 @@
             				formatString:'%Y'
           				},
 						min:'1998', 
-						max:'2017',
+						max:'2018',
           				tickInterval:'1 year',
 						label:'Years',
 						labelRenderer: $.jqplot.CanvasAxisLabelRenderer
@@ -553,7 +536,7 @@
 	}
 	
 	if(($for4 != "") && ($doFoR2 != "y")) {
-		for($x=1999;$x<2017; $x++) {
+		for($x=1999;$x<2018; $x++) {
 			$snip[$x] = "0";
 			$query = "SELECT (SUM(".$x."_SNIP) / COUNT(".$x."_SNIP)) AS AverageSnip ";
 			$query .= "FROM 2017_journals_snips WHERE (FoR1 = \"$for4\" OR FoR2 = \"$for4\" OR FoR3 = \"$for4\") ";
@@ -593,7 +576,8 @@
 				['2013', <?php echo $snip[2013]; ?>],
 				['2014', <?php echo $snip[2014]; ?>],
 				['2015', <?php echo $snip[2015]; ?>],
-				['2016', <?php echo $snip[2016]; ?>]
+				['2016', <?php echo $snip[2016]; ?>],
+				['2017', <?php echo $snip[2017]; ?>]
 			];
 			
 			var aplot1 = $.jqplot('chartdivB', [aline1], {
@@ -605,7 +589,7 @@
             				formatString:'%Y'
           				},
 						min:'1998', 
-						max:'2017',
+						max:'2018',
           				tickInterval:'1 year',
 						label:'Years',
 						labelRenderer: $.jqplot.CanvasAxisLabelRenderer
