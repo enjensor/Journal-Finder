@@ -55,7 +55,7 @@
 //
 //	LAST UPDATE
 //	11 March 2019
-//	17 June 2019
+//	17-18 June 2019
 //
 //
 /////////////////////////////////////////////////////////// Clean post and get
@@ -117,6 +117,7 @@
 //	SNIP
 //	Q JCR
 //	Rank JCR
+//	Categories JCR
 //	IF
 //	IF 5YR
 //	ISSN
@@ -134,15 +135,16 @@
             ->setCellValue("D" . $i, "SNIP")
             ->setCellValue("E" . $i, "Q JCR")
             ->setCellValue("F" . $i, "Rank JCR")
-            ->setCellValue("G" . $i, "Impact Factor")
-			->setCellValue("H" . $i, "Impact Factor 5 Year")
-			->setCellValue("I" . $i, "ISSN")
-			->setCellValue("J" . $i, "Title")
-			->setCellValue("K" . $i, "Australian Business Deans Council Rank")
-			->setCellValue("L" . $i, "FoR 1")
-			->setCellValue("M" . $i, "FoR 2")
-			->setCellValue("N" . $i, "FoR 3")
-			->setCellValue("O" . $i, "DOAJ");		
+            ->setCellValue("G" . $i, "Categories JCR")
+            ->setCellValue("H" . $i, "Impact Factor")
+			->setCellValue("I" . $i, "Impact Factor 5 Year")
+			->setCellValue("J" . $i, "ISSN")
+			->setCellValue("K" . $i, "Title")
+			->setCellValue("L" . $i, "Australian Business Deans Council Rank")
+			->setCellValue("M" . $i, "FoR 1")
+			->setCellValue("N" . $i, "FoR 2")
+			->setCellValue("O" . $i, "FoR 3")
+			->setCellValue("P" . $i, "DOAJ");		
 	
 /////////////////////////////////////////////////////////// Write no data if invalid get vars
 
@@ -163,7 +165,8 @@
 			->setCellValue("L" . $i, "--")
 			->setCellValue("M" . $i, "--")
 			->setCellValue("N" . $i, "--")
-			->setCellValue("O" . $i, "--");
+			->setCellValue("O" . $i, "--")
+			->setCellValue("P" . $i, "--");
 	}
 	
 /////////////////////////////////////////////////////////// Else construct database queries
@@ -443,6 +446,7 @@
 //	SNIP
 //	Q JCR
 //	Rank JCR
+//	Categories JCR
 //	IF
 //	IF 5YR
 //	ISSN
@@ -460,15 +464,16 @@
             	->setCellValue("D" . $i, "$snip")
             	->setCellValue("E" . $i, "$quartilejcr")
             	->setCellValue("F" . $i, "$qjcrrank")
-            	->setCellValue("G" . $i, "$IFscore")
-				->setCellValue("H" . $i, "$FiveIF")
-				->setCellValue("I" . $i, "$ISSN")
-				->setCellValue("J" . $i, "$title")
-				->setCellValue("K" . $i, "$row[30]")
-				->setCellValue("L" . $i, "$row[4]")
-				->setCellValue("M" . $i, "$row[6]")
-				->setCellValue("N" . $i, "$row[8]")
-				->setCellValue("O" . $i, "$OAccess");		
+            	->setCellValue("G" . $i, "$qjcrcat")
+            	->setCellValue("H" . $i, "$IFscore")
+				->setCellValue("I" . $i, "$FiveIF")
+				->setCellValue("J" . $i, "$ISSN")
+				->setCellValue("K" . $i, "$title")
+				->setCellValue("L" . $i, "$row[30]")
+				->setCellValue("M" . $i, "$row[4]")
+				->setCellValue("N" . $i, "$row[6]")
+				->setCellValue("O" . $i, "$row[8]")
+				->setCellValue("P" . $i, "$OAccess");		
 		}
 	}
 

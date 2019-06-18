@@ -313,39 +313,41 @@
 
 /////////////////////////////////////////////////////////// Right panel content area
 
-?>  
-										
-  										<div class="ui-widget col-lg-12" style="padding:30px;">
-                                            <form role="form" name="journalFind" id="journalFind">
-												<p style="text-align:left; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; font-size: 1.0em !important;"><strong>SEARCH BY PUBLICATION TITLE</strong></p>
-                                                <p style="text-align:justify; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; font-size: 1.0em !important;">By entering a few characters, the autocomplete function will suggest journal titles from the database whereby you can click on a name to discover more about that publication. Alternatively, you can use an asterisk (*) as a wildcard character to limit your search results to journals only containing the search term. For example, searching for "Austr*" will return all journals with Austria, Austrian, Australia, Australian, Australasian, etc., in their names (but you should avoid using common phrases like 'Journal of' and 'International Journal of').</p>
-												<p style="text-align:left;">&nbsp;
-                                                <br /><input type="text" name="journalKeywords" id="journalKeywords" 
-                                                	placeholder="Please enter 5 or more characters from the title ..." class="form-control" autofocus >
-												</p>
-                                        		<p style="text-align:left;">&nbsp;
-                                                <br /><input type="submit" name="submit" value="Search" class="btn btn-customb">
-													<input type="reset" name="Reset" value="Reset" class="btn btn-customa" onclick="$('#journalKeywords').focus();">
-													<?php
-														$c = count($_SESSION["ERAIDS"]); 
-														if(($c >0)) {
-													?>
-													<input type="button" id="viewSaved" name="viewSaved" value="View Saved" class="btn btn-customc" onclick="">
-													<?php
-														}
-													?> 
-												</p>
-                              </form>
-                                      </div>                           
+?>                           
                                     	<div class="col-lg-12" style="padding-left:30px;padding-right:30px;">
                                         	<div class="col-lg-12" style="padding: 30px; background-color:#ffffff;">
-                                                <p style="text-align:left; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; font-size: 1.0em;">&nbsp;<br /><strong>YOUR GUIDE TO THE BEST JOURNALS</strong></p>
-                                                <p style="text-align:justify; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; font-size: 1.0em;">Journal Finder is a tool to help all Western Sydney University researchers compare and evaluate the relevant journals in their field, with the aim of ensuring your work is published in high quality outlets that fit the scope of your research appropriately.  Journal Finder provides contextual information on how a journal counts towards a particular field of research in Australia, as well as additional data and links to external sources to aid comparison.</p>
+                                                <p style="text-align:left; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; font-size: 12px;">&nbsp;<br /><strong>YOUR GUIDE TO THE BEST JOURNALS</strong></p>
+                                                <p style="text-align:justify; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; font-size: 12px;">Journal Finder is a tool to help all Western Sydney University researchers compare and evaluate the relevant journals in their field, with the aim of ensuring your work is published in high quality outlets that fit the scope of your research appropriately.  Journal Finder provides contextual information on how a journal counts towards a particular field of research in Australia, as well as additional data and links to external sources to aid comparison.</p>
                                                 <p>It is highly recommended that you use Journal Finder to identify and compare a list of relevant journals to target BEFORE you write the article.  Ensuring your work fits the scope, aims and criteria of the journal before you have submitted it for consideration enhances the likelihood of acceptance.  </p>
                                                 <p><ul><li>This tool is best accessed on the latest version of <a href="https://www.google.com/chrome" target="_GoogleChrome">Google Chrome</a>.</li><li>Do not use the ‘back’ button on your browser. Instead, click on the Journal Finder header in the red band at the top. However, when browsing by research cluster there is a back button built in to that menu.</li></ul></p>
                                                 <p>If you would like to know more about the rationale behind this project, please click <a href="javascript: var target = document.getElementById('matrixBody'); var spinner = new Spinner().spin(target); var doThis = $( '#matrixBody' ).load( 'arc_paper.php' ); var doThisAlso = $('#scrollingP').scrollTop(0);">here</a> to read a <em>position paper</em>.</p>
-                                                <p style="text-align:left; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; font-size: 1.0em;">&nbsp;<br /><strong>SEARCH BY FIELD OF RESEARCH</strong></p>
-                                                <p style="text-align:justify; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; font-size: 1.0em;">Please select a research cluster from the left-hand panel to view its discipline groups and discipline fields. All clusters, groups and fields of research have been organised according to the latest Australia Research Council Discipline Matrix.</p>
+                                          </div>
+                                          <br />&nbsp;<br />&nbsp;<br />
+                                          <div class="col-lg-12" style="padding: 30px; background-color:#DFDFDF;">
+                                            <form role="form" name="journalFind" id="journalFind">
+                                              <p style="text-align:left; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; font-size: 12px!important;"><strong>SEARCH BY PUBLICATION TITLE</strong></p>
+                                              <p style="text-align:justify; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; font-size: 12px!important;">By entering a few characters, the autocomplete function will suggest journal titles from the database whereby you can click on a name to discover more about that publication. Alternatively, you can use an asterisk (*) as a wildcard character to limit your search results to journals only containing the search term. For example, searching for "Austr*" will return all journals with Austria, Austrian, Australia, Australian, Australasian, etc., in their names (but you should avoid using common phrases like 'Journal of' and 'International Journal of').</p>
+                                              <p style="text-align:left;">&nbsp;
+                                              <br /><input type="text" name="journalKeywords" id="journalKeywords" placeholder="Please enter 5 or more characters from the title ..." class="form-control" autofocus >
+                                              </p>
+                                              <p style="text-align:left;">&nbsp;
+                                              <br /><input type="submit" name="submit" value="Search" class="btn btn-customb">
+                                              <input type="reset" name="Reset" value="Reset" class="btn btn-customa" onclick="$('#journalKeywords').focus();">
+                                              <?php
+                                              $c = count($_SESSION["ERAIDS"]); 
+                                              if(($c >0)) {
+                                               ?>
+                                               <input type="button" id="viewSaved" name="viewSaved" value="View Saved" class="btn btn-customc" onclick="">
+                                               <?php
+                                              }
+                                              ?> 
+                                              </p>
+                                            </form>
+                                          </div>
+                                          <br />&nbsp;<br />&nbsp;<br />
+                                          <div class="col-lg-12" style="padding: 30px; background-color:#FFFFFF;">
+                                                <p style="text-align:left; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; font-size: 12px;">&nbsp;<br /><strong>SEARCH BY FIELD OF RESEARCH</strong></p>
+                                                <p style="text-align:justify; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; font-size: 12px;">Please select a research cluster from the left-hand panel to view its discipline groups and discipline fields. All clusters, groups and fields of research have been organised according to the latest Australia Research Council Discipline Matrix.</p>
                                           </div>
                                           <br />&nbsp;<br />&nbsp;<br />
                                           <div class="col-lg-12" style="padding: 30px; background-color:#ffffff;">
@@ -353,9 +355,9 @@
                                                     <img src="./img/logo_library.png" border="0" alt="" style="padding-right:0px;">
                                                  </p>
                                                  <p style="text-align:center; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; font-size: 11px; color: #777777;">&nbsp;<br />&nbsp;<br />
-                                                  <em>Last Updated, Dr Jason Ensor, 14 June 2019 Version 1.1
+                                                  <em>Last Updated, Dr Jason Ensor, 18 June 2019 Version 1.1
                                                     <br />Authored by the Western Sydney University Library.
-                                                    <br />Project Team: Jason Ensor (Project Lead & Developer, 2014-), Katrina Trewin (2019-), Ria Hamblett (2019-)
+                                                    <br />Project Team: Jason Ensor (Lead & Developer, 2014-), Katrina Trewin (2019-), Ria Hamblett (2019-)
                                                     <br />Susan Robbins (2014-2018), Michael Gonzalez (2014-2018).
                                                     <br />Western Sydney University CRICOS Provider No: 00917k.</em></p>
                                           </div>
@@ -440,7 +442,6 @@
 ?>      
 								<!-- <li><p><img src="./img/combined.png" style="display: block; margin-left: auto; margin-right: auto; margin-top:15px; margin-bottom:30px;"></p></li> //-->
                                 <li><p style="color: #ffffff; text-align: right;padding-right:7px;">&nbsp;<br /><strong>Data Sources</strong><br /><br />
-                                <em>(Publishers’ open access journals are included as they<br />provided the journal lists for the OA funding tick)</em><br /><br />
                                 ARC ERA 2018 Discipline Matrix<br />
                                 ARC ERA 2018 Submission Journal List<br />
                                 Australian Business Dean's Council Quality List<br />
