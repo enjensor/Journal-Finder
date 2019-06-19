@@ -12,11 +12,115 @@
 //  SJR SCImago
 //  ADBC Ranks
 //
-//
 ///////////////////// Start
 
 	include("config.php");
 	include("era.dbconnect.php");
+
+/////////////////////////////////////// Scopus Source ID Update
+        
+    $query = "SELECT ERAID, ISSN1, ISSN2, ISSN3, ISSN4, ISSN5, ISSN6, ISSN7, FoR1, FoR2, FoR3 ";
+    $query .= "FROM `2017_journals_final_list` ";
+    $query .= "WHERE `Source_Record_ID` = \"\" ";
+    $query .= "ORDER BY ID ASC"; 
+    $mysqli_result = mysqli_query($mysqli_link, $query);
+    while($row = mysqli_fetch_row($mysqli_result)) { 
+
+///////////////////// Start Record
+
+        $r++;
+        $eraid = $row[0];
+        $row[1] = preg_replace("/-/","","$row[1]");
+        $row[2] = preg_replace("/-/","","$row[2]");
+        $row[3] = preg_replace("/-/","","$row[3]");
+        $row[4] = preg_replace("/-/","","$row[4]");
+        $row[5] = preg_replace("/-/","","$row[5]");
+        $row[6] = preg_replace("/-/","","$row[6]");
+        $row[7] = preg_replace("/-/","","$row[7]");
+    
+///////////////////// 2011 SNIP       
+    
+        $scopusid = "";
+        $queryD = "SELECT `Scopus_SourceID` FROM `2017_Scopus_2017` WHERE Print_ISSN = \"$row[1]\" ";
+        if(($row[2] != "") && ($row[2] != " ")) {
+            $queryD = $queryD."OR Print_ISSN = \"$row[2]\" ";
+        }
+        if(($row[3] != "") && ($row[3] != " ")) {
+            $queryD = $queryD."OR Print_ISSN = \"$row[3]\" ";
+        }
+        if(($row[4] != "") && ($row[4] != " ")) {
+            $queryD = $queryD."OR Print_ISSN = \"$row[4]\" ";
+        }
+        if(($row[5] != "") && ($row[5] != " ")) {
+            $queryD = $queryD."OR Print_ISSN = \"$row[5]\" ";
+        }
+        if(($row[6] != "") && ($row[6] != " ")) {
+            $queryD = $queryD."OR Print_ISSN = \"$row[6]\" ";
+        }
+        if(($row[7] != "") && ($row[7] != " ")) {
+            $queryD = $queryD."OR Print_ISSN = \"$row[7]\" "; 
+        }
+        $queryD = $queryD."ORDER BY ID DESC LIMIT 1"; 
+        $mysqli_resultD = mysqli_query($mysqli_link, $queryD);
+        while($rowD = mysqli_fetch_row($mysqli_resultD)) { 
+            $scopusid = $rowD[0];
+        }
+        if(($scopusid != "")) {
+            $queryDa = "UPDATE `2017_journals_final_list` SET `Source_Record_ID` = \"$scopusid\" WHERE ERAID = \"$eraid\"; ";
+            $mysqli_resultDa = mysqli_query($mysqli_link, $queryDa);
+            $x++;
+        }
+
+///////////////////// Finish Record
+
+    }
+    echo "$parse: $r loops | $x source ids updated";
+    die; 
+
+///////////////////// WSU Funding Removed
+
+    $r = 0;
+    $x = 0;
+    $query = "SELECT ERAID, ISSN1, ISSN2, ISSN3, ISSN4, ISSN5, ISSN6, ISSN7 ";
+    $query .= "FROM 2017_journals_final_list WHERE WSU_Funded != \"\" "; 
+    $mysqli_result = mysqli_query($mysqli_link, $query);
+    while($row = mysqli_fetch_row($mysqli_result)) {
+        $WSU = "";
+        $queryD = "SELECT Journal_Title FROM 2018_data_wsu_removed ";
+        $queryD .= "WHERE ISSN LIKE \"%$row[1]%\" ";
+        if(($row[2] != "") && ($row[2] != " ")) {
+            $queryD = $queryD."OR ISSN LIKE \"%$row[2]%\" ";
+        }
+        if(($row[3] != "") && ($row[3] != " ")) {
+            $queryD = $queryD."OR ISSN LIKE \"%$row[3]%\" ";
+        }
+        if(($row[4] != "") && ($row[4] != " ")) {
+            $queryD = $queryD."OR ISSN LIKE \"%$row[4]%\" ";
+        }
+        if(($row[5] != "") && ($row[5] != " ")) {
+            $queryD = $queryD."OR ISSN LIKE \"%$row[5]%\" ";
+        }
+        if(($row[6] != "") && ($row[6] != " ")) {
+            $queryD = $queryD."OR ISSN LIKE \"%$row[6]%\" ";
+        }
+        if(($row[7] != "") && ($row[7] != " ")) {
+            $queryD = $queryD."OR ISSN LIKE \"%$row[7]%\" "; 
+        }
+        $mysqli_resultD = mysqli_query($mysqli_link, $queryD);
+        while($rowD = mysqli_fetch_row($mysqli_resultD)) { 
+            $WSU = "Yes";
+        }
+        if(($WSU == "Yes")){
+            $r++;
+            $queryD = "UPDATE 2017_journals_final_list ";
+            $queryD .= "SET WSU_Funded = \"\" ";
+            $queryD .= "WHERE ERAID = \"$row[0]\" ";
+            $mysqli_resultD = mysqli_query($mysqli_link, $queryD);
+        }
+        $x++;
+    }
+    echo "WSU removed funding updated $r rows through $x loops<br />";
+    die;
 
 /////////////////////////////////////// Scopus Data Updates
         

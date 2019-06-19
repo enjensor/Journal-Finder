@@ -56,7 +56,7 @@
 //	LATEST UPDATE
 //	08 March 2019
 //	13-14 June 2019
-//	17 June 2019
+//	17-18 June 2019
 //
 //
 /////////////////////////////////////////////////////////// Clean post and get
@@ -572,7 +572,7 @@
 ////////////////////////////////// Open Table        
         
 		echo "<table class=\"table table-bordered table-striped tablesorter\" ";
-		echo "id=\"myTable\" style=\"background-color: #ffffff;\">\n";
+		echo "id=\"myTable\" style=\"background-color: #ffffff; font-size: 1.0em!important;\">\n";
 		echo "<tbody>\n";
 	
 //////////////////////////////////////////////////////////////////////////////////////// Start rows
@@ -815,9 +815,9 @@
 					}
 				}
 				echo "</td>";
-				echo "<td class=\"text-left\">";
+				echo "<td class=\"text-left\"><strong>";
 				echo stripslashes(htmlentities($row[2]));
-				echo "<br />";
+				echo "</strong><br />";
 				echo "<div style=\"float:right; position:relative; padding-top: 10px;\">";
                 
 ////////////////////////////////////////////////////////////////// Open Form                
@@ -843,8 +843,8 @@
                     echo "margin-top: 0px; ";
                     echo "margin-bottom: 0px; ";
                     echo "vertical-align: top; ";
-                    echo "padding: 0px; ";
-                    echo "padding-right: 0.3em; ";
+                 // echo "padding: 0px; ";
+                    echo "padding: 0.3em; ";
                     echo "border: 0px solid #222222; \">";
 					echo "</a> ";
 				}
@@ -861,8 +861,8 @@
 	                echo "margin-top: 0px; ";
 	                echo "margin-bottom: 0px; ";
 	                echo "vertical-align: top; ";
-	                echo "padding: 0px; ";
-	                echo "padding-right: 0.3em; ";
+	                // echo "padding: 0px; ";
+                    echo "padding: 0.3em; ";
 	                echo "border: 0px solid #222222; \">";
 	                echo "</a> ";
 				}
@@ -879,8 +879,8 @@
                     echo "margin-top: 0px; ";
                     echo "margin-bottom: 0px; ";
                     echo "vertical-align: top; ";
-                    echo "padding: 0px; ";
-                    echo "padding-right: 0.3em; ";
+                    // echo "padding: 0px; ";
+                    echo "padding: 0.3em; ";
                     echo "border: 0px solid #222222; \">";
 					echo "</a> ";
 				}
@@ -893,28 +893,30 @@
                 echo "style=\"";
                 echo "margin-top: 0px; ";
                 echo "margin-bottom: 0px; ";
-                echo "padding: 0px; ";
                 echo "width: 35px !important; ";
                 echo "height: 30px !important; ";
                 echo "vertical-align: top; ";
-                echo "padding-right: 0.3em; ";
+                // echo "padding: 0px; ";
+                echo "padding: 0.3em; ";
                 echo "border: 0px solid #222222; ";
                 echo "\" /> ";  
 
 ////////////////////////////////////////////////////////////////// Scopus
 			
-				echo "<a title=\"Search for this journal in Scopus\" href=\"";
-	            echo "https://www.scopus.com/sourceid/".$row[20]."\" target=\"_ScopusSearch\" ";
-	            echo "style=\"margin:0px; padding: 0px;\">";
-	            echo "<img src=\"./assets/images/link_scopus.png\" ";
-	            echo "height=\"30\" border=\"0\" style=\"";
-	            echo "margin-top: 0px; ";
-	            echo "margin-bottom: 0px; ";
-	            echo "vertical-align: top; ";
-	            echo "padding: 0px; ";
-	            echo "padding-right: 0.3em; ";
-	            echo "border: 0px solid #222222; \">";
-				echo "</a> ";
+				if(($row[20] != "")){
+					echo "<a title=\"Search for this journal in Scopus\" href=\"";
+	            	echo "https://www.scopus.com/sourceid/".$row[20]."\" target=\"_ScopusSearch\" ";
+	            	echo "style=\"margin:0px; padding: 0px;\">";
+	            	echo "<img src=\"./assets/images/link_scopus.png\" ";
+	            	echo "height=\"30\" border=\"0\" style=\"";
+	            	echo "margin-top: 0px; ";
+	            	echo "margin-bottom: 0px; ";
+	            	echo "vertical-align: top; ";
+	            // echo "padding: 0px; ";
+                	echo "padding: 0.3em; ";
+	            	echo "border: 0px solid #222222; \">";
+					echo "</a> ";
+				}
                 
 ////////////////////////////////////////////////////////////////// UWS Library
 				
@@ -932,8 +934,8 @@
                 echo "margin-top: 0px; ";
                 echo "vertical-align: top; ";
                 echo "margin-bottom: 0px; ";
-                echo "padding: 0px; ";
-                echo "padding-right: 0px; ";
+                // echo "padding: 0px; ";
+                echo "padding: 0.3em; ";
                 echo "border: 0px solid #222222; ";
                 echo "\">";
 				echo "</a> ";               
@@ -956,7 +958,7 @@
 				echo "href=\"javascript: var target = document.getElementById('matrixBody'); var spinner = new Spinner().spin(target); var doThisAlso = $('#scrollingP').scrollTop(0); var doThis = $( '#matrixBody' ).load( 'arc_journals.php?eRAID=".$eRAID."&for4=".$row[8]."&for2=&Order=' ); \" ";
 				echo "data-toggle=\"tooltip\" title=\"$row[9]\" style=\"color:#000000;text-decoration:none;\">$row[8]</a></td>";
 			
-/////////////////////////////////////////////////////////// View button trigger
+/////////////////////////////////////////////////////////// View trigger
 			
 				echo "<td class=\"text-center\">$OAccessImg</td>";
 				echo "<td class=\"text-left\">";
@@ -972,8 +974,92 @@
                 echo "style=\"width: 75px !important; margin-bottom: 5px !important; \" ";
 				echo "href=\"http://sherpa.ac.uk/romeo/search.php?issn=".$row[10]."\" target=\"_sherpa\">";
 				echo "ViewOA</a>";
+
+/////////////////////////////////////////////////////////// Save and Remove triggers
+
+				$eraidz = $row[1];
+				$myVar++;
+				if(($_SESSION["ERAIDS"]["$eraidz"] == "")) {
+				
+					echo "<button id=\"eraidSave_".$myVar."\" class=\"btn btn-default btn-sm\" ";
+            	    echo "style=\"width: 75px !important; margin-bottom: 5px !important; \" ";
+               		echo ">";
+					echo "<a id=\"eraidSaveHref_".$myVar."\" style=\"color: #000000; text-decoration: none;\" ";
+					echo "href=\"javascript: ";
+					echo "var eraidsaver = $.post('./arc_journals_saved.php',";
+					echo "{'eraidSave': '$eraidz', 'doAction': 'SAVE'}).done(function(){";
+					echo "var eraiddisable = $('#eraidSave_".$myVar."').attr('disabled','disabled');";
+					echo "var eraiddisableB = $('#eraidSave_".$myVar."').addClass('btn-info');";
+					echo "var eraiddisableC = $('#eraidSave_".$myVar."').removeClass('btn-default');";
+					echo "var eraiddisableD = $('#eraidSaveHref_".$myVar."').css('color','white');";
+					echo "var eraidremove = $('#eraidRemove_".$myVar."').removeAttr('disabled');";
+					echo "});";
+					echo "\">";
+					echo "Save";
+					echo "</a>";
+					echo "</button><br />";
+				
+					echo "<button id=\"eraidRemove_".$myVar."\" class=\"btn btn-default btn-sm\" disabled ";
+                	echo "style=\"width: 75px !important; margin-bottom: 5px !important; \" ";
+                	echo ">";
+					echo "<a style=\"color: #000000; text-decoration: none;\" ";
+					echo "href=\"javascript: ";
+					echo "var eraidsaver = $.post('./arc_journals_saved.php',";
+					echo "{'eraidSave': '$eraidz', 'doAction': 'REMOVE'}).done(function(){";
+					echo "var eraidremove = $('#eraidSave_".$myVar."').removeAttr('disabled');";
+					echo "var eraiddisableB = $('#eraidSave_".$myVar."').addClass('btn-default');";
+					echo "var eraiddisableC = $('#eraidSave_".$myVar."').removeClass('btn-info');";
+					echo "var eraiddisableD = $('#eraidSaveHref_".$myVar."').css('color','black');";
+					echo "var eraiddisable = $('#eraidRemove_".$myVar."').attr('disabled','disabled');";
+					echo "});";
+					echo "\">";
+					echo "Remove";
+					echo "</a>";
+					echo "</button>";
+				
+				} else {
+				
+					echo "<button id=\"eraidSave_".$myVar."\" class=\"btn btn-info btn-sm\" disabled ";
+                	echo "style=\"width: 75px !important; margin-bottom: 5px !important; \" ";
+                	echo ">";
+					echo "<a id=\"eraidSaveHref_".$myVar."\" style=\"color: #FFFFFF; text-decoration: none;\" ";
+					echo "href=\"javascript: ";
+					echo "var eraidsaver = $.post('./arc_journals_saved.php',";
+					echo "{'eraidSave': '$eraidz', 'doAction': 'SAVE'}).done(function(){";
+					echo "var eraiddisable = $('#eraidSave_".$myVar."').attr('disabled','disabled');";
+					echo "var eraiddisableB = $('#eraidSave_".$myVar."').addClass('btn-info');";
+					echo "var eraiddisableC = $('#eraidSave_".$myVar."').removeClass('btn-default');";
+					echo "var eraiddisableD = $('#eraidSaveHref_".$myVar."').css('color','white');";
+					echo "var eraidremove = $('#eraidRemove_".$myVar."').removeAttr('disabled');";
+					echo "});";
+					echo "\">";
+					echo "Save";
+					echo "</a>";
+					echo "</button><br />";
+				
+					echo "<button id=\"eraidRemove_".$myVar."\" class=\"btn btn-default btn-sm\" ";
+                	echo "style=\"width: 75px !important; margin-bottom: 5px !important; \" ";
+                	echo ">";
+					echo "<a style=\"color: #000000; text-decoration: none;\" ";
+					echo "href=\"javascript: ";
+					echo "var eraidsaver = $.post('./arc_journals_saved.php',";
+					echo "{'eraidSave': '$eraidz', 'doAction': 'REMOVE'}).done(function(){";
+					echo "var eraidremove = $('#eraidSave_".$myVar."').removeAttr('disabled');";
+					echo "var eraiddisableB = $('#eraidSave_".$myVar."').addClass('btn-default');";
+					echo "var eraiddisableC = $('#eraidSave_".$myVar."').removeClass('btn-info');";
+					echo "var eraiddisableD = $('#eraidSaveHref_".$myVar."').css('color','black');";
+					echo "var eraiddisable = $('#eraidRemove_".$myVar."').attr('disabled','disabled');";
+					echo "});";
+					echo "\">";
+					echo "Remove";
+					echo "</a>";
+					echo "</button>";
+
+				}
+
 				echo "</td>";
-				echo "</tr>";		
+				echo "</tr>";
+				
 			}
 		}
 		
@@ -1401,9 +1487,9 @@
 				}
 			}
 			echo "</td>";
-			echo "<td class=\"text-left\">";
+			echo "<td class=\"text-left\"><strong>";
 			echo stripslashes(htmlentities($row[2]));
-			echo "<br />";
+			echo "</strong><br />";
 			echo "<div style=\"float:right; position:relative; padding-top: 10px;\">";
             
 ////////////////////////////////////////////////////////////////// Open Form            
@@ -1434,8 +1520,8 @@
                 echo "margin-top: 0px; ";
                 echo "margin-bottom: 0px; ";
                 echo "vertical-align: top; ";
-                echo "padding: 0px; ";
-                echo "padding-right: 0.3em; ";
+                // echo "padding: 0px; ";
+                echo "padding: 0.3em; ";
                 echo "border: 0px solid #222222; \">";
 				echo "</a> ";
 			}
@@ -1452,8 +1538,8 @@
                 echo "margin-top: 0px; ";
                 echo "margin-bottom: 0px; ";
                 echo "vertical-align: top; ";
-                echo "padding: 0px; ";
-                echo "padding-right: 0.3em; ";
+                // echo "padding: 0px; ";
+                echo "padding: 0.3em; ";
                 echo "border: 0px solid #222222; \">";
                 echo "</a> ";
 			}
@@ -1470,8 +1556,8 @@
                 echo "margin-top: 0px; ";
                 echo "margin-bottom: 0px; ";
                 echo "vertical-align: top; ";
-                echo "padding: 0px; ";
-                echo "padding-right: 0.3em; ";
+                // echo "padding: 0px; ";
+                echo "padding: 0.3em; ";
                 echo "border: 0px solid #222222; \">";
 				echo "</a> ";
 			}
@@ -1484,28 +1570,30 @@
             echo "style=\"";
             echo "margin-top: 0px; ";
             echo "margin-bottom: 0px; ";
-            echo "padding: 0px; ";
             echo "width: 35px !important; ";
             echo "height: 30px !important; ";
             echo "vertical-align: top; ";
-            echo "padding-right: 0.3em; ";
+            // echo "padding: 0px; ";
+            echo "padding: 0.3em; ";
             echo "border: 0px solid #222222; ";
             echo "\" /> ";
 
 ////////////////////////////////////////////////////////////////// Scopus
 			
-			echo "<a title=\"Search for this journal in Scopus\" href=\"";
-            echo "https://www.scopus.com/sourceid/".$row[20]."\" target=\"_ScopusSearch\" ";
-            echo "style=\"margin:0px; padding: 0px;\">";
-            echo "<img src=\"./assets/images/link_scopus.png\" ";
-            echo "height=\"30\" border=\"0\" style=\"";
-            echo "margin-top: 0px; ";
-            echo "margin-bottom: 0px; ";
-            echo "vertical-align: top; ";
-            echo "padding: 0px; ";
-            echo "padding-right: 0.3em; ";
-            echo "border: 0px solid #222222; \">";
-			echo "</a> ";
+			if(($row[20] != "")){
+				echo "<a title=\"Search for this journal in Scopus\" href=\"";
+            	echo "https://www.scopus.com/sourceid/".$row[20]."\" target=\"_ScopusSearch\" ";
+            	echo "style=\"margin:0px; padding: 0px;\">";
+            	echo "<img src=\"./assets/images/link_scopus.png\" ";
+            	echo "height=\"30\" border=\"0\" style=\"";
+            	echo "margin-top: 0px; ";
+            	echo "margin-bottom: 0px; ";
+            	echo "vertical-align: top; ";
+            // 	echo "padding: 0px; ";
+            	echo "padding: 0.3em; ";
+            	echo "border: 0px solid #222222; \">";
+				echo "</a> ";
+			}
             
 ////////////////////////////////////////////////////////////////// UWS Library
 		
@@ -1521,8 +1609,8 @@
             echo "margin-top: 0px; ";
             echo "vertical-align: top; ";
             echo "margin-bottom: 0px; ";
-            echo "padding: 0px; ";
-            echo "padding-right: 0px; ";
+            // echo "padding: 0px; ";
+            echo "padding: 0.3em; ";
             echo "border: 0px solid #222222; ";
             echo "\">";
 			echo "</a> ";            
@@ -1545,7 +1633,7 @@
 			echo "href=\"javascript: var target = document.getElementById('matrixBody'); var spinner = new Spinner().spin(target); var doThisAlso = $('#scrollingP').scrollTop(0); var doThis = $( '#matrixBody' ).load( 'arc_journals.php?eRAID=".$row[1]."&for4=".$row[8]."&for2=&Order=' ); \" ";
 			echo "data-toggle=\"tooltip\" title=\"$row[9]\" style=\"color:#000000;text-decoration:none;\">$row[8]</a></td>";
 			
-/////////////////////////////////////////////////////////// View, Save and Remove buttons triggers
+/////////////////////////////////////////////////////////// View triggers
 			
 			echo "<td class=\"text-center\">$OAccessImg</td>";
 			echo "<td class=\"text-left\" style=\"white-space: nowrap;\" nowrap>";
@@ -1562,6 +1650,9 @@
 			echo "href=\"http://sherpa.ac.uk/romeo/search.php?issn=".$row[10]."\" target=\"_sherpa\">";
 			echo "ViewOA";
 			echo "</a><br />";
+
+/////////////////////////////////////////////////////////// Save and Remove triggers
+
 			$eraidz = $row[1];
 			$myVar++;
 			if(($_SESSION["ERAIDS"]["$eraidz"] == "")) {
@@ -1643,7 +1734,9 @@
 			echo "</td>";
 			echo "</tr>";
 		}
-		
+	
+/////////////////////////////////////////////////////////// Finish
+
 		echo "</tbody>\n";
 		echo "</table>\n";
 		echo "<p>&nbsp;</p>";
